@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   },
   buttonClosestStop: {
     position: "absolute",
-    top: 300,
+    top: 250,
     right: 10,
     zIndex: 1,
     width: 50,
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
   buttonRoutes: {
     position: "absolute",
-    top: 375,
+    top: 325,
     right: 10,
     zIndex: 1,
     width: 50,
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
   },
   buttonChangeMapStyle: {
     position: "absolute",
-    top: 450,
+    top: 400,
     right: 10,
     zIndex: 1,
     width: 50,
@@ -211,6 +211,12 @@ const mapStyle = [
 ];
 
 const help = StyleSheet.create({
+  rootView: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#fafafa",
+  },
   mainView: {
     flex: 1,
     alignItems: "flex-start",

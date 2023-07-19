@@ -191,7 +191,7 @@ const Overview = ({ navigation }) => {
       >
         <View style={styles.renderActiveModalContentView}>
           <Text style={styles.renderActiveModalContentViewText}>
-            Active route:
+            Active route:{" "}
             <Text style={{ fontWeight: "bold" }}>
               {routesData.find((route) => route.id === selectedRouteId).name}
             </Text>

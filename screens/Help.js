@@ -1,11 +1,26 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Image } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons, FontAwesome5 } from "@expo/vector-icons";
-import { help } from "../styles";
+import { help, styles } from "../styles";
+import standard from "../images/mapType/standard.jpg";
+import satellite from "../images/mapType/satellite.jpg";
+import { useEffect, useState } from "react";
 
 const Help = ({ navigation }) => {
+  const [mapType, setMapType] = useState("standard");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMapType((prevMapType) =>
+        prevMapType === "standard" ? "satellite" : "standard"
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={help.rootView}>
       <View style={help.mainView}>
         <View style={help.singleRow}>
           <View style={help.customBusIconStyle}>
@@ -29,6 +44,16 @@ const Help = ({ navigation }) => {
           <View>
             <Text>- Show all routes </Text>
           </View>
+        </View>
+
+        <View style={help.singleRow}>
+          <View style={help.buttonContainer}>
+            <Image
+              source={mapType === "standard" ? standard : satellite}
+              style={styles.imageContainer}
+            />
+          </View>
+          <Text>- Toggle map style</Text>
         </View>
 
         <View style={help.customRow1}>
