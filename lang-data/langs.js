@@ -1,0 +1,73 @@
+const langs = [
+  {
+    name: "hr",
+    image: require("../images/langImages/hr.png"),
+    home: "POČETNA",
+    info: "INFORMACIJE",
+    busStation: "- Autobusna stanica",
+    findNearestStop: "- Pronađi najbližu stanicu",
+    showAllRoutes: "- Prikaži sve autobusne rute",
+    toggleMapStyle: "- Promjeni izgled karte",
+    route: "- Ruta (klik za prikaz rute)",
+  },
+  {
+    name: "gb",
+    image: require("../images/langImages/gb.png"),
+    home: "HOME",
+    info: "INFO",
+    busStation: "- Bus station",
+    findNearestStop: "- Find nearest bus station",
+    showAllRoutes: "- Show all routes",
+    toggleMapStyle: "- Toggle map style",
+    route: "- Route (click to show the route)",
+  },
+  {
+    name: "de",
+    image: require("../images/langImages/de.png"),
+    home: "HOME - DE",
+    info: "INFO - DE",
+    busStation: "- Bus station",
+    findNearestStop: "- Find nearest bus station",
+    showAllRoutes: "- Show all routes",
+    toggleMapStyle: "- Toggle map style",
+    route: "- Route (click to show the route)",
+  },
+
+  {
+    name: "it",
+    image: require("../images/langImages/it.png"),
+    home: "HOME - IT",
+    info: "INFO - IT",
+    busStation: "- Bus station",
+    findNearestStop: "- Find nearest bus station",
+    showAllRoutes: "- Show all routes",
+    toggleMapStyle: "- Toggle map style",
+    route: "- Route (click to show the route)",
+  },
+
+  {
+    name: "fr",
+    image: require("../images/langImages/fr.png"),
+    home: "HOME - FR",
+    info: "INFO - FR",
+    busStation: "- Bus station",
+    findNearestStop: "- Find nearest bus station",
+    showAllRoutes: "- Show all routes",
+    toggleMapStyle: "- Toggle map style",
+    route: "- Route (click to show the route)",
+  },
+
+  {
+    name: "es",
+    image: require("../images/langImages/es.png"),
+    home: "HOME - ES",
+    info: "INFO - ES",
+    busStation: "- Bus station",
+    findNearestStop: "- Find nearest bus station",
+    showAllRoutes: "- Show all routes",
+    toggleMapStyle: "- Toggle map style",
+    route: "- Route (click to show the route)",
+  },
+];
+
+export default langs;

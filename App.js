@@ -6,17 +6,35 @@ import Help from "./screens/Help";
 import TabHomeScreen from "./screens/TabHomeScreen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Entypo, Feather } from "@expo/vector-icons";
+import LangContextProvider, { LangContext } from "./lang_context/lang_context";
+import SetLang from "./screens/SetLang";
+import { useContext, useState } from "react";
+import langs from "./lang-data/langs";
+import FirstScreen from "./screens/FirstScreen";
 
 const Tab = createBottomTabNavigator();
 
 const App = () => {
-  return (
-    <SafeAreaProvider>
+  const Root = () => {
+    const lngCtx = useContext(LangContext);
+    const [appLoad, setAppLoad] = useState(true);
+
+    if (appLoad) {
+      return <FirstScreen setAppLoad={setAppLoad} />;
+    }
+
+    if (lngCtx.lang === undefined || lngCtx.lang === "") {
+      return <SetLang />;
+    }
+
+    const currentLang = langs.find((lang) => lang.name === lngCtx.lang);
+
+    return (
       <NavigationContainer>
         <StatusBar style="dark" />
         <Tab.Navigator screenOptions={{ headerShown: false }}>
           <Tab.Screen
-            name="HOME"
+            name={currentLang.home}
             component={TabHomeScreen}
             options={{
               tabBarActiveBackgroundColor: "lightgrey",
@@ -28,7 +46,7 @@ const App = () => {
           />
 
           <Tab.Screen
-            name="INFO"
+            name={currentLang.info}
             component={Help}
             options={{
               tabBarActiveBackgroundColor: "lightgrey",
@@ -40,17 +58,16 @@ const App = () => {
           />
         </Tab.Navigator>
       </NavigationContainer>
-    </SafeAreaProvider>
+    );
+  };
+
+  return (
+    <LangContextProvider>
+      <SafeAreaProvider>
+        <Root />
+      </SafeAreaProvider>
+    </LangContextProvider>
   );
 };
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

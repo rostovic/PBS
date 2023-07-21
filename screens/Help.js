@@ -4,10 +4,14 @@ import { MaterialCommunityIcons, FontAwesome5 } from "@expo/vector-icons";
 import { help, styles } from "../styles";
 import standard from "../images/mapType/standard.jpg";
 import satellite from "../images/mapType/satellite.jpg";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import langs from "../lang-data/langs";
+import { LangContext } from "../lang_context/lang_context";
 
 const Help = ({ navigation }) => {
   const [mapType, setMapType] = useState("standard");
+  const lngCtx = useContext(LangContext);
+  const currentLang = langs.find((lang) => lang.name === lngCtx.lang);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -26,14 +30,14 @@ const Help = ({ navigation }) => {
           <View style={help.customBusIconStyle}>
             <MaterialIcons name="directions-bus" size={28} color="darkorange" />
           </View>
-          <Text>- Bus Station</Text>
+          <Text>{currentLang.busStation}</Text>
         </View>
 
         <View style={help.singleRow}>
           <View style={help.buttonContainer}>
             <MaterialCommunityIcons name="bus-stop" size={28} color="black" />
           </View>
-          <Text>- Find nearest bus station</Text>
+          <Text>{currentLang.findNearestStop}</Text>
         </View>
 
         <View style={help.singleRow}>
@@ -42,7 +46,7 @@ const Help = ({ navigation }) => {
           </View>
 
           <View>
-            <Text>- Show all routes </Text>
+            <Text>{currentLang.showAllRoutes}</Text>
           </View>
         </View>
 
@@ -53,7 +57,7 @@ const Help = ({ navigation }) => {
               style={styles.imageContainer}
             />
           </View>
-          <Text>- Toggle map style</Text>
+          <Text>{currentLang.toggleMapStyle}</Text>
         </View>
 
         <View style={help.customRow1}>
@@ -62,7 +66,7 @@ const Help = ({ navigation }) => {
               <Text>3a</Text>
             </View>
           </View>
-          <Text>- Route (click to show the route) </Text>
+          <Text>{currentLang.route}</Text>
         </View>
       </View>
     </View>
