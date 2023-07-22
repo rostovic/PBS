@@ -7,7 +7,7 @@ export const LangContext = React.createContext({
 });
 
 const LangContextProvider = ({ children }) => {
-  const [lang, setLang] = useState(""); // State for the lang variable
+  const [lang, setLang] = useState("");
 
   const getData = async () => {
     try {
@@ -15,7 +15,6 @@ const LangContextProvider = ({ children }) => {
       const value = await AsyncStorage.getItem("lang");
       if (value !== null) {
         setLang(value);
-        // Data retrieved successfully.
         return value;
       } else {
       }
@@ -33,7 +32,7 @@ const LangContextProvider = ({ children }) => {
     } catch (error) {}
   };
 
-  const contextValue = { lang, setLang, setLanguage }; // Use the state in the context value
+  const contextValue = { lang, setLang, setLanguage };
 
   return (
     <LangContext.Provider value={contextValue}>{children}</LangContext.Provider>

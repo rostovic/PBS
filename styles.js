@@ -211,12 +211,6 @@ const mapStyle = [
 ];
 
 const help = StyleSheet.create({
-  rootView: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#fafafa",
-  },
   mainView: {
     flex: 1,
     alignItems: "flex-start",
@@ -269,6 +263,87 @@ const help = StyleSheet.create({
     height: 50,
     width: 50,
   },
+  infoMadeBy: {
+    justifyContent: "center",
+    height: 250,
+    width: "100%",
+    alignItems: "center",
+  },
+  imageContainerFipu: {
+    height: 100,
+    width: 300,
+    resizeMode: "contain",
+  },
 });
 
-export { mapStyle, styles2, styles, help };
+const firstScreenStyle = StyleSheet.create({
+  imageView: {
+    height: 500,
+    width: 500,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  imageStyle: {
+    width: 350,
+    height: 350,
+    resizeMode: "contain",
+  },
+  textIconView: {
+    flex: 1,
+    width: "100%",
+    alignItems: "center",
+    gap: 50,
+  },
+  greetingsText: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "#29733B",
+  },
+  pressableContinue: {
+    backgroundColor: "#29733B",
+    borderRadius: 999,
+    width: 100,
+    height: 100,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
+
+const settingsStyle = StyleSheet.create({
+  contentView: {
+    width: 300,
+    height: 600,
+    alignItems: "center",
+  },
+  changeLangView: {
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 20,
+  },
+  changeLangButton: {
+    width: 150,
+    height: 75,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  imageStyle: {
+    width: 200,
+    height: 100,
+    resizeMode: "contain",
+  },
+  langModal: {
+    position: "absolute",
+    zIndex: 999,
+    height: 120,
+    width: 400,
+    top: 135,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    gap: 20,
+    flexWrap: "wrap",
+    backgroundColor: "#fafafa",
+  },
+});
+
+export { mapStyle, styles2, styles, help, firstScreenStyle, settingsStyle };

@@ -6,6 +6,7 @@ import { Text } from "react-native";
 import { useEffect, useState } from "react";
 import { Pressable } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { firstScreenStyle } from "../styles";
 
 const FirstScreen = ({ setAppLoad }) => {
   const insets = useSafeAreaInsets();
@@ -40,49 +41,15 @@ const FirstScreen = ({ setAppLoad }) => {
         width: "100%",
       }}
     >
-      <View
-        style={{
-          height: 500,
-          width: 500,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Image
-          source={pula}
-          style={{
-            width: 350,
-            height: 350,
-            resizeMode: "contain",
-          }}
-        />
+      <View style={firstScreenStyle.imageView}>
+        <Image source={pula} style={firstScreenStyle.imageStyle} />
       </View>
-      <View
-        style={{
-          flex: 1,
-          width: "100%",
-          alignItems: "center",
-          gap: 50,
-        }}
-      >
-        <Text
-          style={{
-            fontSize: 30,
-            fontWeight: "bold",
-            color: "#29733B",
-          }}
-        >
+      <View style={firstScreenStyle.textIconView}>
+        <Text style={firstScreenStyle.greetingsText}>
           {greetings[currentGreetingIndex]}
         </Text>
         <Pressable
-          style={{
-            backgroundColor: "#29733B",
-            borderRadius: 999,
-            width: 100,
-            height: 100,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
+          style={firstScreenStyle.pressableContinue}
           onPress={() => setAppLoad(false)}
         >
           <AntDesign name="caretright" size={36} color="#FAB500" />

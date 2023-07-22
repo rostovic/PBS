@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, Image } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons, FontAwesome5 } from "@expo/vector-icons";
 import { help, styles } from "../styles";
@@ -6,12 +6,15 @@ import standard from "../images/mapType/standard.jpg";
 import satellite from "../images/mapType/satellite.jpg";
 import { useContext, useEffect, useState } from "react";
 import langs from "../lang-data/langs";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { LangContext } from "../lang_context/lang_context";
+import fipu from "../images/pula/fipu.png";
 
-const Help = ({ navigation }) => {
+const TabHelp = ({ navigation }) => {
   const [mapType, setMapType] = useState("standard");
   const lngCtx = useContext(LangContext);
   const currentLang = langs.find((lang) => lang.name === lngCtx.lang);
+  const insets = useSafeAreaInsets();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,7 +27,15 @@ const Help = ({ navigation }) => {
   }, []);
 
   return (
-    <View style={help.rootView}>
+    <View
+      style={{
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#fafafa",
+        top: insets.top,
+      }}
+    >
       <View style={help.mainView}>
         <View style={help.singleRow}>
           <View style={help.customBusIconStyle}>
@@ -69,8 +80,15 @@ const Help = ({ navigation }) => {
           <Text>{currentLang.route}</Text>
         </View>
       </View>
+      <View style={help.infoMadeBy}>
+        <Image source={fipu} style={help.imageContainerFipu}></Image>
+        <Text style={{ fontWeight: "bold" }}>Student: Robert Ostović</Text>
+        <Text style={{ fontWeight: "bold" }}>
+          Mentor: izv. prof. dr. sc. Tihomir Orehovački
+        </Text>
+      </View>
     </View>
   );
 };
 
-export default Help;
+export default TabHelp;

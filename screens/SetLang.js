@@ -6,7 +6,7 @@ import langs from "../lang-data/langs";
 import { LangContext } from "../lang_context/lang_context";
 import { useContext } from "react";
 
-const SetLang = () => {
+const SetLang = ({ changeLang = false }) => {
   const context = useContext(LangContext);
   const insets = useSafeAreaInsets();
   // console.log("Lang is: " + context.lang);
