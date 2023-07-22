@@ -2,16 +2,24 @@ import { Pressable, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { settingsStyle } from "../styles";
 import { LangContext } from "../lang_context/lang_context";
-import { useContext, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import langs from "../lang-data/langs";
 import { Image } from "react-native";
+import { useFocusEffect } from "@react-navigation/native";
 
 const TabSettings = ({ navigation }) => {
   const [langModal, openCloseLangModal] = useState(false);
   const insets = useSafeAreaInsets();
   const context = useContext(LangContext);
-
   const currentLang = langs.find((lang) => lang.name === context.lang);
+
+  useFocusEffect(
+    useCallback(() => {
+      return () => {
+        openCloseLangModal(false);
+      };
+    }, [])
+  );
 
   return (
     <View
