@@ -35,7 +35,7 @@ const App = () => {
         <StatusBar style="dark" />
         <Tab.Navigator screenOptions={{ headerShown: false }}>
           <Tab.Screen
-            name={currentLang.homeText}
+            name="Home"
             component={TabHomeScreen}
             options={{
               tabBarActiveBackgroundColor: "lightgrey",
@@ -43,11 +43,12 @@ const App = () => {
               tabBarIcon: ({ color, size }) => (
                 <Entypo name="home" size={24} color="black" />
               ),
+              tabBarLabel: currentLang.homeText,
             }}
           />
 
           <Tab.Screen
-            name={currentLang.settingsText}
+            name="Settings"
             component={TabSettings}
             options={{
               tabBarActiveBackgroundColor: "lightgrey",
@@ -55,11 +56,12 @@ const App = () => {
               tabBarIcon: ({ color, size }) => (
                 <Ionicons name="settings-sharp" size={30} color="black" />
               ),
+              tabBarLabel: currentLang.settingsText,
             }}
           />
 
           <Tab.Screen
-            name={currentLang.infoText}
+            name="Help"
             component={TabHelp}
             options={{
               tabBarActiveBackgroundColor: "lightgrey",
@@ -67,6 +69,7 @@ const App = () => {
               tabBarIcon: ({ color, size }) => (
                 <Feather name="info" size={30} color="black" />
               ),
+              tabBarLabel: currentLang.infoText,
             }}
           />
         </Tab.Navigator>

@@ -8,7 +8,7 @@ import { Image } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
 
 const TabSettings = ({ navigation }) => {
-  const [langModal, openCloseLangModal] = useState(false);
+  const [langModal, setLangModal] = useState(false);
   const insets = useSafeAreaInsets();
   const context = useContext(LangContext);
   const currentLang = langs.find((lang) => lang.name === context.lang);
@@ -16,7 +16,7 @@ const TabSettings = ({ navigation }) => {
   useFocusEffect(
     useCallback(() => {
       return () => {
-        openCloseLangModal(false);
+        setLangModal(false);
       };
     }, [])
   );
@@ -41,7 +41,7 @@ const TabSettings = ({ navigation }) => {
                 style={{ width: 100, height: 50 }}
                 onPress={() => {
                   context.setLanguage(lang.name);
-                  openCloseLangModal(false);
+                  setLangModal(false);
                 }}
               >
                 <Image
@@ -58,7 +58,7 @@ const TabSettings = ({ navigation }) => {
           <Text style={{ fontWeight: 700 }}>{currentLang.language}</Text>
           <Pressable
             style={settingsStyle.changeLangButton}
-            onPress={() => openCloseLangModal(true)}
+            onPress={() => setLangModal(true)}
           >
             <Image
               source={currentLang.image}
