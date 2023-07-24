@@ -11,7 +11,7 @@ const LangContextProvider = ({ children }) => {
 
   const getData = async () => {
     try {
-      AsyncStorage.clear();
+      // AsyncStorage.clear();
       const value = await AsyncStorage.getItem("lang");
       if (value !== null) {
         setLang(value);

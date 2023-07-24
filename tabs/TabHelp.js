@@ -13,8 +13,11 @@ import fipu from "../images/pula/fipu.png";
 const TabHelp = ({ navigation }) => {
   const [mapType, setMapType] = useState("standard");
   const lngCtx = useContext(LangContext);
-  const currentLang = langs.find((lang) => lang.name === lngCtx.lang);
   const insets = useSafeAreaInsets();
+
+  const currentLang =
+    langs.find((lang) => lang.name === lngCtx.lang) ||
+    langs.find((lang) => lang.name === JSON.parse(lngCtx.lang));
 
   useEffect(() => {
     const interval = setInterval(() => {

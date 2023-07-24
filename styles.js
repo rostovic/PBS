@@ -346,4 +346,40 @@ const settingsStyle = StyleSheet.create({
   },
 });
 
-export { mapStyle, styles2, styles, help, firstScreenStyle, settingsStyle };
+const searchBar = StyleSheet.create({
+  searchBar: {
+    width: 300,
+    height: 50,
+    backgroundColor: "white",
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: "black",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  searchBarInput: {
+    width: "100%",
+    height: "100%",
+    textAlign: "center",
+  },
+  buttonSearchLocation: {
+    position: "absolute",
+    right: 10,
+    zIndex: 1,
+    width: 35,
+    height: 35,
+    borderColor: "black",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
+
+export {
+  mapStyle,
+  styles2,
+  styles,
+  help,
+  firstScreenStyle,
+  settingsStyle,
+  searchBar,
+};

@@ -28,7 +28,9 @@ const App = () => {
       return <SetLang />;
     }
 
-    const currentLang = langs.find((lang) => lang.name === lngCtx.lang);
+    const currentLang =
+      langs.find((lang) => lang.name === lngCtx.lang) ||
+      langs.find((lang) => lang.name === JSON.parse(lngCtx.lang));
 
     return (
       <NavigationContainer>

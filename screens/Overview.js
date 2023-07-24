@@ -1,4 +1,4 @@
-import { View, Text, Pressable, Image } from "react-native";
+import { View, Text, Pressable, Image, TextInput } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import MapView, { Marker, Polyline } from "react-native-maps";
 import { useEffect, useRef, useState } from "react";
@@ -14,6 +14,8 @@ import {
 import { styles, styles2, mapStyle } from "../styles";
 import standard from "../images/mapType/standard.jpg";
 import satellite from "../images/mapType/satellite.jpg";
+import { searchLocation } from "../functions/api";
+import SearchBar from "../components/SearchBar";
 
 const Overview = ({ navigation }) => {
   const defaultRegion = {
@@ -48,6 +50,17 @@ const Overview = ({ navigation }) => {
       setIsLoading(false);
     })();
   }, []);
+
+  const testLocation = async (searchText) => {
+    const test = await searchLocation(searchText);
+    const testRegion = {
+      latitude: test.latitude,
+      longitude: test.longitude,
+      latitudeDelta: 0.0025,
+      longitudeDelta: 0.0025,
+    };
+    mapRef.current?.animateToRegion(testRegion, 1000);
+  };
 
   const handleChangeMapType = () => {
     if (mapType === "standard") {
@@ -253,7 +266,7 @@ const Overview = ({ navigation }) => {
       return;
     }
     const route = routesData.find((route) => route.id === selectedRouteId);
-    mapRef.current?.animateToRegion(route.pathCoords[0]);
+    // mapRef.current?.animateToRegion(route.pathCoords[0]);
     return (
       <Polyline
         coordinates={route.pathCoords}
@@ -389,6 +402,7 @@ const Overview = ({ navigation }) => {
       {renderModalSelectedStop()}
       {renderAllRoutesModal()}
       {renderActiveRouteModal()}
+      <SearchBar testLocation={testLocation} />
       <MapView
         style={styles.map}
         mapType={mapType}

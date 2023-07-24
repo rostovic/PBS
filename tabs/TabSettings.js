@@ -10,8 +10,11 @@ import { useFocusEffect } from "@react-navigation/native";
 const TabSettings = ({ navigation }) => {
   const [langModal, setLangModal] = useState(false);
   const insets = useSafeAreaInsets();
-  const context = useContext(LangContext);
-  const currentLang = langs.find((lang) => lang.name === context.lang);
+  const lngCtx = useContext(LangContext);
+
+  const currentLang =
+    langs.find((lang) => lang.name === lngCtx.lang) ||
+    langs.find((lang) => lang.name === JSON.parse(lngCtx.lang));
 
   useFocusEffect(
     useCallback(() => {
@@ -40,7 +43,7 @@ const TabSettings = ({ navigation }) => {
                 key={lang.name}
                 style={{ width: 100, height: 50 }}
                 onPress={() => {
-                  context.setLanguage(lang.name);
+                  lngCtx.setLanguage(lang.name);
                   setLangModal(false);
                 }}
               >
