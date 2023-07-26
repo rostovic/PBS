@@ -1,11 +1,11 @@
-import { View, Text, Pressable, Image, TextInput } from "react-native";
+import { View, Text, Pressable, Image } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import MapView, { Marker, Polyline } from "react-native-maps";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import * as Location from "expo-location";
 import { ActivityIndicator } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import { busStopData, busesData, routesData } from "../bus-data/bus-stop";
+import { busStopData, routesData } from "../bus-data/bus-stop";
 import {
   FontAwesome5,
   MaterialCommunityIcons,
@@ -16,8 +16,17 @@ import standard from "../images/mapType/standard.jpg";
 import satellite from "../images/mapType/satellite.jpg";
 import { searchLocation } from "../functions/api";
 import SearchBar from "../components/SearchBar";
+import { LangContext } from "../lang_context/lang_context";
+import langs from "../lang-data/langs";
 
 const Overview = ({ navigation }) => {
+  const insets = useSafeAreaInsets();
+  const lngCtx = useContext(LangContext);
+
+  const currentLang =
+    langs.find((lang) => lang.name === lngCtx.lang) ||
+    langs.find((lang) => lang.name === JSON.parse(lngCtx.lang));
+
   const defaultRegion = {
     latitude: 44.865432725353116,
     longitude: 13.85591309765663,
@@ -25,7 +34,6 @@ const Overview = ({ navigation }) => {
     longitudeDelta: 0.05,
   };
 
-  const insets = useSafeAreaInsets();
   const [location, setLocation] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedRouteId, setSelectedRouteId] = useState(null);
@@ -33,6 +41,7 @@ const Overview = ({ navigation }) => {
   const [region, setRegion] = useState(defaultRegion);
   const [selectedStopId, setSelectedStopId] = useState(null);
   const [mapType, setMapType] = useState("standard");
+  const [showSearchedStreet, setShowSearchedStreet] = useState(null);
   const mapRef = useRef(null);
 
   useEffect(() => {
@@ -51,15 +60,27 @@ const Overview = ({ navigation }) => {
     })();
   }, []);
 
-  const testLocation = async (searchText) => {
+  const findLocation = async (searchText) => {
+    setSelectedRouteId(null);
+    setShowAllRoutes(false);
+    setSelectedStopId(null);
     const test = await searchLocation(searchText);
-    const testRegion = {
+    if (test.status === "fail") {
+      setShowSearchedStreet("error");
+      return;
+    }
+    const selectedRegion = {
       latitude: test.latitude,
       longitude: test.longitude,
       latitudeDelta: 0.0025,
       longitudeDelta: 0.0025,
     };
-    mapRef.current?.animateToRegion(testRegion, 1000);
+    setShowSearchedStreet({
+      streetName: searchText,
+      latitude: selectedRegion.latitude,
+      longitude: selectedRegion.longitude,
+    });
+    mapRef.current?.animateToRegion(selectedRegion, 1000);
   };
 
   const handleChangeMapType = () => {
@@ -68,6 +89,52 @@ const Overview = ({ navigation }) => {
       return;
     }
     setMapType("standard");
+  };
+
+  const renderSearchedStreetMarker = () => {
+    if (showSearchedStreet === null || showSearchedStreet === "error") {
+      return;
+    }
+    return (
+      <Marker
+        key={showSearchedStreet.latitude}
+        coordinate={{
+          latitude: showSearchedStreet.latitude,
+          longitude: showSearchedStreet.longitude,
+        }}
+      ></Marker>
+    );
+  };
+
+  const renderSearchBarError = () => {
+    if (showSearchedStreet !== "error") {
+      return;
+    }
+
+    setTimeout(() => {
+      setShowSearchedStreet(null);
+    }, 2000);
+
+    return (
+      <View
+        style={{
+          width: "100%",
+          position: "absolute",
+          zIndex: 999,
+          top: insets.top + 70,
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          height: 50,
+        }}
+      >
+        <View style={styles.errorStreet}>
+          <Text style={{ fontSize: 10 }}>
+            Could not find the street! Try again.
+          </Text>
+        </View>
+      </View>
+    );
   };
 
   const renderBusStopMarkers = () => {
@@ -148,7 +215,7 @@ const Overview = ({ navigation }) => {
               }
             >
               <Text style={styles.textClickForMoreDetails} numberOfLines={3}>
-                CLICK FOR MORE DETAILS
+                {currentLang.stopDetails}
               </Text>
             </Pressable>
           </View>
@@ -197,7 +264,7 @@ const Overview = ({ navigation }) => {
           width: "100%",
           position: "absolute",
           zIndex: 999,
-          top: insets.top + 16,
+          top: insets.top + 80,
           justifyContent: "center",
           alignItems: "center",
         }}
@@ -402,7 +469,8 @@ const Overview = ({ navigation }) => {
       {renderModalSelectedStop()}
       {renderAllRoutesModal()}
       {renderActiveRouteModal()}
-      <SearchBar testLocation={testLocation} />
+      <SearchBar findLocation={findLocation} />
+      {renderSearchBarError()}
       <MapView
         style={styles.map}
         mapType={mapType}
@@ -429,6 +497,7 @@ const Overview = ({ navigation }) => {
           setSelectedStopId(null);
         }}
       >
+        {renderSearchedStreetMarker()}
         {renderPolylineClosestStop()}
         {renderAllRoutes()}
         {renderRoutePath()}

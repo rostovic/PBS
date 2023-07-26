@@ -11,6 +11,8 @@ const langs = [
     toggleMapStyle: "- Promjeni izgled karte",
     route: "- Ruta (klik za prikaz rute)",
     language: "Jezik",
+    search: "Pronađi ulicu...",
+    stopDetails: "VIŠE DETALJA",
   },
   {
     name: "gb",
@@ -24,6 +26,8 @@ const langs = [
     toggleMapStyle: "- Toggle map style",
     route: "- Route (click to show the route)",
     language: "Language",
+    search: "Find a street...",
+    stopDetails: "MORE DETAILS",
   },
   {
     name: "de",
@@ -37,6 +41,8 @@ const langs = [
     toggleMapStyle: "- Toggle map style",
     route: "- Route (click to show the route)",
     language: "Language",
+    search: "Find a street...",
+    stopDetails: "MORE DETAILS",
   },
 
   {
@@ -51,6 +57,8 @@ const langs = [
     toggleMapStyle: "- Toggle map style",
     route: "- Route (click to show the route)",
     language: "Language",
+    search: "Find a street...",
+    stopDetails: "MORE DETAILS",
   },
 
   {
@@ -65,6 +73,8 @@ const langs = [
     toggleMapStyle: "- Toggle map style",
     route: "- Route (click to show the route)",
     language: "Language",
+    search: "Find a street...",
+    stopDetails: "MORE DETAILS",
   },
 
   {
@@ -79,6 +89,8 @@ const langs = [
     toggleMapStyle: "- Toggle map style",
     route: "- Route (click to show the route)",
     language: "Language",
+    search: "Find a street...",
+    stopDetails: "MORE DETAILS",
   },
 ];
 

@@ -186,6 +186,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 999,
   },
+  errorStreet: {
+    width: 200,
+    height: 25,
+    backgroundColor: "white",
+    borderRadius: 999,
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "red",
+    borderWidth: 2,
+  },
 });
 
 const styles2 = StyleSheet.create({

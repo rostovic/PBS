@@ -1,7 +1,7 @@
 export const searchLocation = async (searchText) => {
   try {
     const response = await fetch(
-      `https://nominatim.openstreetmap.org/search?q=${searchText} Pula&format=json`
+      `https://nominatim.openstreetmap.org/search?q=${searchText}+Pula&format=json`
     );
     // treba dodat za pulu samo, gore
     const data = await response.json();
