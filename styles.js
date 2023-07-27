@@ -196,6 +196,22 @@ const styles = StyleSheet.create({
     borderColor: "red",
     borderWidth: 2,
   },
+  streetInstructions: {
+    width: 300,
+    height: 75,
+    backgroundColor: "white",
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "black",
+    borderWidth: 2,
+  },
+  closeInstructions: {
+    width: 25,
+    height: 25,
+    position: "absolute",
+    top: 4,
+    right: 4,
+  },
 });
 
 const styles2 = StyleSheet.create({

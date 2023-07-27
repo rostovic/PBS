@@ -10,6 +10,7 @@ import {
   FontAwesome5,
   MaterialCommunityIcons,
   Ionicons,
+  AntDesign,
 } from "@expo/vector-icons";
 import { styles, styles2, mapStyle } from "../styles";
 import standard from "../images/mapType/standard.jpg";
@@ -18,6 +19,10 @@ import { searchLocation } from "../functions/api";
 import SearchBar from "../components/SearchBar";
 import { LangContext } from "../lang_context/lang_context";
 import langs from "../lang-data/langs";
+import {
+  calculateDistance,
+  findNearestBusStopAtDesiredLocation,
+} from "../functions/helpers";
 
 const Overview = ({ navigation }) => {
   const insets = useSafeAreaInsets();
@@ -50,7 +55,7 @@ const Overview = ({ navigation }) => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== "granted") {
         setErrorMsg("Permission to access location was denied");
-        Linking.openSettings(); // Open app settings to allow the user to grant location permission
+        Linking.openSettings();
         return;
       }
 
@@ -64,14 +69,15 @@ const Overview = ({ navigation }) => {
     setSelectedRouteId(null);
     setShowAllRoutes(false);
     setSelectedStopId(null);
-    const test = await searchLocation(searchText);
-    if (test.status === "fail") {
+    const foundLocation = await searchLocation(searchText);
+
+    if (foundLocation.status === "fail") {
       setShowSearchedStreet("error");
       return;
     }
     const selectedRegion = {
-      latitude: test.latitude,
-      longitude: test.longitude,
+      latitude: foundLocation.latitude,
+      longitude: foundLocation.longitude,
       latitudeDelta: 0.0025,
       longitudeDelta: 0.0025,
     };
@@ -80,7 +86,37 @@ const Overview = ({ navigation }) => {
       latitude: selectedRegion.latitude,
       longitude: selectedRegion.longitude,
     });
+
+    const nearStop = findNearestBusStopAtDesiredLocation({
+      latitude: selectedRegion.latitude,
+      longitude: selectedRegion.longitude,
+    });
+
     mapRef.current?.animateToRegion(selectedRegion, 1000);
+
+    setTimeout(() => {
+      mapRef.current?.animateToRegion(
+        {
+          latitude: nearStop.latitude,
+          longitude: nearStop.longitude,
+          latitudeDelta: 0.0025,
+          longitudeDelta: 0.0025,
+        },
+        1500
+      );
+    }, 2500);
+
+    setTimeout(() => {
+      mapRef.current?.animateToRegion(
+        {
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
+          latitudeDelta: 0.0025,
+          longitudeDelta: 0.0025,
+        },
+        1500
+      );
+    }, 5000);
   };
 
   const handleChangeMapType = () => {
@@ -95,6 +131,7 @@ const Overview = ({ navigation }) => {
     if (showSearchedStreet === null || showSearchedStreet === "error") {
       return;
     }
+
     return (
       <Marker
         key={showSearchedStreet.latitude}
@@ -134,6 +171,101 @@ const Overview = ({ navigation }) => {
           </Text>
         </View>
       </View>
+    );
+  };
+
+  const renderStreetInstructions = () => {
+    if (showSearchedStreet === null || showSearchedStreet === "error") {
+      return;
+    }
+
+    const nearStop = findNearestBusStopAtDesiredLocation(showSearchedStreet);
+
+    return (
+      <View
+        style={{
+          width: "100%",
+          position: "absolute",
+          zIndex: 999,
+          top: insets.top + 70,
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          height: 100,
+        }}
+      >
+        <View style={styles.streetInstructions}>
+          <Pressable
+            style={styles.closeInstructions}
+            onPress={() => setShowSearchedStreet(null)}
+          >
+            <AntDesign name="closecircle" size={24} color="black" />
+          </Pressable>
+          <Text style={{ fontSize: 10 }}>
+            {currentLang.distanceFromYourLocation}{" "}
+            {calculateDistance(
+              location.coords.latitude,
+              location.coords.longitude,
+              showSearchedStreet.latitude,
+              showSearchedStreet.longitude,
+              true
+            )}
+          </Text>
+          <Text style={{ fontSize: 10 }}>
+            {currentLang.nearestStopAtDesiredLocation}{" "}
+            {calculateDistance(
+              showSearchedStreet.latitude,
+              showSearchedStreet.longitude,
+              nearStop.latitude,
+              nearStop.longitude,
+              true
+            )}
+          </Text>
+        </View>
+      </View>
+    );
+  };
+
+  const renderPolylineClosestStreetStop = () => {
+    if (showSearchedStreet === null || showSearchedStreet === "error") {
+      return;
+    }
+    const nearestStop = findNearestBusStopAtDesiredLocation(showSearchedStreet);
+    return (
+      <>
+        <Polyline
+          key={nearestStop.latitude}
+          coordinates={[
+            {
+              latitude: showSearchedStreet.latitude,
+              longitude: showSearchedStreet.longitude,
+            },
+            {
+              latitude: nearestStop.latitude,
+              longitude: nearestStop.longitude,
+            },
+          ]}
+          strokeWidth={2}
+          strokeColor="black"
+          lineDashPattern={[10, 10]}
+        />
+        <Polyline
+          key={location.latitude}
+          coordinates={[
+            {
+              latitude: showSearchedStreet.latitude,
+              longitude: showSearchedStreet.longitude,
+            },
+            {
+              latitude: location.coords.latitude,
+              longitude: location.coords.longitude,
+            },
+          ]}
+          strokeWidth={2}
+          strokeColor="black"
+          lineDashPattern={[10, 10]}
+        />
+      </>
     );
   };
 
@@ -323,7 +455,7 @@ const Overview = ({ navigation }) => {
         ]}
         strokeWidth={2}
         strokeColor="black"
-        lineDashPattern={[10, 10]} // Customize the dash pattern here
+        lineDashPattern={[10, 10]}
       />
     );
   };
@@ -333,7 +465,6 @@ const Overview = ({ navigation }) => {
       return;
     }
     const route = routesData.find((route) => route.id === selectedRouteId);
-    // mapRef.current?.animateToRegion(route.pathCoords[0]);
     return (
       <Polyline
         coordinates={route.pathCoords}
@@ -368,6 +499,7 @@ const Overview = ({ navigation }) => {
   };
 
   const handleClosestStop = () => {
+    setShowSearchedStreet(null);
     setShowAllRoutes(false);
     if (selectedStopId !== null) {
       setSelectedStopId(null);
@@ -413,31 +545,6 @@ const Overview = ({ navigation }) => {
     setShowAllRoutes((current) => !current);
   };
 
-  const calculateDistance = (lat1, lon1, lat2, lon2, toString) => {
-    const R = 6371; // Earth's radius in kilometers
-    const dLat = toRadians(lat2 - lat1);
-    const dLon = toRadians(lon2 - lon1);
-    const a =
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(toRadians(lat1)) *
-        Math.cos(toRadians(lat2)) *
-        Math.sin(dLon / 2) *
-        Math.sin(dLon / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    const distance = R * c;
-
-    if (toString) {
-      const stringNumber = "~" + (distance * 1000).toFixed(1).toString() + "m";
-      return stringNumber;
-    }
-
-    return distance;
-  };
-
-  const toRadians = (degrees) => {
-    return (degrees * Math.PI) / 180;
-  };
-
   const handleCheckRegion = (newRegion) => {
     const distance = calculateDistance(
       location.coords.latitude,
@@ -466,10 +573,11 @@ const Overview = ({ navigation }) => {
 
   return (
     <View style={{ flex: 1, paddingTop: insets.top }}>
+      <SearchBar findLocation={findLocation} />
+      {renderStreetInstructions()}
       {renderModalSelectedStop()}
       {renderAllRoutesModal()}
       {renderActiveRouteModal()}
-      <SearchBar findLocation={findLocation} />
       {renderSearchBarError()}
       <MapView
         style={styles.map}
@@ -502,6 +610,7 @@ const Overview = ({ navigation }) => {
         {renderAllRoutes()}
         {renderRoutePath()}
         {renderBusStopMarkers()}
+        {renderPolylineClosestStreetStop()}
       </MapView>
       <View style={styles.buttonClosestStop}>
         <Pressable onPress={handleClosestStop}>

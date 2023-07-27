@@ -3,7 +3,6 @@ export const searchLocation = async (searchText) => {
     const response = await fetch(
       `https://nominatim.openstreetmap.org/search?q=${searchText}+Pula&format=json`
     );
-    // treba dodat za pulu samo, gore
     const data = await response.json();
     if (data && data.length > 0) {
       // Assuming the first result is the best match
@@ -17,6 +16,7 @@ export const searchLocation = async (searchText) => {
       return { status: "fail" };
     }
   } catch (error) {
-    console.error("Error fetching location:", error);
+    // console.error("Error fetching location:", error);
+    return { status: "fail" };
   }
 };

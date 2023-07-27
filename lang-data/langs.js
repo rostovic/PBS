@@ -13,6 +13,8 @@ const langs = [
     language: "Jezik",
     search: "Pronađi ulicu...",
     stopDetails: "VIŠE DETALJA",
+    distanceFromYourLocation: "Udaljenost od Vaše lokacije:",
+    nearestStopAtDesiredLocation: "Udaljenost najbliže stanice od lokacije:",
   },
   {
     name: "gb",
@@ -28,6 +30,8 @@ const langs = [
     language: "Language",
     search: "Find a street...",
     stopDetails: "MORE DETAILS",
+    distanceFromYourLocation: "Distance from your location:",
+    nearestStopAtDesiredLocation: "Nearest bus stop at desired location:",
   },
   {
     name: "de",
@@ -43,6 +47,8 @@ const langs = [
     language: "Language",
     search: "Find a street...",
     stopDetails: "MORE DETAILS",
+    distanceFromYourLocation: "Distance from your location:",
+    nearestStopAtDesiredLocation: "Nearest bus stop at desired location:",
   },
 
   {
@@ -59,6 +65,8 @@ const langs = [
     language: "Language",
     search: "Find a street...",
     stopDetails: "MORE DETAILS",
+    distanceFromYourLocation: "Distance from your location:",
+    nearestStopAtDesiredLocation: "Nearest bus stop at desired location:",
   },
 
   {
@@ -75,6 +83,8 @@ const langs = [
     language: "Language",
     search: "Find a street...",
     stopDetails: "MORE DETAILS",
+    distanceFromYourLocation: "Distance from your location:",
+    nearestStopAtDesiredLocation: "Nearest bus stop at desired location:",
   },
 
   {
@@ -91,6 +101,8 @@ const langs = [
     language: "Language",
     search: "Find a street...",
     stopDetails: "MORE DETAILS",
+    distanceFromYourLocation: "Distance from your location:",
+    nearestStopAtDesiredLocation: "Nearest bus stop at desired location:",
   },
 ];
 
