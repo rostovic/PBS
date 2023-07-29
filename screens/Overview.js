@@ -498,6 +498,31 @@ const Overview = ({ navigation }) => {
     ));
   };
 
+  const renderButtons = () => {
+    return (
+      <>
+        <View style={styles.buttonClosestStop}>
+          <Pressable onPress={handleClosestStop}>
+            <MaterialCommunityIcons name="bus-stop" size={24} color="black" />
+          </Pressable>
+        </View>
+        <View style={styles.buttonRoutes}>
+          <Pressable onPress={handleShowAllRoutes}>
+            <FontAwesome5 name="route" size={30} color="black" />
+          </Pressable>
+        </View>
+        <View style={styles.buttonChangeMapStyle}>
+          <Pressable onPress={handleChangeMapType}>
+            <Image
+              source={mapType === "standard" ? standard : satellite}
+              style={styles.imageContainer}
+            />
+          </Pressable>
+        </View>
+      </>
+    );
+  };
+
   const handleClosestStop = () => {
     setShowSearchedStreet(null);
     setShowAllRoutes(false);
@@ -579,6 +604,7 @@ const Overview = ({ navigation }) => {
       {renderAllRoutesModal()}
       {renderActiveRouteModal()}
       {renderSearchBarError()}
+      {renderButtons()}
       <MapView
         style={styles.map}
         mapType={mapType}
@@ -612,24 +638,6 @@ const Overview = ({ navigation }) => {
         {renderBusStopMarkers()}
         {renderPolylineClosestStreetStop()}
       </MapView>
-      <View style={styles.buttonClosestStop}>
-        <Pressable onPress={handleClosestStop}>
-          <MaterialCommunityIcons name="bus-stop" size={24} color="black" />
-        </Pressable>
-      </View>
-      <View style={styles.buttonRoutes}>
-        <Pressable onPress={handleShowAllRoutes}>
-          <FontAwesome5 name="route" size={30} color="black" />
-        </Pressable>
-      </View>
-      <View style={styles.buttonChangeMapStyle}>
-        <Pressable onPress={handleChangeMapType}>
-          <Image
-            source={mapType === "standard" ? standard : satellite}
-            style={styles.imageContainer}
-          />
-        </Pressable>
-      </View>
     </View>
   );
 };
