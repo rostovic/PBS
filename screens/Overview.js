@@ -1,6 +1,6 @@
 import { View, Text, Pressable, Image } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import MapView, { Marker, Polyline } from "react-native-maps";
+import MapView, { Marker, PROVIDER_GOOGLE, Polyline } from "react-native-maps";
 import { useContext, useEffect, useRef, useState } from "react";
 import * as Location from "expo-location";
 import { ActivityIndicator } from "react-native";
@@ -23,6 +23,7 @@ import {
   calculateDistance,
   findNearestBusStopAtDesiredLocation,
 } from "../functions/helpers";
+import { decodePolyline, parseJSONRoute } from "../functions/test";
 
 const Overview = ({ navigation }) => {
   const insets = useSafeAreaInsets();
@@ -423,17 +424,29 @@ const Overview = ({ navigation }) => {
     if (showAllRoutes === false) {
       return;
     }
-    const routes = routesData.map((route) => {
-      return (
-        <Polyline
-          key={route.id}
-          coordinates={route.pathCoords}
-          strokeWidth={2}
-          strokeColor={route.color}
-        />
-      );
-    });
-    return routes;
+
+    const route123 = parseJSONRoute();
+
+    return (
+      <Polyline
+        key={"kek"}
+        coordinates={routesData[0].pathCoords}
+        strokeWidth={2}
+        strokeColor={routesData[0].color}
+      />
+    );
+
+    // const routes = routesData.map((route) => {
+    //   return (
+    //     <Polyline
+    //       key={route.id}
+    //       coordinates={route.pathCoords}
+    //       strokeWidth={2}
+    //       strokeColor={route.color}
+    //     />
+    //   );
+    // });
+    // return routes;
   };
 
   const renderPolylineClosestStop = () => {

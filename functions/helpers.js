@@ -26,7 +26,7 @@ export const findNearestBusStopAtDesiredLocation = (streetLocation) => {
 };
 
 export const calculateDistance = (lat1, lon1, lat2, lon2, toString) => {
-  const R = 6371; // Earth's radius in kilometers
+  const R = 6371;
   const dLat = toRadians(lat2 - lat1);
   const dLon = toRadians(lon2 - lon1);
   const a =
