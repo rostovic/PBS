@@ -425,28 +425,17 @@ const Overview = ({ navigation }) => {
       return;
     }
 
-    const route123 = parseJSONRoute();
-
-    return (
-      <Polyline
-        key={"kek"}
-        coordinates={routesData[0].pathCoords}
-        strokeWidth={2}
-        strokeColor={routesData[0].color}
-      />
-    );
-
-    // const routes = routesData.map((route) => {
-    //   return (
-    //     <Polyline
-    //       key={route.id}
-    //       coordinates={route.pathCoords}
-    //       strokeWidth={2}
-    //       strokeColor={route.color}
-    //     />
-    //   );
-    // });
-    // return routes;
+    const routes = routesData.map((route) => {
+      return (
+        <Polyline
+          key={route.id}
+          coordinates={route.pathCoords}
+          strokeWidth={2}
+          strokeColor={route.color}
+        />
+      );
+    });
+    return routes;
   };
 
   const renderPolylineClosestStop = () => {
