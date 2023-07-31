@@ -1,6 +1,6 @@
 import { View, Text, Pressable, Image } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import MapView, { Marker, PROVIDER_GOOGLE, Polyline } from "react-native-maps";
+import MapView, { Marker, Polyline } from "react-native-maps";
 import { useContext, useEffect, useRef, useState } from "react";
 import * as Location from "expo-location";
 import { ActivityIndicator } from "react-native";
@@ -23,7 +23,6 @@ import {
   calculateDistance,
   findNearestBusStopAtDesiredLocation,
 } from "../functions/helpers";
-import { decodePolyline, parseJSONRoute } from "../functions/test";
 
 const Overview = ({ navigation }) => {
   const insets = useSafeAreaInsets();
@@ -364,14 +363,18 @@ const Overview = ({ navigation }) => {
     return (
       <View style={styles.renderAllRoutesModal}>
         <View style={styles.renderAllRoutesModalTitleView}>
-          <Text style={styles.renderAllRoutesModalTitleText}>All routes:</Text>
+          <Text style={styles.renderAllRoutesModalTitleText}>
+            {currentLang.allRoutes}
+          </Text>
         </View>
         <View style={styles.renderAllRoutesViewContainer}>
           {routesData.map((route) => (
             <View key={route.id} style={styles.renderAllRoutesSingleRoute}>
-              <Text style={styles.renderAllRoutesSingleRouteName}>
-                {route.name}
-              </Text>
+              <View style={styles.pressableSingleRoute}>
+                <Text style={styles.renderAllRoutesSingleRouteName}>
+                  {route.name}
+                </Text>
+              </View>
               <View
                 style={{
                   backgroundColor: route.color,
@@ -404,7 +407,7 @@ const Overview = ({ navigation }) => {
       >
         <View style={styles.renderActiveModalContentView}>
           <Text style={styles.renderActiveModalContentViewText}>
-            Active route:{" "}
+            {currentLang.activeRoute}{" "}
             <Text style={{ fontWeight: "bold" }}>
               {routesData.find((route) => route.id === selectedRouteId).name}
             </Text>

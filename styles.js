@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
     width: "80%",
     alignItems: "center",
     justifyContent: "center",
+    gap: 2,
   },
   renderAllRoutesSingleRoute: {
     flexDirection: "row",
@@ -211,6 +212,15 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 4,
     right: 4,
+  },
+  pressableSingleRoute: {
+    width: 35,
+    height: 35,
+    borderColor: "black",
+    borderWidth: 2,
+    borderRadius: 999,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
