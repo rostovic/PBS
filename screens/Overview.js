@@ -270,35 +270,46 @@ const Overview = ({ navigation }) => {
   };
 
   const renderBusStopMarkers = () => {
-    return busStopData.map((busStop) => (
-      <Marker
-        key={busStop.id}
-        coordinate={{
-          latitude: busStop.latitude,
-          longitude: busStop.longitude,
-        }}
-        style={styles.markerBusStopView}
-        onPress={() => {
-          setShowAllRoutes(false);
-          setSelectedStopId(busStop.id);
-        }}
-      >
-        <View style={styles.busStopViewMarker}>
-          <MaterialIcons name="directions-bus" size={18} color="darkorange" />
-        </View>
-      </Marker>
-    ));
+    return busStopData.map((busStop) =>
+      calculateDistance(
+        location.coords.latitude,
+        location.coords.longitude,
+        busStop.latitude,
+        busStop.longitude
+      ) > 0.5 ? null : (
+        <Marker
+          key={busStop.id}
+          coordinate={{
+            latitude: busStop.latitude,
+            longitude: busStop.longitude,
+          }}
+          style={styles.markerBusStopView}
+          onPress={() => {
+            setShowAllRoutes(false);
+            setSelectedStopId(busStop.id);
+          }}
+        >
+          <View style={styles.busStopViewMarker}>
+            <MaterialIcons name="directions-bus" size={10} color="darkorange" />
+          </View>
+        </Marker>
+      )
+    );
   };
 
   const renderModalSelectedStop = () => {
     if (selectedStopId === null) {
       return;
     }
+
+    const currentBusStop = busStopData.find(
+      (busStop) => busStop.id === selectedStopId
+    );
     return (
       <View style={styles.modalSelectedStop}>
         <View>
           <Image
-            source={busStopData[selectedStopId]?.image}
+            source={currentBusStop?.image}
             style={{ width: 300, flex: 1 }}
           />
         </View>
@@ -315,8 +326,8 @@ const Overview = ({ navigation }) => {
                 {calculateDistance(
                   location.coords.latitude,
                   location.coords.longitude,
-                  busStopData[selectedStopId].latitude,
-                  busStopData[selectedStopId].longitude,
+                  currentBusStop.latitude,
+                  currentBusStop.longitude,
                   true
                 )}
               </Text>
@@ -445,6 +456,9 @@ const Overview = ({ navigation }) => {
     if (selectedStopId === null) {
       return;
     }
+    const currentBusStop = busStopData.find(
+      (busStop) => busStop.id === selectedStopId
+    );
     return (
       <Polyline
         key={selectedStopId}
@@ -454,8 +468,8 @@ const Overview = ({ navigation }) => {
             longitude: location.coords.longitude,
           },
           {
-            latitude: busStopData[selectedStopId].latitude,
-            longitude: busStopData[selectedStopId].longitude,
+            latitude: currentBusStop.latitude,
+            longitude: currentBusStop.longitude,
           },
         ]}
         strokeWidth={2}

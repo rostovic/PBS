@@ -6,6 +6,11 @@ import { Ionicons } from "@expo/vector-icons";
 const BusStopDetails = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
   const { busStopId } = route.params;
+
+  const currentBusStop = busStopData.find(
+    (busStop) => busStop.id === busStopId
+  );
+
   return (
     <View style={{ flex: 1, paddingTop: insets.top }}>
       <View style={{ width: "100%", height: 200 }}>
@@ -23,7 +28,7 @@ const BusStopDetails = ({ navigation, route }) => {
           onPress={() => navigation.goBack()}
         />
         <Image
-          source={busStopData[busStopId]?.image}
+          source={currentBusStop?.image}
           style={{ width: "100%", flex: 1 }}
         />
       </View>
