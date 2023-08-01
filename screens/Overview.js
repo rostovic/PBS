@@ -1,7 +1,7 @@
 import { View, Text, Pressable, Image } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import MapView, { Marker, Polyline } from "react-native-maps";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import * as Location from "expo-location";
 import { ActivityIndicator } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
