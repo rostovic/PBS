@@ -1,15 +1,85 @@
-import { Image, Text, View } from "react-native";
+import {
+  FlatList,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { busStopData } from "../bus-data/bus-stop";
+import { busStopArrivalTime, busStopData } from "../bus-data/bus-stop";
 import { Ionicons } from "@expo/vector-icons";
 
 const BusStopDetails = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
   const { busStopId } = route.params;
 
+  // console.log(busStopId);
+
   const currentBusStop = busStopData.find(
     (busStop) => busStop.id === busStopId
   );
+
+  const busStopTimes = busStopArrivalTime.find(
+    (busStop) => busStop.id === busStopId
+  );
+
+  if (busStopTimes === undefined) {
+    return (
+      <View
+        style={{
+          flex: 1,
+          paddingTop: insets.top,
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 20,
+        }}
+      >
+        <Text>Bus stop is not in use</Text>
+        <Ionicons
+          name="arrow-back"
+          size={40}
+          color="black"
+          onPress={() => navigation.goBack()}
+        />
+      </View>
+    );
+  }
+
+  const groupTimesByHour = (times) => {
+    const groupedTimes = {};
+    times.forEach((time) => {
+      let hour = time.split(":")[0];
+
+      if (hour[0] === "0") {
+        hour = hour[1];
+      }
+      if (parseInt(hour) >= 24) {
+        hour = parseInt(hour) - 24;
+        hour = "0" + hour;
+      }
+      if (!groupedTimes[hour]) {
+        groupedTimes[hour] = [];
+      }
+
+      groupedTimes[hour].push(time);
+    });
+
+    // Sort the keys in ascending order with custom sorting logic
+    const sortedHours = Object.keys(groupedTimes).sort(
+      (a, b) => parseInt(a) - parseInt(b)
+    );
+
+    // Reorganize the groups based on sorted keys
+    const sortedGroupedTimes = {};
+    sortedHours.forEach((hour) => {
+      sortedGroupedTimes[hour] = groupedTimes[hour];
+    });
+
+    return sortedGroupedTimes;
+  };
+
+  const groupedTimes = groupTimesByHour(busStopTimes.times);
 
   return (
     <View style={{ flex: 1, paddingTop: insets.top }}>
@@ -34,11 +104,58 @@ const BusStopDetails = ({ navigation, route }) => {
       </View>
       <View style={{ flex: 1 }}>
         <View
-          style={{ height: 100, width: "100%", backgroundColor: "#fafafa" }}
-        ></View>
+          style={{
+            height: "100%",
+            width: "100%",
+            backgroundColor: "#fafafa",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <View
+            style={{
+              height: 400,
+              width: "80%",
+              gap: 6,
+              backgroundColor: "lightgrey",
+            }}
+          >
+            <ScrollView contentContainerStyle={styles.container}>
+              {Object.keys(groupedTimes).map((hour) => (
+                <View key={hour} style={styles.hourContainer}>
+                  {groupedTimes[hour].map((time) => (
+                    <Text key={time} style={styles.timeText}>
+                      {time}
+                    </Text>
+                  ))}
+                </View>
+              ))}
+            </ScrollView>
+          </View>
+        </View>
+      </View>
+      <View>
+        <Text>Warning! Arrival time may very on weekends.</Text>
       </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    padding: 16,
+  },
+  hourContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginBottom: 10,
+  },
+  timeText: {
+    fontSize: 8,
+    marginRight: 10,
+    fontWeight: "bold",
+  },
+});
 
 export default BusStopDetails;

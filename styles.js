@@ -60,8 +60,8 @@ const styles = StyleSheet.create({
     zIndex: 100,
   },
   busStopViewMarker: {
-    width: 20,
-    height: 20,
+    width: 25,
+    height: 25,
     borderWidth: 0.5,
     borderColor: "lightgray",
     borderRadius: 999,

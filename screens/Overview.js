@@ -23,6 +23,7 @@ import {
   calculateDistance,
   findNearestBusStopAtDesiredLocation,
 } from "../functions/helpers";
+import { parseJSONRoute } from "../functions/test";
 
 const Overview = ({ navigation }) => {
   const insets = useSafeAreaInsets();
@@ -47,6 +48,12 @@ const Overview = ({ navigation }) => {
   const [selectedStopId, setSelectedStopId] = useState(null);
   const [mapType, setMapType] = useState("standard");
   const [showSearchedStreet, setShowSearchedStreet] = useState(null);
+  const [regionChange, setRegionChange] = useState({
+    latitude: 44.865432725353116,
+    longitude: 13.85591309765663,
+    latitudeDelta: 0.05,
+    longitudeDelta: 0.05,
+  });
   const mapRef = useRef(null);
 
   useEffect(() => {
@@ -270,13 +277,21 @@ const Overview = ({ navigation }) => {
   };
 
   const renderBusStopMarkers = () => {
+    // parseJSONRoute();
+    // console.log(regionChange);
+    if (
+      regionChange.latitudeDelta > 0.006 ||
+      regionChange.longitudeDelta > 0.004
+    ) {
+      return;
+    }
     return busStopData.map((busStop) =>
       calculateDistance(
-        location.coords.latitude,
-        location.coords.longitude,
+        regionChange.latitude,
+        regionChange.longitude,
         busStop.latitude,
         busStop.longitude
-      ) > 0.5 ? null : (
+      ) > 0.25 ? null : (
         <Marker
           key={busStop.id}
           coordinate={{
@@ -290,7 +305,7 @@ const Overview = ({ navigation }) => {
           }}
         >
           <View style={styles.busStopViewMarker}>
-            <MaterialIcons name="directions-bus" size={10} color="darkorange" />
+            <MaterialIcons name="directions-bus" size={14} color="darkorange" />
           </View>
         </Marker>
       )
@@ -628,7 +643,10 @@ const Overview = ({ navigation }) => {
         style={styles.map}
         mapType={mapType}
         region={region}
-        onRegionChangeComplete={handleCheckRegion}
+        onRegionChangeComplete={(region) => {
+          handleCheckRegion(region);
+          setRegionChange(region);
+        }}
         ref={mapRef}
         customMapStyle={mapStyle}
         showsUserLocation={true}
