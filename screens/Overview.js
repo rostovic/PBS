@@ -320,6 +320,9 @@ const Overview = ({ navigation }) => {
     const currentBusStop = busStopData.find(
       (busStop) => busStop.id === selectedStopId
     );
+
+    console.log(currentBusStop);
+
     return (
       <View style={styles.modalSelectedStop}>
         <View>
@@ -613,7 +616,7 @@ const Overview = ({ navigation }) => {
       false
     );
 
-    if (distance > 10) {
+    if (distance > 15) {
       mapRef.current?.animateToRegion(defaultRegion, 1000);
     }
   };
