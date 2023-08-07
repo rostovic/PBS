@@ -279,37 +279,45 @@ const Overview = ({ navigation }) => {
   const renderBusStopMarkers = () => {
     // parseJSONRoute();
     // console.log(regionChange);
+    // console.log(busStopArrivalTime.find((busStop) => busStop.id === 51));
     if (
       regionChange.latitudeDelta > 0.006 ||
       regionChange.longitudeDelta > 0.004
     ) {
       return;
     }
-    return busStopData.map((busStop) =>
-      calculateDistance(
-        regionChange.latitude,
-        regionChange.longitude,
-        busStop.latitude,
-        busStop.longitude
-      ) > 0.25 ? null : (
-        <Marker
-          key={busStop.id}
-          coordinate={{
-            latitude: busStop.latitude,
-            longitude: busStop.longitude,
-          }}
-          style={styles.markerBusStopView}
-          onPress={() => {
-            setShowAllRoutes(false);
-            setSelectedStopId(busStop.id);
-          }}
-        >
-          <View style={styles.busStopViewMarker}>
-            <MaterialIcons name="directions-bus" size={14} color="darkorange" />
-          </View>
-        </Marker>
-      )
-    );
+
+    return busStopData
+      .filter((busStop) => busStop.inUse)
+      .map((busStop) =>
+        calculateDistance(
+          regionChange.latitude,
+          regionChange.longitude,
+          busStop.latitude,
+          busStop.longitude
+        ) > 0.25 ? null : (
+          <Marker
+            key={busStop.id}
+            coordinate={{
+              latitude: busStop.latitude,
+              longitude: busStop.longitude,
+            }}
+            style={styles.markerBusStopView}
+            onPress={() => {
+              setShowAllRoutes(false);
+              setSelectedStopId(busStop.id);
+            }}
+          >
+            <View style={styles.busStopViewMarker}>
+              <MaterialIcons
+                name="directions-bus"
+                size={14}
+                color="darkorange"
+              />
+            </View>
+          </Marker>
+        )
+      );
   };
 
   const renderModalSelectedStop = () => {
@@ -573,19 +581,21 @@ const Overview = ({ navigation }) => {
       longitude: location.coords.longitude,
     };
 
-    const allDistances = busStopData.map((busStop) => {
-      return {
-        id: busStop.id,
-        distance: calculateDistance(
-          startLocation.latitude,
-          startLocation.longitude,
-          busStop.latitude,
-          busStop.longitude
-        ),
-        latitude: busStop.latitude,
-        longitude: busStop.longitude,
-      };
-    });
+    const allDistances = busStopData
+      .filter((busStop) => busStop.inUse)
+      .map((busStop) => {
+        return {
+          id: busStop.id,
+          distance: calculateDistance(
+            startLocation.latitude,
+            startLocation.longitude,
+            busStop.latitude,
+            busStop.longitude
+          ),
+          latitude: busStop.latitude,
+          longitude: busStop.longitude,
+        };
+      });
     const smallestDistances = allDistances.filter(
       (obj) =>
         obj.distance === Math.min(...allDistances.map((obj) => obj.distance))

@@ -5,6 +5,7 @@ const busStopData = [
     image: require("../images/bus-stops/FAŽANA-A.jpg"),
     latitude: 44.925352,
     longitude: 13.80516,
+    inUse: 1,
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const busStopData = [
     image: require("../images/bus-stops/FAŽANA-A.jpg"),
     latitude: 44.925288,
     longitude: 13.805253,
+    inUse: 1,
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ const busStopData = [
     image: require("../images/bus-stops/FAŽANA-A.jpg"),
     latitude: 44.9253562471183,
     longitude: 13.8051527738571,
+    inUse: 0,
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ const busStopData = [
     image: require("../images/bus-stops/BIVILLAGE-B.jpg"),
     latitude: 44.91706,
     longitude: 13.811762,
+    inUse: 1,
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ const busStopData = [
     image: require("../images/bus-stops/PEROJSKAULICA-A.jpg"),
     latitude: 44.932633,
     longitude: 13.804605,
+    inUse: 1,
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ const busStopData = [
     image: require("../images/bus-stops/PEROJSKAULICA-B.jpg"),
     latitude: 44.932278,
     longitude: 13.805517,
+    inUse: 1,
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ const busStopData = [
     image: require("../images/bus-stops/BIVILLAGE-B.jpg"),
     latitude: 44.9171003643386,
     longitude: 13.8113245368004,
+    inUse: 1,
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ const busStopData = [
     image: require("../images/bus-stops/LAVANDA.jpg"),
     latitude: 44.913992,
     longitude: 13.820396,
+    inUse: 0,
   },
   {
     id: 9,
@@ -61,6 +69,7 @@ const busStopData = [
     image: require("../images/bus-stops/LAVANDA.jpg"),
     latitude: 44.916801,
     longitude: 13.818798,
+    inUse: 0,
   },
   {
     id: 10,
@@ -68,6 +77,7 @@ const busStopData = [
     image: require("../images/bus-stops/VOCARSKA.jpg"),
     latitude: 44.9160500139981,
     longitude: 13.8156750798225,
+    inUse: 0,
   },
   {
     id: 11,
@@ -75,6 +85,7 @@ const busStopData = [
     image: require("../images/bus-stops/ZRACNALUKA.jpg"),
     latitude: 44.901032,
     longitude: 13.91547,
+    inUse: 1,
   },
   {
     id: 12,
@@ -82,6 +93,7 @@ const busStopData = [
     image: require("../images/bus-stops/RAS-MUNTIC-VALTURA.jpg"),
     latitude: 44.903458,
     longitude: 13.931763,
+    inUse: 1,
   },
   {
     id: 13,
@@ -89,6 +101,7 @@ const busStopData = [
     image: require("../images/bus-stops/MUNTIC-OKRETISTE.jpg"),
     latitude: 44.9242946530234,
     longitude: 13.9453759789467,
+    inUse: 1,
   },
   {
     id: 14,
@@ -96,6 +109,7 @@ const busStopData = [
     image: require("../images/bus-stops/VALTURA-1A.jpg"),
     latitude: 44.909683,
     longitude: 13.9541,
+    inUse: 1,
   },
   {
     id: 15,
@@ -103,6 +117,7 @@ const busStopData = [
     image: require("../images/bus-stops/VALTURA-OKRETISTE.jpg"),
     latitude: 44.9061438671847,
     longitude: 13.9579394459724,
+    inUse: 1,
   },
   {
     id: 16,
@@ -110,6 +125,7 @@ const busStopData = [
     image: require("../images/bus-stops/VALTURA-1B.jpg"),
     latitude: 44.909877,
     longitude: 13.953868,
+    inUse: 1,
   },
   {
     id: 18,
@@ -117,6 +133,7 @@ const busStopData = [
     image: require("../images/bus-stops/ZRACNALUKA.jpg"),
     latitude: 44.901068,
     longitude: 13.915413,
+    inUse: 1,
   },
   {
     id: 19,
@@ -124,6 +141,7 @@ const busStopData = [
     image: require("../images/bus-stops/SISAN-1A.jpg"),
     latitude: 44.854542,
     longitude: 13.932375,
+    inUse: 1,
   },
   {
     id: 20,
@@ -131,6 +149,7 @@ const busStopData = [
     image: require("../images/bus-stops/SISAN-2A.jpg"),
     latitude: 44.853097,
     longitude: 13.938968,
+    inUse: 1,
   },
   {
     id: 21,
@@ -138,6 +157,7 @@ const busStopData = [
     image: require("../images/bus-stops/LIZNJAN-A.jpg"),
     latitude: 44.829309,
     longitude: 13.954576,
+    inUse: 1,
   },
   {
     id: 22,
@@ -145,6 +165,7 @@ const busStopData = [
     image: require("../images/bus-stops/LIZNJAN-B.jpg"),
     latitude: 44.829436,
     longitude: 13.954595,
+    inUse: 1,
   },
   {
     id: 23,
@@ -152,6 +173,7 @@ const busStopData = [
     image: require("../images/bus-stops/SISAN-2B.jpg"),
     latitude: 44.853165,
     longitude: 13.938973,
+    inUse: 1,
   },
   {
     id: 24,
@@ -159,6 +181,7 @@ const busStopData = [
     image: require("../images/bus-stops/SISAN-1B.jpg"),
     latitude: 44.854813,
     longitude: 13.929166,
+    inUse: 1,
   },
   {
     id: 25,
@@ -166,6 +189,7 @@ const busStopData = [
     image: require("../images/bus-stops/RAS-MUNTIC-VALTURA-IZ-VALTURE.jpg"),
     latitude: 44.903336,
     longitude: 13.93182,
+    inUse: 1,
   },
   {
     id: 27,
@@ -173,6 +197,7 @@ const busStopData = [
     image: require("../images/bus-stops/RAS-MUNTIC-VALTURA-IZ-MUNTICA.jpg"),
     latitude: 44.903322,
     longitude: 13.93164,
+    inUse: 1,
   },
   {
     id: 28,
@@ -180,6 +205,7 @@ const busStopData = [
     image: require("../images/bus-stops/SISAN-3A.jpg"),
     latitude: 44.8502784987759,
     longitude: 13.9431738853455,
+    inUse: 1,
   },
   {
     id: 29,
@@ -187,6 +213,7 @@ const busStopData = [
     image: require("../images/bus-stops/SISAN-3B.jpg"),
     latitude: 44.850275,
     longitude: 13.943105,
+    inUse: 1,
   },
   {
     id: 30,
@@ -194,6 +221,7 @@ const busStopData = [
     image: require("../images/bus-stops/LIZNJAN-SKOLA-A.jpg"),
     latitude: 44.827848,
     longitude: 13.958254,
+    inUse: 1,
   },
   {
     id: 31,
@@ -201,6 +229,7 @@ const busStopData = [
     image: require("../images/bus-stops/LIZNJAN-SKOLA-B.jpg"),
     latitude: 44.82811,
     longitude: 13.958218,
+    inUse: 1,
   },
   {
     id: 32,
@@ -208,6 +237,7 @@ const busStopData = [
     image: require("../images/bus-stops/JADRESKI-OKRETISTE.jpg"),
     latitude: 44.8682530205212,
     longitude: 13.918773829937,
+    inUse: 1,
   },
   {
     id: 33,
@@ -215,6 +245,7 @@ const busStopData = [
     image: require("../images/bus-stops/JADRESKI-OKRETISTE.jpg"),
     latitude: 44.8682796340147,
     longitude: 13.9187550544739,
+    inUse: 1,
   },
   {
     id: 34,
@@ -222,6 +253,7 @@ const busStopData = [
     image: require("../images/bus-stops/MEDULIN-CRKVA-A.jpg"),
     latitude: 44.823118,
     longitude: 13.939526,
+    inUse: 1,
   },
   {
     id: 35,
@@ -229,6 +261,7 @@ const busStopData = [
     image: require("../images/bus-stops/MEDULIN-CENTAR-A.jpg"),
     latitude: 44.820879,
     longitude: 13.93736,
+    inUse: 1,
   },
   {
     id: 36,
@@ -236,6 +269,7 @@ const busStopData = [
     image: require("../images/bus-stops/MEDULIN-OBALA-A.jpg"),
     latitude: 44.8199730097183,
     longitude: 13.9324396848679,
+    inUse: 1,
   },
   {
     id: 37,
@@ -243,6 +277,7 @@ const busStopData = [
     image: require("../images/bus-stops/MEDULIN-A-HOTEL.jpg"),
     latitude: 44.815284,
     longitude: 13.938066,
+    inUse: 1,
   },
   {
     id: 38,
@@ -250,6 +285,7 @@ const busStopData = [
     image: require("../images/bus-stops/MEDULIN-A-HOTEL-BELVERDE.jpg"),
     latitude: 44.8125791950167,
     longitude: 13.9428922533989,
+    inUse: 1,
   },
   {
     id: 39,
@@ -257,6 +293,7 @@ const busStopData = [
     image: require("../images/bus-stops/MEDULIN-B-HOTEL-BELVERDE.jpg"),
     latitude: 44.812674,
     longitude: 13.942773,
+    inUse: 1,
   },
   {
     id: 40,
@@ -264,6 +301,7 @@ const busStopData = [
     image: require("../images/bus-stops/MEDULIN-B-HOTEL-BELVERDE.jpg"),
     latitude: 44.815246,
     longitude: 13.938326,
+    inUse: 1,
   },
   {
     id: 41,
@@ -271,6 +309,7 @@ const busStopData = [
     image: require("../images/bus-stops/MEDULIN-OBALA-B.jpg"),
     latitude: 44.820284,
     longitude: 13.932109,
+    inUse: 1,
   },
   {
     id: 42,
@@ -278,6 +317,7 @@ const busStopData = [
     image: require("../images/bus-stops/MEDULIN-SPOMENIK-B.jpg"),
     latitude: 44.824088,
     longitude: 13.932985,
+    inUse: 1,
   },
   {
     id: 43,
@@ -285,6 +325,7 @@ const busStopData = [
     image: require("../images/bus-stops/MEDULIN-CRKVA-B.jpg"),
     latitude: 44.823119,
     longitude: 13.939277,
+    inUse: 1,
   },
   {
     id: 44,
@@ -292,6 +333,7 @@ const busStopData = [
     image: require("../images/bus-stops/RAS-PREMANTURSKA-VINKURAN-A.jpg"),
     latitude: 44.837439,
     longitude: 13.874231,
+    inUse: 1,
   },
   {
     id: 45,
@@ -299,6 +341,7 @@ const busStopData = [
     image: require("../images/bus-stops/KAMIK-A.jpg"),
     latitude: 44.825611,
     longitude: 13.876868,
+    inUse: 1,
   },
   {
     id: 46,
@@ -306,6 +349,7 @@ const busStopData = [
     image: require("../images/bus-stops/BANJOLE-SKOLA.jpg"),
     latitude: 44.8257507890678,
     longitude: 13.8704511523247,
+    inUse: 1,
   },
   {
     id: 47,
@@ -313,6 +357,7 @@ const busStopData = [
     image: require("../images/bus-stops/POMER-OKRETISTE.jpg"),
     latitude: 44.8241261444058,
     longitude: 13.8961279392242,
+    inUse: 1,
   },
   {
     id: 48,
@@ -320,6 +365,7 @@ const busStopData = [
     image: require("../images/bus-stops/PREMANTURA-A(CENTAR).jpg"),
     latitude: 44.801339,
     longitude: 13.909653,
+    inUse: 1,
   },
   {
     id: 49,
@@ -327,6 +373,7 @@ const busStopData = [
     image: require("../images/bus-stops/PREMANTURA-GROBLJE-A.jpg"),
     latitude: 44.805492,
     longitude: 13.908805,
+    inUse: 1,
   },
   {
     id: 50,
@@ -334,6 +381,7 @@ const busStopData = [
     image: require("../images/bus-stops/PREMANTURA-GROBLJE-B.jpg"),
     latitude: 44.805641,
     longitude: 13.90932,
+    inUse: 1,
   },
   {
     id: 51,
@@ -341,6 +389,7 @@ const busStopData = [
     image: require("../images/bus-stops/KAMIK-B.jpg"),
     latitude: 44.825629037425,
     longitude: 13.8766041398048,
+    inUse: 0,
   },
   {
     id: 52,
@@ -348,6 +397,7 @@ const busStopData = [
     image: require("../images/bus-stops/RAS-PREMANTURSKA-VINKURAN-B.jpg"),
     latitude: 44.8356232303977,
     longitude: 13.8756251335144,
+    inUse: 1,
   },
   {
     id: 53,
@@ -355,6 +405,7 @@ const busStopData = [
     image: require("../images/bus-stops/PREMANTURSKA-B(VALDEBEK).jpg"),
     latitude: 44.853492,
     longitude: 13.86446,
+    inUse: 0,
   },
   {
     id: 54,
@@ -362,6 +413,7 @@ const busStopData = [
     image: require("../images/bus-stops/PJEŠČANA-UVALA-A.jpg"),
     latitude: 44.839907,
     longitude: 13.849004,
+    inUse: 1,
   },
   {
     id: 55,
@@ -369,6 +421,7 @@ const busStopData = [
     image: require("../images/bus-stops/PJEŠČANA-UVALA-1-A(SPOMENIK).jpg"),
     latitude: 44.837503,
     longitude: 13.848885,
+    inUse: 1,
   },
   {
     id: 56,
@@ -376,6 +429,7 @@ const busStopData = [
     image: require("../images/bus-stops/VINKURAN-ŠKOLA.jpg"),
     latitude: 44.835528,
     longitude: 13.865072,
+    inUse: 1,
   },
   {
     id: 57,
@@ -383,6 +437,7 @@ const busStopData = [
     image: require("../images/bus-stops/VINKURAN-B.jpg"),
     latitude: 44.833981745136,
     longitude: 13.8680881261826,
+    inUse: 0,
   },
   {
     id: 58,
@@ -390,6 +445,7 @@ const busStopData = [
     image: require("../images/bus-stops/VINKURAN-SKOLA-B.jpg"),
     latitude: 44.835589,
     longitude: 13.865182,
+    inUse: 1,
   },
   {
     id: 59,
@@ -397,6 +453,7 @@ const busStopData = [
     image: require("../images/bus-stops/PJEŠČANA-UVALA-1-B-(SPOMENIK).jpg"),
     latitude: 44.837145,
     longitude: 13.849367,
+    inUse: 1,
   },
   {
     id: 60,
@@ -404,6 +461,7 @@ const busStopData = [
     image: require("../images/bus-stops/PJESCANA-UVALA-B.jpg"),
     latitude: 44.840258,
     longitude: 13.850113,
+    inUse: 1,
   },
   {
     id: 61,
@@ -411,6 +469,7 @@ const busStopData = [
     image: require("../images/bus-stops/RAS-VINKURAN-PREMANTURSKA-B.jpg"),
     latitude: 44.83565,
     longitude: 13.875586,
+    inUse: 0,
   },
   {
     id: 62,
@@ -418,6 +477,7 @@ const busStopData = [
     image: require("../images/bus-stops/VINTIJAN-B-(VIA-KAMENOLOM).jpg"),
     latitude: 44.843545,
     longitude: 13.862733,
+    inUse: 0,
   },
   {
     id: 63,
@@ -425,6 +485,7 @@ const busStopData = [
     image: require("../images/bus-stops/AC-KAZELA.jpg"),
     latitude: 44.8071426333705,
     longitude: 13.9501959085464,
+    inUse: 1,
   },
   {
     id: 64,
@@ -432,6 +493,7 @@ const busStopData = [
     image: require("../images/bus-stops/COTA-A.jpg"),
     latitude: 44.835402,
     longitude: 13.874443,
+    inUse: 1,
   },
   {
     id: 65,
@@ -439,6 +501,7 @@ const busStopData = [
     image: require("../images/bus-stops/VINKURAN-A.jpg"),
     latitude: 44.834255,
     longitude: 13.867935,
+    inUse: 1,
   },
   {
     id: 66,
@@ -446,6 +509,7 @@ const busStopData = [
     image: require("../images/bus-stops/VINKURAN-B-2.jpg"),
     latitude: 44.8344154213373,
     longitude: 13.8683992624283,
+    inUse: 1,
   },
   {
     id: 67,
@@ -453,6 +517,7 @@ const busStopData = [
     image: require("../images/bus-stops/PREMANTURA-B(CENTAR).jpg"),
     latitude: 44.80140676227,
     longitude: 13.9097937941551,
+    inUse: 1,
   },
   {
     id: 68,
@@ -460,6 +525,7 @@ const busStopData = [
     image: require("../images/bus-stops/PREMANTURA-OKRETISTE-(STUPICE).jpg"),
     latitude: 44.797878,
     longitude: 13.91368,
+    inUse: 1,
   },
   {
     id: 69,
@@ -467,6 +533,7 @@ const busStopData = [
     image: require("../images/bus-stops/NOVI-VINTIJAN-B.jpg"),
     latitude: 44.847184,
     longitude: 13.86357,
+    inUse: 0,
   },
   {
     id: 70,
@@ -474,6 +541,7 @@ const busStopData = [
     image: require("../images/bus-stops/PUT-ZA-LIVADINE.jpg"),
     latitude: 44.844234,
     longitude: 13.854456,
+    inUse: 1,
   },
   {
     id: 71,
@@ -481,6 +549,7 @@ const busStopData = [
     image: require("../images/bus-stops/PUT-ZA-LIVADINE.jpg"),
     latitude: 44.844203,
     longitude: 13.854612,
+    inUse: 1,
   },
   {
     id: 72,
@@ -488,6 +557,7 @@ const busStopData = [
     image: require("../images/bus-stops/MUSOGA-A.jpg"),
     latitude: 44.824772,
     longitude: 13.878644,
+    inUse: 1,
   },
   {
     id: 73,
@@ -495,6 +565,7 @@ const busStopData = [
     image: require("../images/bus-stops/AUTOBUSNI-KOLODVOR-A.jpg"),
     latitude: 44.8762118075772,
     longitude: 13.8546985387802,
+    inUse: 1,
   },
   {
     id: 74,
@@ -502,6 +573,7 @@ const busStopData = [
     image: require("../images/bus-stops/SVETOG-IVANA-A.jpg"),
     latitude: 44.872037,
     longitude: 13.847135,
+    inUse: 1,
   },
   {
     id: 75,
@@ -509,6 +581,7 @@ const busStopData = [
     image: require("../images/bus-stops/GIARDINI-A.jpg"),
     latitude: 44.869668,
     longitude: 13.848492,
+    inUse: 1,
   },
   {
     id: 76,
@@ -516,6 +589,7 @@ const busStopData = [
     image: require("../images/bus-stops/ARSENALSKA-A.jpg"),
     latitude: 44.866257,
     longitude: 13.844067,
+    inUse: 1,
   },
   {
     id: 77,
@@ -523,6 +597,7 @@ const busStopData = [
     image: require("../images/bus-stops/BECKA-A.jpg"),
     latitude: 44.863072,
     longitude: 13.840057,
+    inUse: 1,
   },
   {
     id: 78,
@@ -530,6 +605,7 @@ const busStopData = [
     image: require("../images/bus-stops/JERETOVA-1-A.jpg"),
     latitude: 44.861943,
     longitude: 13.834378,
+    inUse: 1,
   },
   {
     id: 79,
@@ -537,6 +613,7 @@ const busStopData = [
     image: require("../images/bus-stops/JERETOVA-2-A.jpg"),
     latitude: 44.861467,
     longitude: 13.829488,
+    inUse: 1,
   },
   {
     id: 80,
@@ -544,6 +621,7 @@ const busStopData = [
     image: require("../images/bus-stops/MAX-STOJA-A.jpg"),
     latitude: 44.859797,
     longitude: 13.823952,
+    inUse: 1,
   },
   {
     id: 81,
@@ -551,6 +629,7 @@ const busStopData = [
     image: require("../images/bus-stops/FIZELA-A.jpg"),
     latitude: 44.8612532445468,
     longitude: 13.8203501701355,
+    inUse: 1,
   },
   {
     id: 82,
@@ -558,6 +637,7 @@ const busStopData = [
     image: require("../images/bus-stops/OKRETISTE-STOJA.jpg"),
     latitude: 44.859891,
     longitude: 13.814525,
+    inUse: 1,
   },
   {
     id: 83,
@@ -565,6 +645,7 @@ const busStopData = [
     image: require("../images/bus-stops/FIZELA-B.jpg"),
     latitude: 44.861798885047,
     longitude: 13.8189581036568,
+    inUse: 1,
   },
   {
     id: 84,
@@ -572,6 +653,7 @@ const busStopData = [
     image: require("../images/bus-stops/MAX-STOJA-B.jpg"),
     latitude: 44.859482,
     longitude: 13.824495,
+    inUse: 1,
   },
   {
     id: 85,
@@ -579,6 +661,7 @@ const busStopData = [
     image: require("../images/bus-stops/JERETOVA-3-B.jpg"),
     latitude: 44.861252,
     longitude: 13.828931,
+    inUse: 1,
   },
   {
     id: 86,
@@ -586,6 +669,7 @@ const busStopData = [
     image: require("../images/bus-stops/JERETOVA-2-B.jpg"),
     latitude: 44.861499,
     longitude: 13.831832,
+    inUse: 1,
   },
   {
     id: 87,
@@ -593,6 +677,7 @@ const busStopData = [
     image: require("../images/bus-stops/JERETOVA-1-B.jpg"),
     latitude: 44.862102,
     longitude: 13.835546,
+    inUse: 1,
   },
   {
     id: 88,
@@ -600,6 +685,7 @@ const busStopData = [
     image: require("../images/bus-stops/ARSENALSKA-B.jpg"),
     latitude: 44.863597,
     longitude: 13.841173,
+    inUse: 1,
   },
   {
     id: 89,
@@ -607,6 +693,7 @@ const busStopData = [
     image: require("../images/bus-stops/DOBRILINA-B-(DOM-BRANITELJA).jpg"),
     latitude: 44.866978,
     longitude: 13.846292,
+    inUse: 1,
   },
   {
     id: 90,
@@ -614,6 +701,7 @@ const busStopData = [
     image: require("../images/bus-stops/GIARDINI-B-(GHETALDUS).jpg"),
     latitude: 44.868794,
     longitude: 13.848283,
+    inUse: 1,
   },
   {
     id: 91,
@@ -621,6 +709,7 @@ const busStopData = [
     image: require("../images/bus-stops/ISTARSKA-B-(FINA).jpg"),
     latitude: 44.8701330434719,
     longitude: 13.8485938310623,
+    inUse: 1,
   },
   {
     id: 92,
@@ -628,6 +717,7 @@ const busStopData = [
     image: require("../images/bus-stops/FLAVIJEVSKA-1-B.jpg"),
     latitude: 44.8738795997035,
     longitude: 13.8497149944305,
+    inUse: 1,
   },
   {
     id: 93,
@@ -635,6 +725,7 @@ const busStopData = [
     image: require("../images/bus-stops/FLAVIJEVSKA-2-B.jpg"),
     latitude: 44.875768,
     longitude: 13.850981,
+    inUse: 1,
   },
   {
     id: 94,
@@ -642,6 +733,7 @@ const busStopData = [
     image: require("../images/bus-stops/JURIJA-ŽAKNA-2-A-(PORED-PLODINA).jpg"),
     latitude: 44.879122,
     longitude: 13.863421,
+    inUse: 1,
   },
   {
     id: 95,
@@ -649,6 +741,7 @@ const busStopData = [
     image: require("../images/bus-stops/MORNARIČKI-TRG-A.jpg"),
     latitude: 44.862502,
     longitude: 13.839743,
+    inUse: 1,
   },
   {
     id: 96,
@@ -656,6 +749,7 @@ const busStopData = [
     image: require("../images/bus-stops/JURIJA-ŽAKNA-A.jpg"),
     latitude: 44.876333,
     longitude: 13.863823,
+    inUse: 1,
   },
   {
     id: 97,
@@ -663,6 +757,7 @@ const busStopData = [
     image: require("../images/bus-stops/MALA-VALA-2-A.jpg"),
     latitude: 44.911022,
     longitude: 13.822723,
+    inUse: 0,
   },
   {
     id: 98,
@@ -670,6 +765,7 @@ const busStopData = [
     image: require("../images/bus-stops/43-ISTARSKE-DIVIZIJE-1-B-(OS-SIJANA).jpg"),
     latitude: 44.87699,
     longitude: 13.8543,
+    inUse: 1,
   },
   {
     id: 99,
@@ -677,6 +773,7 @@ const busStopData = [
     image: require("../images/bus-stops/TOMASINIJEVA-1-A.jpg"),
     latitude: 44.8598653551618,
     longitude: 13.8392972946167,
+    inUse: 1,
   },
   {
     id: 100,
@@ -684,6 +781,7 @@ const busStopData = [
     image: require("../images/bus-stops/TOMASINIJEVA-2-A.jpg"),
     latitude: 44.856299,
     longitude: 13.838595,
+    inUse: 1,
   },
   {
     id: 101,
@@ -691,6 +789,7 @@ const busStopData = [
     image: require("../images/bus-stops/VERUDA-1-A.jpg"),
     latitude: 44.854202,
     longitude: 13.838443,
+    inUse: 1,
   },
   {
     id: 102,
@@ -698,6 +797,7 @@ const busStopData = [
     image: require("../images/bus-stops/VERUDA-2-A.jpg"),
     latitude: 44.85049,
     longitude: 13.840856,
+    inUse: 1,
   },
   {
     id: 103,
@@ -705,6 +805,7 @@ const busStopData = [
     image: require("../images/bus-stops/VERUDELA-1-A.jpg"),
     latitude: 44.846611,
     longitude: 13.84064,
+    inUse: 1,
   },
   {
     id: 104,
@@ -712,6 +813,7 @@ const busStopData = [
     image: require("../images/bus-stops/VERUDELA-2-A.jpg"),
     latitude: 44.8420517723213,
     longitude: 13.8386669754982,
+    inUse: 1,
   },
   {
     id: 105,
@@ -719,6 +821,7 @@ const busStopData = [
     image: require("../images/bus-stops/VERUDELA-OKRETISTE.jpg"),
     latitude: 44.839012,
     longitude: 13.834112,
+    inUse: 1,
   },
   {
     id: 106,
@@ -726,6 +829,7 @@ const busStopData = [
     image: require("../images/bus-stops/VERUDELA-2-B.jpg"),
     latitude: 44.8411122609467,
     longitude: 13.8380688428879,
+    inUse: 1,
   },
   {
     id: 107,
@@ -733,6 +837,7 @@ const busStopData = [
     image: require("../images/bus-stops/VERUDELA-1-B.jpg"),
     latitude: 44.8455187029625,
     longitude: 13.8403567671776,
+    inUse: 1,
   },
   {
     id: 108,
@@ -740,6 +845,7 @@ const busStopData = [
     image: require("../images/bus-stops/TOMASINIJEVA-2-B.jpg"),
     latitude: 44.857403,
     longitude: 13.839173,
+    inUse: 1,
   },
   {
     id: 109,
@@ -747,6 +853,7 @@ const busStopData = [
     image: require("../images/bus-stops/TOMASINIJEVA-1-A.jpg"),
     latitude: 44.859617,
     longitude: 13.83951,
+    inUse: 1,
   },
   {
     id: 110,
@@ -754,6 +861,7 @@ const busStopData = [
     image: require("../images/bus-stops/ZAGREBAČKA-A-(GIMNAZIJA-ZUTA-SKOLA).jpg"),
     latitude: 44.868614,
     longitude: 13.851506,
+    inUse: 1,
   },
   {
     id: 111,
@@ -761,6 +869,7 @@ const busStopData = [
     image: require("../images/bus-stops/MLETACKA-A-(ROBNA KUCA).jpg"),
     latitude: 44.866537,
     longitude: 13.850558,
+    inUse: 1,
   },
   {
     id: 112,
@@ -768,6 +877,7 @@ const busStopData = [
     image: require("../images/bus-stops/MARULICEVA-A.jpg"),
     latitude: 44.862603,
     longitude: 13.84836,
+    inUse: 1,
   },
   {
     id: 113,
@@ -775,6 +885,7 @@ const busStopData = [
     image: require("../images/bus-stops/KRANJCEVICEVA-A.jpg"),
     latitude: 44.860796,
     longitude: 13.846956,
+    inUse: 1,
   },
   {
     id: 114,
@@ -782,6 +893,7 @@ const busStopData = [
     image: require("../images/bus-stops/RIZZIJEVA-A.jpg"),
     latitude: 44.857718,
     longitude: 13.845233,
+    inUse: 1,
   },
   {
     id: 116,
@@ -789,6 +901,7 @@ const busStopData = [
     image: require("../images/bus-stops/VOLTICEVA-A.jpg"),
     latitude: 44.8544959995319,
     longitude: 13.8456863164902,
+    inUse: 1,
   },
   {
     id: 117,
@@ -796,6 +909,7 @@ const busStopData = [
     image: require("../images/bus-stops/MONTE-PARADISO-1-A.jpg"),
     latitude: 44.8523378490468,
     longitude: 13.8445195555687,
+    inUse: 1,
   },
   {
     id: 118,
@@ -803,6 +917,7 @@ const busStopData = [
     image: require("../images/bus-stops/VIDIKOVAC-1-A.jpg"),
     latitude: 44.851349,
     longitude: 13.845817,
+    inUse: 1,
   },
   {
     id: 119,
@@ -810,6 +925,7 @@ const busStopData = [
     image: require("../images/bus-stops/VIDIKOVAC-2-A-(Gervaisova).jpg"),
     latitude: 44.8516247859575,
     longitude: 13.8482424616814,
+    inUse: 1,
   },
   {
     id: 120,
@@ -817,6 +933,7 @@ const busStopData = [
     image: require("../images/bus-stops/PALISINA-1-A.jpg"),
     latitude: 44.850451,
     longitude: 13.849037,
+    inUse: 1,
   },
   {
     id: 121,
@@ -824,6 +941,7 @@ const busStopData = [
     image: require("../images/bus-stops/PALISINA-2-A.jpg"),
     latitude: 44.8477950107595,
     longitude: 13.8472634553909,
+    inUse: 1,
   },
   {
     id: 122,
@@ -831,6 +949,7 @@ const busStopData = [
     image: require("../images/bus-stops/MONTE-PARADISO-3-A.jpg"),
     latitude: 44.848416,
     longitude: 13.843079,
+    inUse: 1,
   },
   {
     id: 123,
@@ -838,6 +957,7 @@ const busStopData = [
     image: require("../images/bus-stops/MONTE-PARADISO-3-B.jpg"),
     latitude: 44.848578,
     longitude: 13.843088,
+    inUse: 1,
   },
   {
     id: 124,
@@ -845,6 +965,7 @@ const busStopData = [
     image: require("../images/bus-stops/MONTE-PARADISO-2-B.jpg"),
     latitude: 44.850379,
     longitude: 13.84346,
+    inUse: 1,
   },
   {
     id: 125,
@@ -852,6 +973,7 @@ const busStopData = [
     image: require("../images/bus-stops/MONTE-PARADISO-1-B.jpg"),
     latitude: 44.852379,
     longitude: 13.84464,
+    inUse: 1,
   },
   {
     id: 126,
@@ -859,6 +981,7 @@ const busStopData = [
     image: require("../images/bus-stops/VOLTICEVA-B.jpg"),
     latitude: 44.8545207179677,
     longitude: 13.8456755876541,
+    inUse: 1,
   },
   {
     id: 127,
@@ -866,6 +989,7 @@ const busStopData = [
     image: require("../images/bus-stops/RIZZIJEVA-B.jpg"),
     latitude: 44.857568,
     longitude: 13.845825,
+    inUse: 1,
   },
   {
     id: 128,
@@ -873,6 +997,7 @@ const busStopData = [
     image: require("../images/bus-stops/KRANJCEVICEVA-B.jpg"),
     latitude: 44.860455,
     longitude: 13.848178,
+    inUse: 1,
   },
   {
     id: 129,
@@ -880,6 +1005,7 @@ const busStopData = [
     image: require("../images/bus-stops/TRG-REPUBLIKE-B(MUP-CENTAR).jpg"),
     latitude: 44.8656315311116,
     longitude: 13.8501092791557,
+    inUse: 1,
   },
   {
     id: 130,
@@ -887,6 +1013,7 @@ const busStopData = [
     image: require("../images/bus-stops/ZAGREBAČKA-A-(GIMNAZIJA-ZUTA-SKOLA).jpg"),
     latitude: 44.8686313111661,
     longitude: 13.8515496253967,
+    inUse: 1,
   },
   {
     id: 131,
@@ -894,6 +1021,7 @@ const busStopData = [
     image: require("../images/bus-stops/VIDIKOVAC-1-B.jpg"),
     latitude: 44.8514460434259,
     longitude: 13.8471400737762,
+    inUse: 1,
   },
   {
     id: 132,
@@ -901,6 +1029,7 @@ const busStopData = [
     image: require("../images/bus-stops/PALISINA-2-B.jpg"),
     latitude: 44.8478216337103,
     longitude: 13.8474297523499,
+    inUse: 1,
   },
   {
     id: 133,
@@ -908,6 +1037,7 @@ const busStopData = [
     image: require("../images/bus-stops/PALISINA-1-B.jpg"),
     latitude: 44.85019,
     longitude: 13.848918,
+    inUse: 1,
   },
   {
     id: 134,
@@ -915,6 +1045,7 @@ const busStopData = [
     image: require("../images/bus-stops/PREKOMORSKIH-BRIGADA-BORGESE-B.jpg"),
     latitude: 44.8480574364518,
     longitude: 13.8430497050285,
+    inUse: 1,
   },
   {
     id: 135,
@@ -922,6 +1053,7 @@ const busStopData = [
     image: require("../images/bus-stops/VERUDA-1-B.jpg"),
     latitude: 44.854568,
     longitude: 13.838308,
+    inUse: 1,
   },
   {
     id: 136,
@@ -929,6 +1061,7 @@ const busStopData = [
     image: require("../images/bus-stops/VERUDA-2-B.jpg"),
     latitude: 44.8512520881364,
     longitude: 13.8407832384109,
+    inUse: 1,
   },
   {
     id: 137,
@@ -936,6 +1069,7 @@ const busStopData = [
     image: require("../images/bus-stops/NARODNI-TRG-A.jpg"),
     latitude: 44.866592,
     longitude: 13.848992,
+    inUse: 1,
   },
   {
     id: 138,
@@ -943,6 +1077,7 @@ const busStopData = [
     image: require("../images/bus-stops/STANKOVICEVA-1-B.jpg"),
     latitude: 44.868759,
     longitude: 13.852998,
+    inUse: 1,
   },
   {
     id: 139,
@@ -950,6 +1085,7 @@ const busStopData = [
     image: require("../images/bus-stops/STANKOVICEVA-2-B.jpg"),
     latitude: 44.872629,
     longitude: 13.854655,
+    inUse: 1,
   },
   {
     id: 140,
@@ -957,6 +1093,7 @@ const busStopData = [
     image: require("../images/bus-stops/KOPARSKA-B.jpg"),
     latitude: 44.877155,
     longitude: 13.86065,
+    inUse: 1,
   },
   {
     id: 141,
@@ -964,6 +1101,7 @@ const busStopData = [
     image: require("../images/bus-stops/VALICA-B.jpg"),
     latitude: 44.885978,
     longitude: 13.865866,
+    inUse: 1,
   },
   {
     id: 142,
@@ -971,6 +1109,7 @@ const busStopData = [
     image: require("../images/bus-stops/ŠIJANSKA-UL-B-(KONZUM).jpg"),
     latitude: 44.884755,
     longitude: 13.871676,
+    inUse: 1,
   },
   {
     id: 143,
@@ -978,6 +1117,7 @@ const busStopData = [
     image: require("../images/bus-stops/VELI-VRH-OKRETISTE-A.jpg"),
     latitude: 44.909893,
     longitude: 13.856228,
+    inUse: 0,
   },
   {
     id: 144,
@@ -985,6 +1125,7 @@ const busStopData = [
     image: require("../images/bus-stops/PARTIZANSKI-PUT-1-A.jpg"),
     latitude: 44.906215,
     longitude: 13.855053,
+    inUse: 1,
   },
   {
     id: 145,
@@ -992,6 +1133,7 @@ const busStopData = [
     image: require("../images/bus-stops/PARTIZANSKI-PUT-2-A.jpg"),
     latitude: 44.899708,
     longitude: 13.851862,
+    inUse: 1,
   },
   {
     id: 146,
@@ -999,6 +1141,7 @@ const busStopData = [
     image: require("../images/bus-stops/PARTIZANSKI-PUT-3-A.jpg"),
     latitude: 44.896497,
     longitude: 13.850602,
+    inUse: 1,
   },
   {
     id: 147,
@@ -1006,6 +1149,7 @@ const busStopData = [
     image: require("../images/bus-stops/PARTIZANSKI-PUT-4-A.jpg"),
     latitude: 44.891507,
     longitude: 13.850236,
+    inUse: 1,
   },
   {
     id: 148,
@@ -1013,6 +1157,7 @@ const busStopData = [
     image: require("../images/bus-stops/PARTIZANSKI-PUT-5-A.jpg"),
     latitude: 44.887817,
     longitude: 13.849989,
+    inUse: 1,
   },
   {
     id: 149,
@@ -1020,6 +1165,7 @@ const busStopData = [
     image: require("../images/bus-stops/UL-119-BRIGADE-A.jpg"),
     latitude: 44.8791122048109,
     longitude: 13.8463971018791,
+    inUse: 1,
   },
   {
     id: 150,
@@ -1027,286 +1173,327 @@ const busStopData = [
     image: require("../images/bus-stops/VERUDA-3-B.jpg"),
     latitude: 44.856312,
     longitude: 13.835353,
+    inUse: 1,
   },
   {
     id: 151,
     name: "SISPLAC",
-    image: "",
+    image: require("../images/bus-stops/SISPLAC.jpg"),
     latitude: 44.8573860831941,
     longitude: 13.830526471138,
+    inUse: 1,
   },
   {
     id: 152,
     name: "UL. 119. BRIGADE -B",
-    image: "",
+    image: require("../images/bus-stops/UL-119-BRIGADE-B.jpg"),
     latitude: 44.8793288734405,
     longitude: 13.8464695215225,
+    inUse: 1,
   },
   {
     id: 153,
     name: "PARTIZANSKI PUT 5-B",
-    image: "",
+    image: require("../images/bus-stops/PARTIZANSKI-PUT-5-B.jpg"),
     latitude: 44.88763,
     longitude: 13.850039,
+    inUse: 1,
   },
   {
     id: 154,
     name: "PARTIZANSKI PUT 4-B",
-    image: "",
+    image: require("../images/bus-stops/PARTIZANSKI-PUT-4-B.jpg"),
     latitude: 44.891047,
     longitude: 13.850267,
+    inUse: 1,
   },
   {
     id: 155,
     name: "PARTIZANSKI PUT 3-B",
-    image: "",
+    image: require("../images/bus-stops/PARTIZANSKI-PUT-3-B.jpg"),
     latitude: 44.895706,
     longitude: 13.850544,
+    inUse: 1,
   },
   {
     id: 156,
     name: "PARTIZANSKI PUT 2-B",
-    image: "",
+    image: require("../images/bus-stops/PARTIZANSKI-PUT-2-B.jpg"),
     latitude: 44.900042,
     longitude: 13.852084,
+    inUse: 1,
   },
   {
     id: 157,
     name: "PARTIZANSKI PUT 1-B",
-    image: "",
+    image: require("../images/bus-stops/PARTIZANSKI-PUT-1-B.jpg"),
     latitude: 44.905687,
     longitude: 13.85485,
+    inUse: 1,
   },
   {
     id: 158,
     name: "JURIJA ŽAKNA -B",
-    image: "",
+    image: require("../images/bus-stops/JURIJA-ŽAKNA-A.jpg"),
     latitude: 44.876299,
     longitude: 13.86381,
+    inUse: 1,
   },
   {
     id: 159,
     name: "AUTOBUSNI KOLODVOR -B",
-    image: "",
+    image: require("../images/bus-stops/43-ISTARSKE-DIVIZIJE-1-B-(OS-SIJANA).jpg"),
     latitude: 44.876966,
     longitude: 13.854119,
+    inUse: 1,
   },
   {
     id: 160,
     name: "43. ISTARSKE DIVIZIJE 2-A (PAPA)",
-    image: "",
+    image: require("../images/bus-stops/43-ISTARSKE-DIVIZIJE-2-A-(PAPA).jpg"),
     latitude: 44.877983,
     longitude: 13.858723,
+    inUse: 1,
   },
   {
     id: 161,
     name: "CESTA PREKOMORSKIH BRIGADA - A (PLINARA)",
-    image: "",
+    image: require("../images/bus-stops/CESTA-PREKOMORSKIH-BRIGADA-A-(PLINARA).jpg"),
     latitude: 44.8860337940121,
     longitude: 13.8566297292709,
+    inUse: 1,
   },
   {
     id: 162,
     name: "VODNJANSKA -A (VELI VRH)",
-    image: "",
+    image: require("../images/bus-stops/VODNJANSKA-A-(VELI-VRH).jpg"),
     latitude: 44.8910277678268,
     longitude: 13.8460376858711,
+    inUse: 1,
   },
   {
     id: 163,
     name: "PAGANOR -A",
-    image: "",
+    image: require("../images/bus-stops/PAGANOR-A.jpg"),
     latitude: 44.8932471725672,
     longitude: 13.8427546620369,
+    inUse: 1,
   },
   {
     id: 164,
     name: "PADULJ -A",
-    image: "",
+    image: require("../images/bus-stops/PADULJ-A.jpg"),
     latitude: 44.895649,
     longitude: 13.836049,
+    inUse: 1,
   },
   {
     id: 165,
     name: "KAŠTELIR -A",
-    image: "",
+    image: require("../images/bus-stops/KASTELIR-A.jpg"),
     latitude: 44.896959,
     longitude: 13.832541,
+    inUse: 1,
   },
   {
     id: 166,
     name: "FORTIN 1-A (ŠTINJAN ŠTINJANSKA ULICA)",
-    image: "",
+    image: require("../images/bus-stops/FORTIN-1-A-(ŠTINJAN-ŠTINJANSKA-ULICA).jpg"),
     latitude: 44.894498,
     longitude: 13.826768,
+    inUse: 1,
   },
   {
     id: 167,
     name: "FORTIN 2-A (ŠTINJAN FORTIN)",
-    image: "",
+    image: require("../images/bus-stops/FORTIN-2-A-(ŠTINJAN-FORTIN).jpg"),
     latitude: 44.8928861450948,
     longitude: 13.8207149505615,
+    inUse: 1,
   },
   {
     id: 168,
     name: "BALIŽERKA -A (NOVI ŠTINJAN)",
-    image: "",
+    image: require("../images/bus-stops/BALIŽERKA-A-(NOVI-ŠTINJAN).jpg"),
     latitude: 44.894627,
     longitude: 13.81755,
+    inUse: 1,
   },
   {
     id: 169,
     name: "BALIŽERKA 1-A (NOVI ŠTINJAN)",
-    image: "",
+    image: require("../images/bus-stops/BALIŽERKA-1-A.jpg"),
     latitude: 44.8985483149893,
     longitude: 13.8188454508781,
+    inUse: 1,
   },
   {
     id: 170,
     name: "TENISKI TERENIURIDA",
-    image: "",
+    image: require("../images/bus-stops/TENISKI-TERENIURIDA.jpg"),
     latitude: 44.902594,
     longitude: 13.821261,
+    inUse: 1,
   },
   {
     id: 171,
     name: "ŠURIDA -A (BENUSSI)",
-    image: "",
+    image: require("../images/bus-stops/ŠURIDA-A.jpg"),
     latitude: 44.904461,
     longitude: 13.825032,
+    inUse: 0,
   },
   {
     id: 172,
     name: "KAŠTELIR -B",
-    image: "",
+    image: require("../images/bus-stops/KASTELIR-A.jpg"),
     latitude: 44.896829,
     longitude: 13.832489,
+    inUse: 1,
   },
   {
     id: 173,
     name: "PADULJ -B",
-    image: "",
+    image: require("../images/bus-stops/PADULJ-B.jpg"),
     latitude: 44.89516,
     longitude: 13.836772,
+    inUse: 1,
   },
   {
     id: 174,
     name: "PAGANOR -B",
-    image: "",
+    image: require("../images/bus-stops/PAGANOR-B.jpg"),
     latitude: 44.893315,
     longitude: 13.842639,
+    inUse: 1,
   },
   {
     id: 175,
     name: "VODNJANSKA -B (VELI VRH)",
-    image: "",
+    image: require("../images/bus-stops/VODNJANSKA-B-(VELI-VRH).jpg"),
     latitude: 44.8898591256014,
     longitude: 13.846383690834,
+    inUse: 1,
   },
   {
     id: 176,
     name: "43. ISTARSKE DIVIZIJE 2-B (PAPA)",
-    image: "",
+    image: require("../images/bus-stops/43-ISTARSKE-DIVIZIJE-2-A-(PAPA).jpg"),
     latitude: 44.878127,
     longitude: 13.859893,
+    inUse: 1,
   },
   {
     id: 177,
     name: "43. ISTARSKE DIVIZIJE 1-B (BUS KOLODVOR)",
-    image: "",
+    image: require("../images/bus-stops/43-ISTARSKE-DIVIZIJE-1-B-(OS-SIJANA).jpg"),
     latitude: 44.87697,
     longitude: 13.854159,
+    inUse: 1,
   },
   {
     id: 178,
     name: "MUTILSKA 1-A (VRTIĆ)",
-    image: "",
+    image: require("../images/bus-stops/MUTILSKA-1-A-(VRTIĆ).jpg"),
     latitude: 44.864007,
     longitude: 13.854916,
+    inUse: 1,
   },
   {
     id: 179,
     name: "MUTILSKA 2-A (OMV)",
-    image: "",
+    image: require("../images/bus-stops/MUTILSKA-2-A-(OMV).jpg"),
     latitude: 44.862532,
     longitude: 13.861232,
+    inUse: 1,
   },
   {
     id: 180,
     name: "UL. SVETE FELICITE -A",
-    image: "",
+    image: require("../images/bus-stops/UL-SVETE-FELICITE-A.jpg"),
     latitude: 44.861078,
     longitude: 13.866383,
+    inUse: 1,
   },
   {
     id: 181,
     name: "MONTE MAGNO 1-A",
-    image: "",
+    image: require("../images/bus-stops/MONTE-MAGNO-1-A.jpg"),
     latitude: 44.858181,
     longitude: 13.865224,
+    inUse: 1,
   },
   {
     id: 182,
     name: "MIHOVILOVIĆEVA -A",
-    image: "",
+    image: require("../images/bus-stops/MIHOVILOVIĆEVA-A.jpg"),
     latitude: 44.85437,
     longitude: 13.865352,
+    inUse: 1,
   },
   {
     id: 183,
     name: "VALDEBEČKI PUT 1-A",
-    image: "",
+    image: require("../images/bus-stops/VALDEBEČKI-PUT-1-A.jpg"),
     latitude: 44.853622,
     longitude: 13.866778,
+    inUse: 1,
   },
   {
     id: 184,
     name: "VALDEBEČKI PUT 2-A",
-    image: "",
+    image: require("../images/bus-stops/VALDEBEČKI-PUT-2-A.jpg"),
     latitude: 44.8526572984473,
     longitude: 13.8725808262825,
+    inUse: 1,
   },
   {
     id: 185,
     name: "VALDEBEČKI PUT 4-B",
-    image: "",
+    image: require("../images/bus-stops/VALDEBEČKI-PUT-4-B.jpg"),
     latitude: 44.856394,
     longitude: 13.878421,
+    inUse: 1,
   },
   {
     id: 186,
     name: "MEDULINSKA CESTA 1-B (CRKVA)",
-    image: "",
+    image: require("../images/bus-stops/MEDULINSKA-CESTA-1-B-(CRKVA).jpg"),
     latitude: 44.860927,
     longitude: 13.868645,
+    inUse: 1,
   },
   {
     id: 187,
     name: "MUTILSKA 2-B (OMV)",
-    image: "",
+    image: require("../images/bus-stops/MUTILSKA-2-B-(OMV).jpg"),
     latitude: 44.862507,
     longitude: 13.861555,
+    inUse: 1,
   },
   {
     id: 188,
     name: "MUTILSKA 1-B (VRTIĆ)",
-    image: "",
+    image: require("../images/bus-stops/MUTILSKA-1-B-(VRTIĆ).jpg"),
     latitude: 44.864106,
     longitude: 13.854544,
+    inUse: 1,
   },
   {
     id: 189,
     name: "SANTORIOVA 1-A (BOLNICA)",
-    image: "",
+    image: require("../images/bus-stops/SANTORIOVA-1-A-(BOLNICA).jpg"),
     latitude: 44.866836,
     longitude: 13.856873,
+    inUse: 1,
   },
   {
     id: 190,
     name: "SANTORIOVA 2-A (GREGOVICA)",
-    image: "",
+    image: require("../images/bus-stops/SANTORIOVA-2-A-(GREGOVICA).jpg"),
     latitude: 44.8678100941442,
     longitude: 13.8635846972466,
+    inUse: 1,
   },
   {
     id: 191,
@@ -1314,62 +1501,71 @@ const busStopData = [
     image: "",
     latitude: 44.878623,
     longitude: 13.872373,
+    inUse: 0,
   },
   {
     id: 192,
     name: "MONTE ŠERPO 1-B",
-    image: "",
+    image: require("../images/bus-stops/MONTE-ŠERPO-1-B.jpg"),
     latitude: 44.87747,
     longitude: 13.87456,
+    inUse: 1,
   },
   {
     id: 193,
     name: "MONTE ŠERPO 2-B",
-    image: "",
+    image: require("../images/bus-stops/MONTE-ŠERPO-2-B.jpg"),
     latitude: 44.876136,
     longitude: 13.881051,
+    inUse: 1,
   },
   {
     id: 194,
     name: "KOMUNAL -B",
-    image: "",
+    image: require("../images/bus-stops/KOMUNAL-B.jpg"),
     latitude: 44.874276,
     longitude: 13.8837,
+    inUse: 1,
   },
   {
     id: 195,
     name: "VALMADE -B",
-    image: "",
+    image: require("../images/bus-stops/VALMADE-B.jpg"),
     latitude: 44.871965,
     longitude: 13.877921,
+    inUse: 1,
   },
   {
     id: 196,
     name: "VALMADE 1-B (AGROKOKA - HERKULANEA)",
-    image: "",
+    image: require("../images/bus-stops/VALMADE-1-B-(AGROKOKA-HERKULANEA).jpg"),
     latitude: 44.870223,
     longitude: 13.875945,
+    inUse: 1,
   },
   {
     id: 197,
     name: "VALMADE 2-B",
-    image: "",
+    image: require("../images/bus-stops/VALMADE-2-B.jpg"),
     latitude: 44.8697414562926,
     longitude: 13.8735088706017,
+    inUse: 1,
   },
   {
     id: 198,
     name: "SANTORIOVA 2-B (GREGOVICA)",
-    image: "",
+    image: require("../images/bus-stops/SANTORIOVA-2-B-(GREGOVICA).jpg"),
     latitude: 44.86782,
     longitude: 13.863584,
+    inUse: 1,
   },
   {
     id: 199,
     name: "SANTORIOVA 1-B (BOLNICA)",
-    image: "",
+    image: require("../images/bus-stops/SANTORIOVA-1-B-(BOLNICA).jpg"),
     latitude: 44.8669109241067,
     longitude: 13.8588157296181,
+    inUse: 1,
   },
   {
     id: 200,
@@ -1377,6 +1573,7 @@ const busStopData = [
     image: "",
     latitude: 44.952167,
     longitude: 13.799196,
+    inUse: 0,
   },
   {
     id: 202,
@@ -1384,6 +1581,7 @@ const busStopData = [
     image: "",
     latitude: 44.894625,
     longitude: 13.817551,
+    inUse: 1,
   },
   {
     id: 203,
@@ -1391,6 +1589,7 @@ const busStopData = [
     image: "",
     latitude: 44.892673,
     longitude: 13.821428,
+    inUse: 1,
   },
   {
     id: 204,
@@ -1398,6 +1597,7 @@ const busStopData = [
     image: "",
     latitude: 44.894498,
     longitude: 13.826768,
+    inUse: 1,
   },
   {
     id: 205,
@@ -1405,6 +1605,7 @@ const busStopData = [
     image: "",
     latitude: 44.9076997106404,
     longitude: 13.8473197817802,
+    inUse: 1,
   },
   {
     id: 206,
@@ -1412,6 +1613,7 @@ const busStopData = [
     image: "",
     latitude: 44.903782,
     longitude: 13.846091,
+    inUse: 1,
   },
   {
     id: 207,
@@ -1419,6 +1621,7 @@ const busStopData = [
     image: "",
     latitude: 44.8906040189997,
     longitude: 13.882936835289,
+    inUse: 1,
   },
   {
     id: 208,
@@ -1426,6 +1629,7 @@ const busStopData = [
     image: "",
     latitude: 44.8908947528361,
     longitude: 13.8830602169037,
+    inUse: 1,
   },
   {
     id: 209,
@@ -1433,6 +1637,7 @@ const busStopData = [
     image: "",
     latitude: 44.866265,
     longitude: 13.87469,
+    inUse: 1,
   },
   {
     id: 210,
@@ -1440,6 +1645,7 @@ const busStopData = [
     image: "",
     latitude: 44.864853,
     longitude: 13.881228,
+    inUse: 1,
   },
   {
     id: 211,
@@ -1447,6 +1653,7 @@ const busStopData = [
     image: "",
     latitude: 44.861745,
     longitude: 13.895025,
+    inUse: 1,
   },
   {
     id: 212,
@@ -1454,6 +1661,7 @@ const busStopData = [
     image: "",
     latitude: 44.857532484888,
     longitude: 13.9143347740173,
+    inUse: 1,
   },
   {
     id: 213,
@@ -1461,6 +1669,7 @@ const busStopData = [
     image: "",
     latitude: 44.8579089446774,
     longitude: 13.9145144820213,
+    inUse: 1,
   },
   {
     id: 214,
@@ -1468,6 +1677,7 @@ const busStopData = [
     image: "",
     latitude: 44.861812,
     longitude: 13.894923,
+    inUse: 1,
   },
   {
     id: 215,
@@ -1475,6 +1685,7 @@ const busStopData = [
     image: "",
     latitude: 44.865302,
     longitude: 13.879265,
+    inUse: 1,
   },
   {
     id: 216,
@@ -1482,6 +1693,7 @@ const busStopData = [
     image: "",
     latitude: 44.866542,
     longitude: 13.874023,
+    inUse: 1,
   },
   {
     id: 217,
@@ -1489,6 +1701,7 @@ const busStopData = [
     image: "",
     latitude: 44.861178,
     longitude: 13.867467,
+    inUse: 1,
   },
   {
     id: 218,
@@ -1496,6 +1709,7 @@ const busStopData = [
     image: "",
     latitude: 44.857072,
     longitude: 13.877725,
+    inUse: 1,
   },
   {
     id: 219,
@@ -1503,6 +1717,7 @@ const busStopData = [
     image: "",
     latitude: 44.856924,
     longitude: 13.879065,
+    inUse: 1,
   },
   {
     id: 220,
@@ -1510,6 +1725,7 @@ const busStopData = [
     image: "",
     latitude: 44.8631487051788,
     longitude: 13.8500180840492,
+    inUse: 1,
   },
   {
     id: 221,
@@ -1517,6 +1733,7 @@ const busStopData = [
     image: "",
     latitude: 44.86075,
     longitude: 13.852452,
+    inUse: 0,
   },
   {
     id: 222,
@@ -1524,6 +1741,7 @@ const busStopData = [
     image: "",
     latitude: 44.85351,
     longitude: 13.864348,
+    inUse: 1,
   },
   {
     id: 223,
@@ -1531,6 +1749,7 @@ const busStopData = [
     image: "",
     latitude: 44.861359,
     longitude: 13.852455,
+    inUse: 0,
   },
   {
     id: 224,
@@ -1538,6 +1757,7 @@ const busStopData = [
     image: "",
     latitude: 44.8631620131071,
     longitude: 13.8500556349754,
+    inUse: 1,
   },
   {
     id: 225,
@@ -1545,6 +1765,7 @@ const busStopData = [
     image: "",
     latitude: 44.850761,
     longitude: 13.843637,
+    inUse: 1,
   },
   {
     id: 226,
@@ -1552,6 +1773,7 @@ const busStopData = [
     image: "",
     latitude: 44.847615,
     longitude: 13.85259,
+    inUse: 1,
   },
   {
     id: 227,
@@ -1559,6 +1781,7 @@ const busStopData = [
     image: "",
     latitude: 44.847561,
     longitude: 13.852706,
+    inUse: 1,
   },
   {
     id: 228,
@@ -1566,6 +1789,7 @@ const busStopData = [
     image: "",
     latitude: 44.872912,
     longitude: 13.853635,
+    inUse: 1,
   },
   {
     id: 229,
@@ -1573,6 +1797,7 @@ const busStopData = [
     image: "",
     latitude: 44.909905,
     longitude: 13.856228,
+    inUse: 0,
   },
   {
     id: 230,
@@ -1580,6 +1805,7 @@ const busStopData = [
     image: "",
     latitude: 44.952167,
     longitude: 13.799196,
+    inUse: 0,
   },
   {
     id: 231,
@@ -1587,6 +1813,7 @@ const busStopData = [
     image: "",
     latitude: 44.860452,
     longitude: 13.848136,
+    inUse: 0,
   },
   {
     id: 232,
@@ -1594,6 +1821,7 @@ const busStopData = [
     image: "",
     latitude: 44.860455,
     longitude: 13.848237,
+    inUse: 0,
   },
   {
     id: 233,
@@ -1601,6 +1829,7 @@ const busStopData = [
     image: "",
     latitude: 44.863253,
     longitude: 13.848702,
+    inUse: 0,
   },
   {
     id: 234,
@@ -1608,6 +1837,7 @@ const busStopData = [
     image: "",
     latitude: 44.885618,
     longitude: 13.858222,
+    inUse: 1,
   },
   {
     id: 235,
@@ -1615,6 +1845,7 @@ const busStopData = [
     image: "",
     latitude: 44.857697,
     longitude: 13.914172,
+    inUse: 1,
   },
   {
     id: 236,
@@ -1622,6 +1853,7 @@ const busStopData = [
     image: "",
     latitude: 44.851299,
     longitude: 13.864306,
+    inUse: 0,
   },
   {
     id: 237,
@@ -1629,6 +1861,7 @@ const busStopData = [
     image: "",
     latitude: 44.87661,
     longitude: 13.859912,
+    inUse: 1,
   },
   {
     id: 238,
@@ -1636,6 +1869,7 @@ const busStopData = [
     image: "",
     latitude: 44.858511,
     longitude: 13.857533,
+    inUse: 1,
   },
   {
     id: 239,
@@ -1643,6 +1877,7 @@ const busStopData = [
     image: "",
     latitude: 44.858926,
     longitude: 13.85699,
+    inUse: 0,
   },
   {
     id: 240,
@@ -1650,6 +1885,7 @@ const busStopData = [
     image: "",
     latitude: 44.904688,
     longitude: 13.824603,
+    inUse: 1,
   },
   {
     id: 241,
@@ -1657,6 +1893,7 @@ const busStopData = [
     image: "",
     latitude: 44.905675,
     longitude: 13.822595,
+    inUse: 1,
   },
   {
     id: 242,
@@ -1664,6 +1901,7 @@ const busStopData = [
     image: "",
     latitude: 44.9049166398305,
     longitude: 13.8119870424271,
+    inUse: 1,
   },
   {
     id: 243,
@@ -1671,6 +1909,7 @@ const busStopData = [
     image: "",
     latitude: 44.901527,
     longitude: 13.811065,
+    inUse: 1,
   },
   {
     id: 244,
@@ -1678,6 +1917,7 @@ const busStopData = [
     image: "",
     latitude: 44.898229,
     longitude: 13.809584,
+    inUse: 1,
   },
   {
     id: 245,
@@ -1685,6 +1925,7 @@ const busStopData = [
     image: "",
     latitude: 44.8952954855287,
     longitude: 13.8133817911148,
+    inUse: 1,
   },
   {
     id: 246,
@@ -1692,6 +1933,7 @@ const busStopData = [
     image: "",
     latitude: 44.885623,
     longitude: 13.858188,
+    inUse: 1,
   },
   {
     id: 247,
@@ -1699,6 +1941,7 @@ const busStopData = [
     image: "",
     latitude: 44.870038,
     longitude: 13.848527,
+    inUse: 1,
   },
   {
     id: 248,
@@ -1706,6 +1949,7 @@ const busStopData = [
     image: "",
     latitude: 44.862607,
     longitude: 13.891538,
+    inUse: 1,
   },
   {
     id: 249,
@@ -1713,6 +1957,7 @@ const busStopData = [
     image: "",
     latitude: 44.862688,
     longitude: 13.890782,
+    inUse: 1,
   },
   {
     id: 250,
@@ -1720,6 +1965,7 @@ const busStopData = [
     image: "",
     latitude: 44.870555,
     longitude: 13.855468,
+    inUse: 1,
   },
   {
     id: 251,
@@ -1727,6 +1973,7 @@ const busStopData = [
     image: "",
     latitude: 44.869143,
     longitude: 13.862015,
+    inUse: 1,
   },
   {
     id: 252,
@@ -1734,6 +1981,7 @@ const busStopData = [
     image: "",
     latitude: 44.869558,
     longitude: 13.860058,
+    inUse: 1,
   },
   {
     id: 253,
@@ -1741,6 +1989,7 @@ const busStopData = [
     image: "",
     latitude: 44.86955,
     longitude: 13.855467,
+    inUse: 1,
   },
   {
     id: 254,
@@ -1748,6 +1997,7 @@ const busStopData = [
     image: "",
     latitude: 44.868412,
     longitude: 13.860746,
+    inUse: 1,
   },
   {
     id: 255,
@@ -1755,6 +2005,7 @@ const busStopData = [
     image: "",
     latitude: 44.856903,
     longitude: 13.834192,
+    inUse: 1,
   },
   {
     id: 256,
@@ -1762,6 +2013,7 @@ const busStopData = [
     image: "",
     latitude: 44.8590135927813,
     longitude: 13.8269779086113,
+    inUse: 1,
   },
   {
     id: 257,
@@ -1769,6 +2021,7 @@ const busStopData = [
     image: "",
     latitude: 44.868297,
     longitude: 13.847578,
+    inUse: 1,
   },
   {
     id: 258,
@@ -1776,6 +2029,7 @@ const busStopData = [
     image: "",
     latitude: 44.870433,
     longitude: 13.851323,
+    inUse: 1,
   },
   {
     id: 259,
@@ -1783,6 +2037,7 @@ const busStopData = [
     image: "",
     latitude: 44.880528,
     longitude: 13.854627,
+    inUse: 1,
   },
   {
     id: 260,
@@ -1790,6 +2045,7 @@ const busStopData = [
     image: "",
     latitude: 44.8760958646752,
     longitude: 13.8547065854073,
+    inUse: 1,
   },
   {
     id: 261,
@@ -1797,6 +2053,7 @@ const busStopData = [
     image: "",
     latitude: 44.8769967918999,
     longitude: 13.8541433215141,
+    inUse: 0,
   },
   {
     id: 262,
@@ -1804,6 +2061,7 @@ const busStopData = [
     image: "",
     latitude: 44.8591181625021,
     longitude: 13.8269457221031,
+    inUse: 1,
   },
   {
     id: 263,
@@ -1811,6 +2069,7 @@ const busStopData = [
     image: "",
     latitude: 44.872629,
     longitude: 13.854655,
+    inUse: 0,
   },
   {
     id: 264,
@@ -1818,6 +2077,7 @@ const busStopData = [
     image: "",
     latitude: 44.904766,
     longitude: 13.82474,
+    inUse: 1,
   },
   {
     id: 265,
@@ -1825,6 +2085,7 @@ const busStopData = [
     image: "",
     latitude: 44.877953,
     longitude: 13.863455,
+    inUse: 1,
   },
   {
     id: 266,
@@ -1832,6 +2093,7 @@ const busStopData = [
     image: "",
     latitude: 44.875765,
     longitude: 13.865164,
+    inUse: 1,
   },
   {
     id: 267,
@@ -1839,6 +2101,7 @@ const busStopData = [
     image: "",
     latitude: 44.902357,
     longitude: 13.828168,
+    inUse: 1,
   },
   {
     id: 268,
@@ -1846,6 +2109,7 @@ const busStopData = [
     image: "",
     latitude: 44.901782,
     longitude: 13.828962,
+    inUse: 1,
   },
   {
     id: 269,
@@ -1853,6 +2117,7 @@ const busStopData = [
     image: "",
     latitude: 44.853802,
     longitude: 13.878417,
+    inUse: 1,
   },
   {
     id: 270,
@@ -1860,6 +2125,7 @@ const busStopData = [
     image: "",
     latitude: 44.8631620131071,
     longitude: 13.8500556349754,
+    inUse: 0,
   },
   {
     id: 271,
@@ -1867,6 +2133,7 @@ const busStopData = [
     image: "",
     latitude: 44.8757993538958,
     longitude: 13.8504794239998,
+    inUse: 1,
   },
   {
     id: 272,
@@ -1874,6 +2141,7 @@ const busStopData = [
     image: "",
     latitude: 44.883614,
     longitude: 13.863844,
+    inUse: 1,
   },
   {
     id: 273,
@@ -1881,6 +2149,7 @@ const busStopData = [
     image: "",
     latitude: 44.898071,
     longitude: 13.844997,
+    inUse: 1,
   },
   {
     id: 274,
@@ -1888,6 +2157,7 @@ const busStopData = [
     image: "",
     latitude: 44.8994431908188,
     longitude: 13.8452517986298,
+    inUse: 1,
   },
   {
     id: 275,
@@ -1895,6 +2165,7 @@ const busStopData = [
     image: "",
     latitude: 44.905213,
     longitude: 13.846664,
+    inUse: 1,
   },
   {
     id: 276,
@@ -1902,6 +2173,7 @@ const busStopData = [
     image: "",
     latitude: 44.947341,
     longitude: 13.798618,
+    inUse: 1,
   },
   {
     id: 277,
@@ -1909,6 +2181,7 @@ const busStopData = [
     image: "",
     latitude: 44.952167,
     longitude: 13.799196,
+    inUse: 0,
   },
   {
     id: 278,
@@ -1916,6 +2189,7 @@ const busStopData = [
     image: "",
     latitude: 44.947771,
     longitude: 13.798714,
+    inUse: 1,
   },
   {
     id: 279,
@@ -1923,6 +2197,7 @@ const busStopData = [
     image: "",
     latitude: 44.98971,
     longitude: 13.756936,
+    inUse: 1,
   },
   {
     id: 280,
@@ -1930,6 +2205,7 @@ const busStopData = [
     image: "",
     latitude: 44.99187,
     longitude: 13.743147,
+    inUse: 1,
   },
   {
     id: 281,
@@ -1937,6 +2213,7 @@ const busStopData = [
     image: "",
     latitude: 44.9299,
     longitude: 13.858722,
+    inUse: 1,
   },
   {
     id: 282,
@@ -1944,6 +2221,7 @@ const busStopData = [
     image: "",
     latitude: 44.931197,
     longitude: 13.866293,
+    inUse: 1,
   },
   {
     id: 283,
@@ -1951,6 +2229,7 @@ const busStopData = [
     image: "",
     latitude: 44.934313496931,
     longitude: 13.8703063130379,
+    inUse: 1,
   },
   {
     id: 284,
@@ -1958,6 +2237,7 @@ const busStopData = [
     image: "",
     latitude: 44.961598,
     longitude: 13.855766,
+    inUse: 0,
   },
   {
     id: 285,
@@ -1965,6 +2245,7 @@ const busStopData = [
     image: "",
     latitude: 44.959445,
     longitude: 13.854357,
+    inUse: 1,
   },
   {
     id: 286,
@@ -1972,6 +2253,7 @@ const busStopData = [
     image: "",
     latitude: 44.9555360501191,
     longitude: 13.853757083416,
+    inUse: 1,
   },
   {
     id: 287,
@@ -1979,6 +2261,7 @@ const busStopData = [
     image: "",
     latitude: 44.934853,
     longitude: 13.87002,
+    inUse: 1,
   },
   {
     id: 288,
@@ -1986,6 +2269,7 @@ const busStopData = [
     image: "",
     latitude: 44.931442,
     longitude: 13.866108,
+    inUse: 1,
   },
   {
     id: 289,
@@ -1993,6 +2277,7 @@ const busStopData = [
     image: "",
     latitude: 44.929763,
     longitude: 13.85808,
+    inUse: 1,
   },
   {
     id: 290,
@@ -2000,6 +2285,7 @@ const busStopData = [
     image: "",
     latitude: 44.927692,
     longitude: 13.851308,
+    inUse: 1,
   },
   {
     id: 291,
@@ -2007,6 +2293,7 @@ const busStopData = [
     image: "",
     latitude: 44.997458,
     longitude: 13.754862,
+    inUse: 0,
   },
   {
     id: 292,
@@ -2014,6 +2301,7 @@ const busStopData = [
     image: "",
     latitude: 44.961975,
     longitude: 13.85589,
+    inUse: 1,
   },
   {
     id: 293,
@@ -2021,6 +2309,7 @@ const busStopData = [
     image: "",
     latitude: 44.913033,
     longitude: 13.820119,
+    inUse: 0,
   },
   {
     id: 294,
@@ -2028,6 +2317,7 @@ const busStopData = [
     image: "",
     latitude: 44.936283,
     longitude: 13.869924,
+    inUse: 1,
   },
   {
     id: 295,
@@ -2035,6 +2325,7 @@ const busStopData = [
     image: "",
     latitude: 44.954209277239,
     longitude: 13.853040933609,
+    inUse: 1,
   },
   {
     id: 296,
@@ -2042,6 +2333,7 @@ const busStopData = [
     image: "",
     latitude: 44.955139,
     longitude: 13.849339,
+    inUse: 1,
   },
   {
     id: 297,
@@ -2049,6 +2341,7 @@ const busStopData = [
     image: "",
     latitude: 44.961192,
     longitude: 13.846365,
+    inUse: 1,
   },
   {
     id: 298,
@@ -2056,6 +2349,7 @@ const busStopData = [
     image: "",
     latitude: 44.965002,
     longitude: 13.849365,
+    inUse: 1,
   },
   {
     id: 299,
@@ -2063,6 +2357,7 @@ const busStopData = [
     image: "",
     latitude: 44.963825,
     longitude: 13.854363,
+    inUse: 1,
   },
   {
     id: 300,
@@ -2070,6 +2365,7 @@ const busStopData = [
     image: "",
     latitude: 44.952167,
     longitude: 13.799196,
+    inUse: 1,
   },
   {
     id: 301,
@@ -2077,6 +2373,7 @@ const busStopData = [
     image: "",
     latitude: 44.952167,
     longitude: 13.799196,
+    inUse: 0,
   },
   {
     id: 302,
@@ -2084,6 +2381,7 @@ const busStopData = [
     image: "",
     latitude: 44.989383,
     longitude: 13.7511,
+    inUse: 1,
   },
   {
     id: 303,
@@ -2091,6 +2389,7 @@ const busStopData = [
     image: "",
     latitude: 44.9912448902766,
     longitude: 13.7446662783623,
+    inUse: 1,
   },
   {
     id: 304,
@@ -2098,6 +2397,7 @@ const busStopData = [
     image: "",
     latitude: 44.956326,
     longitude: 13.785468,
+    inUse: 1,
   },
   {
     id: 305,
@@ -2105,6 +2405,7 @@ const busStopData = [
     image: "",
     latitude: 44.956838,
     longitude: 13.784727,
+    inUse: 1,
   },
   {
     id: 306,
@@ -2112,6 +2413,7 @@ const busStopData = [
     image: "",
     latitude: 44.9940275720471,
     longitude: 13.7537723779678,
+    inUse: 0,
   },
   {
     id: 307,
@@ -2119,6 +2421,7 @@ const busStopData = [
     image: "",
     latitude: 44.9948109475181,
     longitude: 13.7534263730049,
+    inUse: 0,
   },
   {
     id: 308,
@@ -2126,6 +2429,7 @@ const busStopData = [
     image: "",
     latitude: 44.936035,
     longitude: 13.86984,
+    inUse: 1,
   },
   {
     id: 309,
@@ -2133,6 +2437,7 @@ const busStopData = [
     image: "",
     latitude: 44.9282826509021,
     longitude: 13.8535317778587,
+    inUse: 1,
   },
   {
     id: 310,
@@ -2140,6 +2445,7 @@ const busStopData = [
     image: "",
     latitude: 44.9282180855224,
     longitude: 13.8531750440598,
+    inUse: 1,
   },
   {
     id: 311,
@@ -2147,6 +2453,7 @@ const busStopData = [
     image: "",
     latitude: 44.9328,
     longitude: 13.869467,
+    inUse: 1,
   },
   {
     id: 312,
@@ -2154,6 +2461,7 @@ const busStopData = [
     image: "",
     latitude: 44.9329368639928,
     longitude: 13.8694909214973,
+    inUse: 1,
   },
   {
     id: 313,
@@ -2161,6 +2469,7 @@ const busStopData = [
     image: "",
     latitude: 44.860357,
     longitude: 13.899835,
+    inUse: 1,
   },
   {
     id: 314,
@@ -2168,6 +2477,7 @@ const busStopData = [
     image: "",
     latitude: 44.910255,
     longitude: 13.82101,
+    inUse: 1,
   },
   {
     id: 315,
@@ -2175,6 +2485,7 @@ const busStopData = [
     image: "",
     latitude: 44.910005,
     longitude: 13.821072,
+    inUse: 1,
   },
   {
     id: 316,
@@ -2182,6 +2493,7 @@ const busStopData = [
     image: "",
     latitude: 44.914583,
     longitude: 13.816928,
+    inUse: 1,
   },
   {
     id: 317,
@@ -2189,6 +2501,7 @@ const busStopData = [
     image: "",
     latitude: 44.913956,
     longitude: 13.817603,
+    inUse: 1,
   },
   {
     id: 318,
@@ -2196,6 +2509,7 @@ const busStopData = [
     image: "",
     latitude: 44.936438,
     longitude: 13.803844,
+    inUse: 1,
   },
   {
     id: 319,
@@ -2203,6 +2517,7 @@ const busStopData = [
     image: "",
     latitude: 44.990698,
     longitude: 13.765451,
+    inUse: 1,
   },
   {
     id: 320,
@@ -2210,6 +2525,7 @@ const busStopData = [
     image: "",
     latitude: 44.990765,
     longitude: 13.765961,
+    inUse: 1,
   },
   {
     id: 321,
@@ -2217,6 +2533,7 @@ const busStopData = [
     image: "",
     latitude: 44.989409,
     longitude: 13.756226,
+    inUse: 1,
   },
   {
     id: 322,
@@ -2224,6 +2541,7 @@ const busStopData = [
     image: "",
     latitude: 44.935548,
     longitude: 13.803455,
+    inUse: 1,
   },
   {
     id: 323,
@@ -2231,6 +2549,7 @@ const busStopData = [
     image: "",
     latitude: 44.919788,
     longitude: 13.850443,
+    inUse: 1,
   },
   {
     id: 324,
@@ -2238,6 +2557,7 @@ const busStopData = [
     image: "",
     latitude: 44.9207356059031,
     longitude: 13.8505759835243,
+    inUse: 1,
   },
   {
     id: 334,
@@ -2245,6 +2565,7 @@ const busStopData = [
     image: "",
     latitude: 44.891417,
     longitude: 13.816657,
+    inUse: 1,
   },
   {
     id: 335,
@@ -2252,6 +2573,7 @@ const busStopData = [
     image: "",
     latitude: 44.891392,
     longitude: 13.816508,
+    inUse: 1,
   },
   {
     id: 336,
@@ -2259,6 +2581,7 @@ const busStopData = [
     image: "",
     latitude: 44.860518,
     longitude: 13.89963,
+    inUse: 1,
   },
   {
     id: 337,
@@ -2266,6 +2589,7 @@ const busStopData = [
     image: "",
     latitude: 44.914527,
     longitude: 13.824165,
+    inUse: 0,
   },
   {
     id: 338,
@@ -2273,6 +2597,7 @@ const busStopData = [
     image: "",
     latitude: 44.876968,
     longitude: 13.854143,
+    inUse: 1,
   },
   {
     id: 339,
@@ -2280,6 +2605,7 @@ const busStopData = [
     image: "",
     latitude: 44.884134,
     longitude: 13.870569,
+    inUse: 1,
   },
   {
     id: 340,
@@ -2287,6 +2613,7 @@ const busStopData = [
     image: "",
     latitude: 44.872912,
     longitude: 13.853635,
+    inUse: 0,
   },
   {
     id: 341,
@@ -2294,6 +2621,7 @@ const busStopData = [
     image: "",
     latitude: 44.826019,
     longitude: 13.93199,
+    inUse: 1,
   },
   {
     id: 342,
@@ -2301,6 +2629,7 @@ const busStopData = [
     image: "",
     latitude: 44.8266829415622,
     longitude: 13.9296716451645,
+    inUse: 1,
   },
   {
     id: 343,
@@ -2308,6 +2637,7 @@ const busStopData = [
     image: "",
     latitude: 44.894932,
     longitude: 13.816313,
+    inUse: 0,
   },
   {
     id: 344,
@@ -2315,6 +2645,7 @@ const busStopData = [
     image: "",
     latitude: 44.843136,
     longitude: 13.871296,
+    inUse: 0,
   },
   {
     id: 345,
@@ -2322,6 +2653,7 @@ const busStopData = [
     image: "",
     latitude: 44.843523769457,
     longitude: 13.8709312677383,
+    inUse: 1,
   },
   {
     id: 346,
@@ -2329,6 +2661,7 @@ const busStopData = [
     image: "",
     latitude: 44.814888,
     longitude: 13.900905,
+    inUse: 1,
   },
   {
     id: 347,
@@ -2336,6 +2669,7 @@ const busStopData = [
     image: "",
     latitude: 44.815193,
     longitude: 13.900361,
+    inUse: 1,
   },
   {
     id: 348,
@@ -2343,6 +2677,7 @@ const busStopData = [
     image: "",
     latitude: 44.840736,
     longitude: 13.859971,
+    inUse: 1,
   },
   {
     id: 349,
@@ -2350,6 +2685,7 @@ const busStopData = [
     image: "",
     latitude: 44.841041,
     longitude: 13.860083,
+    inUse: 1,
   },
   {
     id: 358,
@@ -2357,6 +2693,7 @@ const busStopData = [
     image: "",
     latitude: 44.8245275538446,
     longitude: 13.8554200530052,
+    inUse: 0,
   },
   {
     id: 359,
@@ -2364,6 +2701,7 @@ const busStopData = [
     image: "",
     latitude: 44.8244324333772,
     longitude: 13.8618332147598,
+    inUse: 0,
   },
   {
     id: 361,
@@ -2371,6 +2709,7 @@ const busStopData = [
     image: "",
     latitude: 44.820279,
     longitude: 13.879637,
+    inUse: 1,
   },
   {
     id: 362,
@@ -2378,6 +2717,7 @@ const busStopData = [
     image: "",
     latitude: 44.87481,
     longitude: 13.85774,
+    inUse: 0,
   },
   {
     id: 363,
@@ -2385,6 +2725,7 @@ const busStopData = [
     image: "",
     latitude: 44.876778,
     longitude: 13.850648,
+    inUse: 0,
   },
   {
     id: 364,
@@ -2392,6 +2733,7 @@ const busStopData = [
     image: "",
     latitude: 44.957371,
     longitude: 13.851823,
+    inUse: 0,
   },
   {
     id: 365,
@@ -2399,6 +2741,7 @@ const busStopData = [
     image: "",
     latitude: 44.914401,
     longitude: 13.82065,
+    inUse: 0,
   },
   {
     id: 366,
@@ -2406,6 +2749,7 @@ const busStopData = [
     image: "",
     latitude: 44.916809,
     longitude: 13.81814,
+    inUse: 0,
   },
   {
     id: 367,
@@ -2413,6 +2757,7 @@ const busStopData = [
     image: "",
     latitude: 44.9160196238291,
     longitude: 13.8157260417938,
+    inUse: 0,
   },
   {
     id: 368,
@@ -2420,6 +2765,7 @@ const busStopData = [
     image: "",
     latitude: 44.95426,
     longitude: 13.853867,
+    inUse: 0,
   },
   {
     id: 369,
@@ -2427,6 +2773,7 @@ const busStopData = [
     image: "",
     latitude: 44.8743376854819,
     longitude: 13.8661730289459,
+    inUse: 1,
   },
   {
     id: 370,
@@ -2434,6 +2781,7 @@ const busStopData = [
     image: "",
     latitude: 44.8743186778457,
     longitude: 13.8663473725319,
+    inUse: 1,
   },
   {
     id: 371,
@@ -2441,6 +2789,7 @@ const busStopData = [
     image: "",
     latitude: 44.93043,
     longitude: 13.868812,
+    inUse: 0,
   },
   {
     id: 372,
@@ -2448,6 +2797,7 @@ const busStopData = [
     image: "",
     latitude: 44.8550474082697,
     longitude: 13.8681900501251,
+    inUse: 0,
   },
   {
     id: 374,
@@ -2455,6 +2805,7 @@ const busStopData = [
     image: "",
     latitude: 44.860751326768,
     longitude: 13.8967180252075,
+    inUse: 0,
   },
   {
     id: 375,
@@ -2462,6 +2813,7 @@ const busStopData = [
     image: "",
     latitude: 44.8608330788257,
     longitude: 13.8966616988182,
+    inUse: 0,
   },
   {
     id: 376,
@@ -2469,6 +2821,7 @@ const busStopData = [
     image: "",
     latitude: 44.8802487557303,
     longitude: 13.862589597702,
+    inUse: 1,
   },
   {
     id: 377,
@@ -2476,6 +2829,7 @@ const busStopData = [
     image: "",
     latitude: 44.8804787240047,
     longitude: 13.8624501228333,
+    inUse: 1,
   },
   {
     id: 378,
@@ -2483,6 +2837,7 @@ const busStopData = [
     image: "",
     latitude: 44.8828771813033,
     longitude: 13.860969543457,
+    inUse: 1,
   },
   {
     id: 379,
@@ -2490,6 +2845,7 @@ const busStopData = [
     image: "",
     latitude: 44.8832192669065,
     longitude: 13.860422372818,
+    inUse: 1,
   },
   {
     id: 380,
@@ -2497,6 +2853,7 @@ const busStopData = [
     image: "",
     latitude: 44.853598522986,
     longitude: 13.8662964105606,
+    inUse: 0,
   },
   {
     id: 381,
@@ -2504,6 +2861,7 @@ const busStopData = [
     image: "",
     latitude: 44.8625793130811,
     longitude: 13.8974462449551,
+    inUse: 1,
   },
   {
     id: 382,
@@ -2511,6 +2869,7 @@ const busStopData = [
     image: "",
     latitude: 44.8683252571178,
     longitude: 13.9000654220581,
+    inUse: 1,
   },
   {
     id: 383,
@@ -2518,6 +2877,7 @@ const busStopData = [
     image: "",
     latitude: 44.8744821433113,
     longitude: 13.898786008358,
+    inUse: 1,
   },
   {
     id: 384,
@@ -2525,6 +2885,7 @@ const busStopData = [
     image: "",
     latitude: 44.8789905659243,
     longitude: 13.87789696455,
+    inUse: 1,
   },
   {
     id: 385,
@@ -2532,6 +2893,7 @@ const busStopData = [
     image: "",
     latitude: 44.8791027017821,
     longitude: 13.862578868866,
+    inUse: 0,
   },
   {
     id: 386,
@@ -2539,6 +2901,7 @@ const busStopData = [
     image: "",
     latitude: 44.8788176101897,
     longitude: 13.8619136810303,
+    inUse: 0,
   },
   {
     id: 387,
@@ -2546,6 +2909,7 @@ const busStopData = [
     image: "",
     latitude: 44.8612684541082,
     longitude: 13.8389754295349,
+    inUse: 0,
   },
   {
     id: 388,
@@ -2553,6 +2917,7 @@ const busStopData = [
     image: "",
     latitude: 44.8626715188613,
     longitude: 13.8406893610954,
+    inUse: 0,
   },
   {
     id: 389,
@@ -2560,6 +2925,7 @@ const busStopData = [
     image: "",
     latitude: 44.9515119805813,
     longitude: 13.8013708591461,
+    inUse: 1,
   },
   {
     id: 390,
@@ -2567,6 +2933,7 @@ const busStopData = [
     image: "",
     latitude: 44.9554449422327,
     longitude: 13.8467001914978,
+    inUse: 1,
   },
   {
     id: 391,
@@ -2574,6 +2941,7 @@ const busStopData = [
     image: "",
     latitude: 44.9515575376646,
     longitude: 13.8015103340149,
+    inUse: 1,
   },
   {
     id: 392,
@@ -2581,6 +2949,7 @@ const busStopData = [
     image: "",
     latitude: 44.8624167643871,
     longitude: 13.8391041755676,
+    inUse: 0,
   },
   {
     id: 393,
@@ -2588,6 +2957,7 @@ const busStopData = [
     image: "",
     latitude: 44.859542143242,
     longitude: 13.8402199745178,
+    inUse: 0,
   },
   {
     id: 394,
@@ -2595,6 +2965,7 @@ const busStopData = [
     image: "",
     latitude: 44.8761186731333,
     longitude: 13.849983215332,
+    inUse: 0,
   },
   {
     id: 395,
@@ -2602,6 +2973,7 @@ const busStopData = [
     image: "",
     latitude: 44.8494189882409,
     longitude: 13.8997650146484,
+    inUse: 1,
   },
   {
     id: 396,
@@ -2609,6 +2981,7 @@ const busStopData = [
     image: "",
     latitude: 44.8496776033793,
     longitude: 13.9000654220581,
+    inUse: 1,
   },
   {
     id: 397,
@@ -2616,6 +2989,7 @@ const busStopData = [
     image: "",
     latitude: 44.8560057060661,
     longitude: 13.8453269004822,
+    inUse: 1,
   },
   {
     id: 398,
@@ -2623,6 +2997,7 @@ const busStopData = [
     image: "",
     latitude: 44.8560665498322,
     longitude: 13.8449192047119,
+    inUse: 1,
   },
 ];
 
@@ -3864,13 +4239,6 @@ const routesData = [
       { latitude: 44.87698, longitude: 13.854090000000001 },
       { latitude: 44.877030000000005, longitude: 13.854310000000002 },
     ],
-  },
-  {
-    id: 1,
-    name: "3b",
-    color: "magenta",
-    stops: [],
-    pathCoords: [],
   },
 ];
 
