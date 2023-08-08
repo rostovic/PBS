@@ -866,7 +866,7 @@ const busStopData = [
   {
     id: 111,
     name: "MLETAČKA -A (ROBNA KUĆA)",
-    image: require("../images/bus-stops/MLETACKA-A-(ROBNA KUCA).jpg"),
+    image: require("../images/bus-stops/MLETACKA-A-ROBNA-KUCA.jpg"),
     latitude: 44.866537,
     longitude: 13.850558,
     inUse: 1,

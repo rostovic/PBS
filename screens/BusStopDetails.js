@@ -7,7 +7,7 @@ const BusStopDetails = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
   const { busStopId } = route.params;
 
-  // console.log(busStopId);
+  console.log(busStopId);
 
   const currentBusStop = busStopData.find(
     (busStop) => busStop.id === busStopId
@@ -87,6 +87,7 @@ const BusStopDetails = ({ navigation, route }) => {
             backgroundColor: "white",
             left: 20,
             top: 20,
+            borderRadius: 999,
           }}
           onPress={() => navigation.goBack()}
         />
@@ -108,9 +109,9 @@ const BusStopDetails = ({ navigation, route }) => {
           <View
             style={{
               height: 400,
-              width: "80%",
+              width: "90%",
               gap: 6,
-              backgroundColor: "lightgrey",
+              // backgroundColor: "lightgrey",
             }}
           >
             <ScrollView contentContainerStyle={styles.container}>
@@ -150,9 +151,6 @@ const BusStopDetails = ({ navigation, route }) => {
           </View>
         </View>
       </View>
-      <View>
-        <Text>Warning! Arrival time may very on weekends.</Text>
-      </View>
     </View>
   );
 };
@@ -167,10 +165,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexWrap: "wrap",
     marginBottom: 10,
-    gap: 20,
+    gap: 14,
+    borderTopWidth: 1,
   },
   timeText: {
-    fontSize: 8,
+    fontSize: 10,
     marginRight: 10,
     fontWeight: "bold",
   },
