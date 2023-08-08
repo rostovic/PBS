@@ -1578,7 +1578,7 @@ const busStopData = [
   {
     id: 202,
     name: "BALIŽERKA -B (NOVI ŠTINJAN)",
-    image: "",
+    image: require("../images/bus-stops/BALIŽERKA-A-(NOVI-ŠTINJAN).jpg"),
     latitude: 44.894625,
     longitude: 13.817551,
     inUse: 1,
@@ -1586,7 +1586,7 @@ const busStopData = [
   {
     id: 203,
     name: "FORTIN 2-B (ŠTINJAN)",
-    image: "",
+    image: require("../images/bus-stops/FORTIN-2-B-(ŠTINJAN).jpg"),
     latitude: 44.892673,
     longitude: 13.821428,
     inUse: 1,
@@ -1594,7 +1594,7 @@ const busStopData = [
   {
     id: 204,
     name: "FORTIN 1-B (ŠTINJAN)",
-    image: "",
+    image: require("../images/bus-stops/FORTIN-1-B-(ŠTINJAN).jpg"),
     latitude: 44.894498,
     longitude: 13.826768,
     inUse: 1,
@@ -1602,7 +1602,7 @@ const busStopData = [
   {
     id: 205,
     name: "VODNJANSKA CESTA 3A",
-    image: "",
+    image: require("../images/bus-stops/VODNJANSKA-CESTA-3A.jpg"),
     latitude: 44.9076997106404,
     longitude: 13.8473197817802,
     inUse: 1,
@@ -1610,15 +1610,15 @@ const busStopData = [
   {
     id: 206,
     name: "VODNJANSKA CESTA 2B",
-    image: "",
-    latitude: 44.903782,
-    longitude: 13.846091,
+    image: require("../images/bus-stops/VODNJANSKA-CESTA-2B.jpg"),
+    latitude: 44.90304280437482,
+    longitude: 13.845822945682944,
     inUse: 1,
   },
   {
     id: 207,
     name: "DUGA STANCIJA -A",
-    image: "",
+    image: require("../images/bus-stops/DUGA-STANCIJA-A.jpg"),
     latitude: 44.8906040189997,
     longitude: 13.882936835289,
     inUse: 1,
@@ -1626,7 +1626,7 @@ const busStopData = [
   {
     id: 208,
     name: "DUGA STANCIJA -B",
-    image: "",
+    image: require("../images/bus-stops/DUGA-STANCIJA-B.jpg"),
     latitude: 44.8908947528361,
     longitude: 13.8830602169037,
     inUse: 1,
@@ -1634,7 +1634,7 @@ const busStopData = [
   {
     id: 209,
     name: "BUSOLER 1-A",
-    image: "",
+    image: require("../images/bus-stops/BUSOLER-1-A.jpg"),
     latitude: 44.866265,
     longitude: 13.87469,
     inUse: 1,
@@ -1642,7 +1642,7 @@ const busStopData = [
   {
     id: 210,
     name: "BUSOLER 2-A",
-    image: "",
+    image: require("../images/bus-stops/BUSOLER-2-A.jpg"),
     latitude: 44.864853,
     longitude: 13.881228,
     inUse: 1,
@@ -1650,7 +1650,7 @@ const busStopData = [
   {
     id: 211,
     name: "ŠKATARI 2-A",
-    image: "",
+    image: require("../images/bus-stops/ŠKATARI-2-A.jpg"),
     latitude: 44.861745,
     longitude: 13.895025,
     inUse: 1,
@@ -1658,7 +1658,7 @@ const busStopData = [
   {
     id: 212,
     name: "ŠEVE - A",
-    image: "",
+    image: require("../images/bus-stops/ŠEVE-A.jpg"),
     latitude: 44.857532484888,
     longitude: 13.9143347740173,
     inUse: 1,
@@ -1666,7 +1666,7 @@ const busStopData = [
   {
     id: 213,
     name: "ŠEVE - B (ZA JADREŠKE)",
-    image: "",
+    image: require("../images/bus-stops/ŠEVE-B-(ZA-JADREŠKE).jpg"),
     latitude: 44.8579089446774,
     longitude: 13.9145144820213,
     inUse: 1,
@@ -1674,7 +1674,7 @@ const busStopData = [
   {
     id: 214,
     name: "ŠKATARI 2-B",
-    image: "",
+    image: require("../images/bus-stops/ŠKATARI-2-A.jpg"),
     latitude: 44.861812,
     longitude: 13.894923,
     inUse: 1,
@@ -1682,7 +1682,7 @@ const busStopData = [
   {
     id: 215,
     name: "BUSOLER 2-B",
-    image: "",
+    image: require("../images/bus-stops/BUSOLER-2-B.jpg"),
     latitude: 44.865302,
     longitude: 13.879265,
     inUse: 1,
@@ -1690,7 +1690,7 @@ const busStopData = [
   {
     id: 216,
     name: "BUSOLER 1-B",
-    image: "",
+    image: require("../images/bus-stops/BUSOLER-1-B.jpg"),
     latitude: 44.866542,
     longitude: 13.874023,
     inUse: 1,
@@ -1698,7 +1698,7 @@ const busStopData = [
   {
     id: 217,
     name: "MEDULINSKA CESTA 1-A (CRKVA)",
-    image: "",
+    image: require("../images/bus-stops/MEDULINSKA-CESTA-1-A-(CRKVA).jpg"),
     latitude: 44.861178,
     longitude: 13.867467,
     inUse: 1,
@@ -1706,7 +1706,7 @@ const busStopData = [
   {
     id: 218,
     name: "MEDULINSKA CESTA 2-A (RASK. VALDEBEK)",
-    image: "",
+    image: require("../images/bus-stops/MEDULINSKA-CESTA-2-A-(RASK-VALDEBEK).jpg"),
     latitude: 44.857072,
     longitude: 13.877725,
     inUse: 1,
@@ -1714,7 +1714,7 @@ const busStopData = [
   {
     id: 219,
     name: "MEDULINSKA CESTA 2-B (RASK. VALDEBEK)",
-    image: "",
+    image: require("../images/bus-stops/MEDULINSKA-CESTA-2-B-(RASK-VALDEBEK).jpg"),
     latitude: 44.856924,
     longitude: 13.879065,
     inUse: 1,
@@ -1722,7 +1722,7 @@ const busStopData = [
   {
     id: 220,
     name: "NAZOROVA -A (DOM B. RIBAR) ne koristiti",
-    image: "",
+    image: require("../images/bus-stops/NAZOROVA-A-(DOM-B-RIBAR).jpg"),
     latitude: 44.8631487051788,
     longitude: 13.8500180840492,
     inUse: 1,
@@ -1738,7 +1738,7 @@ const busStopData = [
   {
     id: 222,
     name: "VALDEBEK -A",
-    image: "",
+    image: require("../images/bus-stops/VALDEBEK-A.jpg"),
     latitude: 44.85351,
     longitude: 13.864348,
     inUse: 1,
@@ -1754,7 +1754,7 @@ const busStopData = [
   {
     id: 224,
     name: "NAZOROVA - DOM BRAĆE RIBAR",
-    image: "",
+    image: require("../images/bus-stops/NAZOROVA-A-(DOM-B-RIBAR).jpg"),
     latitude: 44.8631620131071,
     longitude: 13.8500556349754,
     inUse: 1,
@@ -1762,7 +1762,7 @@ const busStopData = [
   {
     id: 225,
     name: "MONTE PARADISO 2-A",
-    image: "",
+    image: require("../images/bus-stops/MONTE-PARADISO-2-A.jpg"),
     latitude: 44.850761,
     longitude: 13.843637,
     inUse: 1,
@@ -1770,7 +1770,7 @@ const busStopData = [
   {
     id: 226,
     name: "STARA PLINARA - A",
-    image: "",
+    image: require("../images/bus-stops/STARA-PLINARA-A.jpg"),
     latitude: 44.847615,
     longitude: 13.85259,
     inUse: 1,
@@ -1778,7 +1778,7 @@ const busStopData = [
   {
     id: 227,
     name: "STARA PLINARA - B",
-    image: "",
+    image: require("../images/bus-stops/STARA-PLINARA-B.jpg"),
     latitude: 44.847561,
     longitude: 13.852706,
     inUse: 1,
@@ -1786,7 +1786,7 @@ const busStopData = [
   {
     id: 228,
     name: "RAKOVČEVA -A (MONVIDAL)",
-    image: "",
+    image: require("../images/bus-stops/RAKOVČEVA-A-(MONVIDAL).jpg"),
     latitude: 44.872912,
     longitude: 13.853635,
     inUse: 1,
@@ -1834,7 +1834,7 @@ const busStopData = [
   {
     id: 234,
     name: "CESTA PREKOMORSKIH BRIGADA -B (PLINARA)",
-    image: "",
+    image: require("../images/bus-stops/CESTA-PREKOMORSKIH-BRIGADA-B-(PLINARA).jpg"),
     latitude: 44.885618,
     longitude: 13.858222,
     inUse: 1,
@@ -1842,7 +1842,7 @@ const busStopData = [
   {
     id: 235,
     name: "ŠEVE - B",
-    image: "",
+    image: require("../images/bus-stops/ŠEVE-B.jpg"),
     latitude: 44.857697,
     longitude: 13.914172,
     inUse: 1,
@@ -1858,7 +1858,7 @@ const busStopData = [
   {
     id: 237,
     name: "KOPARSKA -A",
-    image: "",
+    image: require("../images/bus-stops/KOPARSKA-A.jpg"),
     latitude: 44.87661,
     longitude: 13.859912,
     inUse: 1,
@@ -1866,7 +1866,7 @@ const busStopData = [
   {
     id: 238,
     name: "MARSOVOG POLJA 2-A",
-    image: "",
+    image: require("../images/bus-stops/MARSOVOG-POLJA-2-A.jpg"),
     latitude: 44.858511,
     longitude: 13.857533,
     inUse: 1,
@@ -1882,7 +1882,7 @@ const busStopData = [
   {
     id: 240,
     name: "ŠURIDA BENUSSI - B",
-    image: "",
+    image: require("../images/bus-stops/ŠURIDA-BENUSSI-B.jpg"),
     latitude: 44.904688,
     longitude: 13.824603,
     inUse: 1,
@@ -1890,7 +1890,7 @@ const busStopData = [
   {
     id: 241,
     name: "ŠURIDA - A (VIA HIDROBAZA)",
-    image: "",
+    image: require("../images/bus-stops/ŠURIDA-A-(VIA-HIDROBAZA).jpg"),
     latitude: 44.905675,
     longitude: 13.822595,
     inUse: 1,
@@ -1898,7 +1898,7 @@ const busStopData = [
   {
     id: 242,
     name: "HIDROBAZA 1-A",
-    image: "",
+    image: require("../images/bus-stops/HIDROBAZA-1-A.jpg"),
     latitude: 44.9049166398305,
     longitude: 13.8119870424271,
     inUse: 1,
@@ -1906,7 +1906,7 @@ const busStopData = [
   {
     id: 243,
     name: "HIDROBAZA 2-A",
-    image: "",
+    image: require("../images/bus-stops/HIDROBAZA-2-A.jpg"),
     latitude: 44.901527,
     longitude: 13.811065,
     inUse: 1,
@@ -1914,7 +1914,7 @@ const busStopData = [
   {
     id: 244,
     name: "PUNTIŽELA - A (AC BRIONI)",
-    image: "",
+    image: require("../images/bus-stops/PUNTIŽELA-A-(AC-BRIONI).jpg"),
     latitude: 44.898229,
     longitude: 13.809584,
     inUse: 1,
@@ -1922,7 +1922,7 @@ const busStopData = [
   {
     id: 245,
     name: "ULICA PUNTIŽELA 1-A",
-    image: "",
+    image: require("../images/bus-stops/ULICA-PUNTIŽELA-1-A.jpg"),
     latitude: 44.8952954855287,
     longitude: 13.8133817911148,
     inUse: 1,
@@ -1930,7 +1930,7 @@ const busStopData = [
   {
     id: 246,
     name: "PREKOMORSKIH BRIGADA -B (PLINARA)",
-    image: "",
+    image: require("../images/bus-stops/CESTA-PREKOMORSKIH-BRIGADA-B-(PLINARA).jpg"),
     latitude: 44.885623,
     longitude: 13.858188,
     inUse: 1,
@@ -1938,7 +1938,7 @@ const busStopData = [
   {
     id: 247,
     name: "ISTARSKA -A (FINA)",
-    image: "",
+    image: require("../images/bus-stops/ISTARSKA-B-(FINA).jpg"),
     latitude: 44.870038,
     longitude: 13.848527,
     inUse: 1,
@@ -1946,7 +1946,7 @@ const busStopData = [
   {
     id: 248,
     name: "ŠKATARI 1-A",
-    image: "",
+    image: require("../images/bus-stops/ŠKATARI-1-A.jpg"),
     latitude: 44.862607,
     longitude: 13.891538,
     inUse: 1,
@@ -1954,7 +1954,7 @@ const busStopData = [
   {
     id: 249,
     name: "ŠKATARI 1-B",
-    image: "",
+    image: require("../images/bus-stops/ŠKATARI-1-B.jpg"),
     latitude: 44.862688,
     longitude: 13.890782,
     inUse: 1,
@@ -1962,7 +1962,7 @@ const busStopData = [
   {
     id: 250,
     name: "UL. RIMSKE CENTURIJACIJE III -A (ŠKOLA)",
-    image: "",
+    image: require("../images/bus-stops/UL-RIMSKE-CENTURIJACIJE-III-A-(ŠKOLA).jpg"),
     latitude: 44.870555,
     longitude: 13.855468,
     inUse: 1,
@@ -1970,7 +1970,7 @@ const busStopData = [
   {
     id: 251,
     name: "UL. RIMSKE CENTURIJACIJE I -A",
-    image: "",
+    image: require("../images/bus-stops/UL-RIMSKE-CENTURIJACIJE-I-A.jpg"),
     latitude: 44.869143,
     longitude: 13.862015,
     inUse: 1,
@@ -1978,7 +1978,7 @@ const busStopData = [
   {
     id: 252,
     name: "UL. RIMSKE CENTURIJACIJE II - A",
-    image: "",
+    image: require("../images/bus-stops/UL-RIMSKE-CENTURIJACIJE-II-A.jpg"),
     latitude: 44.869558,
     longitude: 13.860058,
     inUse: 1,
@@ -1986,7 +1986,7 @@ const busStopData = [
   {
     id: 253,
     name: "VUKOVARSKA ULICA",
-    image: "",
+    image: require("../images/bus-stops/VUKOVARSKA-ULICA.jpg"),
     latitude: 44.86955,
     longitude: 13.855467,
     inUse: 1,
@@ -1994,7 +1994,7 @@ const busStopData = [
   {
     id: 254,
     name: "SISAČKA ULICA - B",
-    image: "",
+    image: require("../images/bus-stops/SISAČKA-ULICA-B.jpg"),
     latitude: 44.868412,
     longitude: 13.860746,
     inUse: 1,
@@ -2002,7 +2002,7 @@ const busStopData = [
   {
     id: 255,
     name: "UL. VERUDA 4-A",
-    image: "",
+    image: require("../images/bus-stops/UL-VERUDA-4-A.jpg"),
     latitude: 44.856903,
     longitude: 13.834192,
     inUse: 1,
@@ -2010,7 +2010,7 @@ const busStopData = [
   {
     id: 256,
     name: "VALKANE - B",
-    image: "",
+    image: require("../images/bus-stops/VALKANE-B.jpg"),
     latitude: 44.8590135927813,
     longitude: 13.8269779086113,
     inUse: 1,
@@ -2018,7 +2018,7 @@ const busStopData = [
   {
     id: 257,
     name: "GIARDINI-A (PREKO PUTA GHETALDUSA)",
-    image: "",
+    image: require("../images/bus-stops/GIARDINI-A-(PREKO-PUTA-GHETALDUSA).jpg"),
     latitude: 44.868297,
     longitude: 13.847578,
     inUse: 1,
@@ -2026,7 +2026,7 @@ const busStopData = [
   {
     id: 258,
     name: "SV.MARTINA -B (O.Š. TONE PERUŠKO)",
-    image: "",
+    image: require("../images/bus-stops/SV-MARTINA-B-(OŠ-TONE-PERUŠKO).jpg"),
     latitude: 44.870433,
     longitude: 13.851323,
     inUse: 1,
@@ -2034,7 +2034,7 @@ const busStopData = [
   {
     id: 259,
     name: "GRADSKO GROBLJE",
-    image: "",
+    image: require("../images/bus-stops/GRADSKO-GROBLJE.jpg"),
     latitude: 44.880528,
     longitude: 13.854627,
     inUse: 1,
@@ -2042,7 +2042,7 @@ const busStopData = [
   {
     id: 260,
     name: "AUTOBUSNI KOLODVOR- A (ZA PRIGRAD)",
-    image: "",
+    image: require("../images/bus-stops/AUTOBUSNI-KOLODVOR-A.jpg"),
     latitude: 44.8760958646752,
     longitude: 13.8547065854073,
     inUse: 1,
@@ -2058,7 +2058,7 @@ const busStopData = [
   {
     id: 262,
     name: "VALKANE - A",
-    image: "",
+    image: require("../images/bus-stops/VALKANE-A.jpg"),
     latitude: 44.8591181625021,
     longitude: 13.8269457221031,
     inUse: 1,
@@ -2074,7 +2074,7 @@ const busStopData = [
   {
     id: 264,
     name: "ŠURIDA -A (KOD BENUSSIJA)",
-    image: "",
+    image: require("../images/bus-stops/ŠURIDA-A-(KOD-BENUSSIJA).jpg"),
     latitude: 44.904766,
     longitude: 13.82474,
     inUse: 1,
@@ -2082,15 +2082,15 @@ const busStopData = [
   {
     id: 265,
     name: "JURIJA ŽAKNA -A (PORED KAUFLANDA)",
-    image: "",
+    image: require("../images/bus-stops/JURIJA-ŽAKNA-A-(PORED-KAUFLANDA).jpg"),
     latitude: 44.877953,
     longitude: 13.863455,
     inUse: 1,
   },
   {
     id: 266,
-    name: "VALTURSKA -A (PORED DOMA UMIROVLJENIKA)",
-    image: "",
+    name: "VALTURSKA-A-(PORED-DOMA-UMIROVLJENIKA)",
+    image: require("../images/bus-stops/JURIJA-ŽAKNA-A-(PORED-KAUFLANDA).jpg"),
     latitude: 44.875765,
     longitude: 13.865164,
     inUse: 1,
@@ -2098,7 +2098,7 @@ const busStopData = [
   {
     id: 267,
     name: "ŠURIDA -A",
-    image: "",
+    image: require("../images/bus-stops/ŠURIDA-A-1.jpg"),
     latitude: 44.902357,
     longitude: 13.828168,
     inUse: 1,
@@ -2106,7 +2106,7 @@ const busStopData = [
   {
     id: 268,
     name: "ŠURIDA -B",
-    image: "",
+    image: require("../images/bus-stops/ŠURIDA-B-1.jpg"),
     latitude: 44.901782,
     longitude: 13.828962,
     inUse: 1,
@@ -2114,7 +2114,7 @@ const busStopData = [
   {
     id: 269,
     name: "VALDEBEČKI PUT 3-B",
-    image: "",
+    image: require("../images/bus-stops/VALDEBEČKI-PUT-3-B.jpg"),
     latitude: 44.853802,
     longitude: 13.878417,
     inUse: 1,
@@ -2130,7 +2130,7 @@ const busStopData = [
   {
     id: 271,
     name: "STARIH STATUTA -A",
-    image: "",
+    image: require("../images/bus-stops/STARIH-STATUTA-A.jpg"),
     latitude: 44.8757993538958,
     longitude: 13.8504794239998,
     inUse: 1,
@@ -2138,7 +2138,7 @@ const busStopData = [
   {
     id: 272,
     name: "LABINSKA -B",
-    image: "",
+    image: require("../images/bus-stops/LABINSKA-B.jpg"),
     latitude: 44.883614,
     longitude: 13.863844,
     inUse: 1,
@@ -2146,7 +2146,7 @@ const busStopData = [
   {
     id: 273,
     name: "VODNJANSKA CESTA 1B",
-    image: "",
+    image: require("../images/bus-stops/VODNJANSKA-CESTA-1B.jpg"),
     latitude: 44.898071,
     longitude: 13.844997,
     inUse: 1,
@@ -2154,7 +2154,7 @@ const busStopData = [
   {
     id: 274,
     name: "VODNJANSKA CESTA 1A",
-    image: "",
+    image: require("../images/bus-stops/VODNJANSKA-CESTA-1A.jpg"),
     latitude: 44.8994431908188,
     longitude: 13.8452517986298,
     inUse: 1,
@@ -2162,7 +2162,7 @@ const busStopData = [
   {
     id: 275,
     name: "VODNJANSKA CESTA 2A",
-    image: "",
+    image: require("../images/bus-stops/VODNJANSKA-CESTA-2A.jpg"),
     latitude: 44.905213,
     longitude: 13.846664,
     inUse: 1,
@@ -2170,7 +2170,7 @@ const busStopData = [
   {
     id: 276,
     name: "PEROJ 1-A (NOVI PEROJ)",
-    image: "",
+    image: require("../images/bus-stops/PEROJ-1-A-(NOVI-PEROJ).jpg"),
     latitude: 44.947341,
     longitude: 13.798618,
     inUse: 1,
@@ -2186,7 +2186,7 @@ const busStopData = [
   {
     id: 278,
     name: "PEROJ 1-B (NOVI PEROJ)",
-    image: "",
+    image: require("../images/bus-stops/PEROJ-1-B-(NOVI-PEROJ).jpg"),
     latitude: 44.947771,
     longitude: 13.798714,
     inUse: 1,
@@ -2194,7 +2194,7 @@ const busStopData = [
   {
     id: 279,
     name: "BARBARIGA 1-A (TURISTIČKO NASELJE)",
-    image: "",
+    image: require("../images/bus-stops/BARBARIGA-1-A-(TURISTIČKO-NASELJE).jpg"),
     latitude: 44.98971,
     longitude: 13.756936,
     inUse: 1,
@@ -2202,7 +2202,7 @@ const busStopData = [
   {
     id: 280,
     name: "BARBARIGA OKRETIŠTE",
-    image: "",
+    image: require("../images/bus-stops/BARBARIGA-OKRETIŠTE.jpg"),
     latitude: 44.99187,
     longitude: 13.743147,
     inUse: 1,
@@ -2210,7 +2210,7 @@ const busStopData = [
   {
     id: 281,
     name: "GALIŽANA 2-A",
-    image: "",
+    image: require("../images/bus-stops/GALIŽANA-2-A.jpg"),
     latitude: 44.9299,
     longitude: 13.858722,
     inUse: 1,
@@ -2218,7 +2218,7 @@ const busStopData = [
   {
     id: 282,
     name: "GALIŽANA 3-A",
-    image: "",
+    image: require("../images/bus-stops/GALIŽANA-3-A.jpg"),
     latitude: 44.931197,
     longitude: 13.866293,
     inUse: 1,
@@ -2226,7 +2226,7 @@ const busStopData = [
   {
     id: 283,
     name: "GALIŽANA CENTAR -A  POŠTA",
-    image: "",
+    image: require("../images/bus-stops/GALIŽANA-CENTAR-A-POŠTA.jpg"),
     latitude: 44.934313496931,
     longitude: 13.8703063130379,
     inUse: 1,
@@ -2242,7 +2242,7 @@ const busStopData = [
   {
     id: 285,
     name: "VODNJAN ŠPINA -B (PIAN)",
-    image: "",
+    image: require("../images/bus-stops/VODNJAN-ŠPINA-B-(PIAN).jpg"),
     latitude: 44.959445,
     longitude: 13.854357,
     inUse: 1,
@@ -2250,7 +2250,7 @@ const busStopData = [
   {
     id: 286,
     name: "RAS. VODNJAN - GALIŽANA - B",
-    image: "",
+    image: require("../images/bus-stops/RAS-VODNJAN-GALIŽANA-B.jpg"),
     latitude: 44.9555360501191,
     longitude: 13.853757083416,
     inUse: 1,
@@ -2258,7 +2258,7 @@ const busStopData = [
   {
     id: 287,
     name: "GALIŽANA CENTAR -B  POŠTA",
-    image: "",
+    image: require("../images/bus-stops/GALIŽANA-CENTAR-B-POŠTA.jpg"),
     latitude: 44.934853,
     longitude: 13.87002,
     inUse: 1,
@@ -2266,7 +2266,7 @@ const busStopData = [
   {
     id: 288,
     name: "GALIŽANA 3-B",
-    image: "",
+    image: require("../images/bus-stops/GALIŽANA-3-B.jpg"),
     latitude: 44.931442,
     longitude: 13.866108,
     inUse: 1,
@@ -2274,7 +2274,7 @@ const busStopData = [
   {
     id: 289,
     name: "GALIŽANA 2-B",
-    image: "",
+    image: require("../images/bus-stops/GALIŽANA-2-B.jpg"),
     latitude: 44.929763,
     longitude: 13.85808,
     inUse: 1,
@@ -2282,7 +2282,7 @@ const busStopData = [
   {
     id: 290,
     name: "RAS. VODNJANSKA - GALIŽANA -B",
-    image: "",
+    image: require("../images/bus-stops/RAS-VODNJANSKA-GALIŽANA-B.jpg"),
     latitude: 44.927692,
     longitude: 13.851308,
     inUse: 1,
@@ -2298,7 +2298,7 @@ const busStopData = [
   {
     id: 292,
     name: "VODNJAN - B (DOM)",
-    image: "",
+    image: require("../images/bus-stops/VODNJAN-B-(DOM).jpg"),
     latitude: 44.961975,
     longitude: 13.85589,
     inUse: 1,
@@ -2314,7 +2314,7 @@ const busStopData = [
   {
     id: 294,
     name: "GALIŽANA SJEVER - A  (PORED PRUGE)",
-    image: "",
+    image: require("../images/bus-stops/GALIŽANA-SJEVER-A-(PORED-PRUGE).jpg"),
     latitude: 44.936283,
     longitude: 13.869924,
     inUse: 1,
@@ -2322,7 +2322,7 @@ const busStopData = [
   {
     id: 295,
     name: "S. DOMENICA (UL. PRVI MAJ)",
-    image: "",
+    image: require("../images/bus-stops/S-DOMENICA-(UL-PRVI-MAJ).jpg"),
     latitude: 44.954209277239,
     longitude: 13.853040933609,
     inUse: 1,
@@ -2330,7 +2330,7 @@ const busStopData = [
   {
     id: 296,
     name: "SAN ANTONIO (ULICA 1. MAJA)",
-    image: "",
+    image: require("../images/bus-stops/SAN-ANTONIO-(ULICA-1-MAJA).jpg"),
     latitude: 44.955139,
     longitude: 13.849339,
     inUse: 1,
@@ -2338,7 +2338,7 @@ const busStopData = [
   {
     id: 297,
     name: "DELLA ZONCA",
-    image: "",
+    image: require("../images/bus-stops/DELLA-ZONCA.jpg"),
     latitude: 44.961192,
     longitude: 13.846365,
     inUse: 1,
@@ -2346,7 +2346,7 @@ const busStopData = [
   {
     id: 298,
     name: "A. ZMAREGLIA",
-    image: "",
+    image: require("../images/bus-stops/A-ZMAREGLIA.jpg"),
     latitude: 44.965002,
     longitude: 13.849365,
     inUse: 1,
@@ -2354,7 +2354,7 @@ const busStopData = [
   {
     id: 299,
     name: "S. MARTIN - OKRETIŠTE",
-    image: "",
+    image: require("../images/bus-stops/S-MARTIN-OKRETIŠTE.jpg"),
     latitude: 44.963825,
     longitude: 13.854363,
     inUse: 1,
@@ -2362,7 +2362,7 @@ const busStopData = [
   {
     id: 300,
     name: "PEROJ OKRETIŠTE -A",
-    image: "",
+    image: require("../images/bus-stops/PEROJ-OKRETIŠTE-A.jpg"),
     latitude: 44.952167,
     longitude: 13.799196,
     inUse: 1,
@@ -2378,7 +2378,7 @@ const busStopData = [
   {
     id: 302,
     name: "BARBARIGA 2-A (ODVOJAK ZA PLAŽU)",
-    image: "",
+    image: require("../images/bus-stops/BARBARIGA-2-A-(ODVOJAK-ZA-PLAŽU).jpg"),
     latitude: 44.989383,
     longitude: 13.7511,
     inUse: 1,
@@ -2386,7 +2386,7 @@ const busStopData = [
   {
     id: 303,
     name: "BARBARIGA 2-B (ODVOJAK ZA PLAŽU)",
-    image: "",
+    image: require("../images/bus-stops/BARBARIGA-2-B-(ODVOJAK-ZA-PLAŽU).jpg"),
     latitude: 44.9912448902766,
     longitude: 13.7446662783623,
     inUse: 1,
@@ -2394,7 +2394,7 @@ const busStopData = [
   {
     id: 304,
     name: "PORTIĆ -A (POSLIJE PEROJA)",
-    image: "",
+    image: require("../images/bus-stops/PORTIĆ-A-(POSLIJE-PEROJA).jpg"),
     latitude: 44.956326,
     longitude: 13.785468,
     inUse: 1,
@@ -2402,7 +2402,7 @@ const busStopData = [
   {
     id: 305,
     name: "PORTIĆ -B (PRIJE PEROJA)",
-    image: "",
+    image: require("../images/bus-stops/PORTIĆ-B-(PRIJE-PEROJA).jpg"),
     latitude: 44.956838,
     longitude: 13.784727,
     inUse: 1,
@@ -2426,7 +2426,7 @@ const busStopData = [
   {
     id: 308,
     name: "GALIŽANA SJEVER - B (PORED PRUGE)",
-    image: "",
+    image: require("../images/bus-stops/GALIŽANA-SJEVER-B-(PORED-PRUGE).jpg"),
     latitude: 44.936035,
     longitude: 13.86984,
     inUse: 1,
@@ -2434,7 +2434,7 @@ const busStopData = [
   {
     id: 309,
     name: "GALIŽANA 1-A",
-    image: "",
+    image: require("../images/bus-stops/GALIŽANA-1-A.jpg"),
     latitude: 44.9282826509021,
     longitude: 13.8535317778587,
     inUse: 1,
@@ -2442,7 +2442,7 @@ const busStopData = [
   {
     id: 310,
     name: "GALIŽANA 1-B",
-    image: "",
+    image: require("../images/bus-stops/GALIŽANA-1-B.jpg"),
     latitude: 44.9282180855224,
     longitude: 13.8531750440598,
     inUse: 1,
@@ -2450,7 +2450,7 @@ const busStopData = [
   {
     id: 311,
     name: "GALIŽANA CENTAR -A MARKET",
-    image: "",
+    image: require("../images/bus-stops/GALIŽANA-CENTAR-AB-MARKET.jpg"),
     latitude: 44.9328,
     longitude: 13.869467,
     inUse: 1,
@@ -2458,7 +2458,7 @@ const busStopData = [
   {
     id: 312,
     name: "GALIŽANA CENTAR - B MARKET",
-    image: "",
+    image: require("../images/bus-stops/GALIŽANA-CENTAR-AB-MARKET.jpg"),
     latitude: 44.9329368639928,
     longitude: 13.8694909214973,
     inUse: 1,
@@ -2466,15 +2466,15 @@ const busStopData = [
   {
     id: 313,
     name: "ŠIKIĆI",
-    image: "",
+    image: require("../images/bus-stops/ŠIKIĆI.jpg"),
     latitude: 44.860357,
     longitude: 13.899835,
     inUse: 1,
   },
   {
     id: 314,
+    image: require("../images/bus-stops/VALA-A.jpg"),
     name: "VALA -A",
-    image: "",
     latitude: 44.910255,
     longitude: 13.82101,
     inUse: 1,
@@ -2482,7 +2482,7 @@ const busStopData = [
   {
     id: 315,
     name: "VALA -B",
-    image: "",
+    image: require("../images/bus-stops/VALA-B.jpg"),
     latitude: 44.910005,
     longitude: 13.821072,
     inUse: 1,
@@ -2490,7 +2490,7 @@ const busStopData = [
   {
     id: 316,
     name: "VALBANDON -A",
-    image: "",
+    image: require("../images/bus-stops/VALBANDON-A.jpg"),
     latitude: 44.914583,
     longitude: 13.816928,
     inUse: 1,
@@ -2498,7 +2498,7 @@ const busStopData = [
   {
     id: 317,
     name: "VALBANDON -B",
-    image: "",
+    image: require("../images/bus-stops/VALBANDON-B.jpg"),
     latitude: 44.913956,
     longitude: 13.817603,
     inUse: 1,
@@ -2506,7 +2506,7 @@ const busStopData = [
   {
     id: 318,
     name: "PEROJSKA CESTA -A",
-    image: "",
+    image: require("../images/bus-stops/PEROJSKA-CESTA-A.jpg"),
     latitude: 44.936438,
     longitude: 13.803844,
     inUse: 1,
@@ -2514,7 +2514,7 @@ const busStopData = [
   {
     id: 319,
     name: "MANDRIOL -A",
-    image: "",
+    image: require("../images/bus-stops/MANDRIOL-A.jpg"),
     latitude: 44.990698,
     longitude: 13.765451,
     inUse: 1,
@@ -2522,7 +2522,7 @@ const busStopData = [
   {
     id: 320,
     name: "MANDRIOL -B",
-    image: "",
+    image: require("../images/bus-stops/MANDRIOL-B.jpg"),
     latitude: 44.990765,
     longitude: 13.765961,
     inUse: 1,
@@ -2530,7 +2530,7 @@ const busStopData = [
   {
     id: 321,
     name: "BARBARIGA 1-B (TURISTIČKO NASELJE)",
-    image: "",
+    image: require("../images/bus-stops/BARBARIGA-1-B-(TURISTIČKO-NASELJE).jpg"),
     latitude: 44.989409,
     longitude: 13.756226,
     inUse: 1,
@@ -2538,7 +2538,7 @@ const busStopData = [
   {
     id: 322,
     name: "PEROJSKA CESTA -B",
-    image: "",
+    image: require("../images/bus-stops/PEROJSKA-CESTA-B.jpg"),
     latitude: 44.935548,
     longitude: 13.803455,
     inUse: 1,
@@ -2546,7 +2546,7 @@ const busStopData = [
   {
     id: 323,
     name: "FONDOLE -B",
-    image: "",
+    image: require("../images/bus-stops/FONDOLE-B.jpg"),
     latitude: 44.919788,
     longitude: 13.850443,
     inUse: 1,
@@ -2554,7 +2554,7 @@ const busStopData = [
   {
     id: 324,
     name: "FONDOLE -A",
-    image: "",
+    image: require("../images/bus-stops/FONDOLE-A.jpg"),
     latitude: 44.9207356059031,
     longitude: 13.8505759835243,
     inUse: 1,
@@ -2562,7 +2562,7 @@ const busStopData = [
   {
     id: 334,
     name: "KRIŽINE -A (ŠTINJAN PLACA)",
-    image: "",
+    image: require("../images/bus-stops/KRIŽINE-A-(ŠTINJAN-PLACA).jpg"),
     latitude: 44.891417,
     longitude: 13.816657,
     inUse: 1,
@@ -2570,7 +2570,7 @@ const busStopData = [
   {
     id: 335,
     name: "KRIŽINE -B (ŠTINJAN PLACA)",
-    image: "",
+    image: require("../images/bus-stops/KRIŽINE-B-(ŠTINJAN-PLACA).jpg"),
     latitude: 44.891392,
     longitude: 13.816508,
     inUse: 1,
@@ -2578,7 +2578,7 @@ const busStopData = [
   {
     id: 336,
     name: "ŠIKIĆI - B",
-    image: "",
+    image: require("../images/bus-stops/ŠIKIĆI-B.jpg"),
     latitude: 44.860518,
     longitude: 13.89963,
     inUse: 1,
@@ -2594,7 +2594,7 @@ const busStopData = [
   {
     id: 338,
     name: "43.ISTARSKE DIVIZIJE 1-A (BUS KOLODVOR)",
-    image: "",
+    image: require("../images/bus-stops/43-ISTARSKE-DIVIZIJE-1-B-(OS-SIJANA).jpg"),
     latitude: 44.876968,
     longitude: 13.854143,
     inUse: 1,
@@ -2602,7 +2602,7 @@ const busStopData = [
   {
     id: 339,
     name: "ŠIJANSKA UL.-A (KONZUM)",
-    image: "",
+    image: require("../images/bus-stops/ŠIJANSKA-UL-A-(KONZUM).jpg"),
     latitude: 44.884134,
     longitude: 13.870569,
     inUse: 1,
@@ -2618,7 +2618,7 @@ const busStopData = [
   {
     id: 341,
     name: "MEDULIN ŠKOLA",
-    image: "",
+    image: require("../images/bus-stops/MEDULIN-ŠKOLA.jpg"),
     latitude: 44.826019,
     longitude: 13.93199,
     inUse: 1,
@@ -2626,7 +2626,7 @@ const busStopData = [
   {
     id: 342,
     name: "MUNIDA MEDULIN",
-    image: "",
+    image: require("../images/bus-stops/MUNIDA-MEDULIN.jpg"),
     latitude: 44.8266829415622,
     longitude: 13.9296716451645,
     inUse: 1,
@@ -2650,7 +2650,7 @@ const busStopData = [
   {
     id: 345,
     name: "VALBONAŠA-A",
-    image: "",
+    image: require("../images/bus-stops/VALBONAŠA-A.jpg"),
     latitude: 44.843523769457,
     longitude: 13.8709312677383,
     inUse: 1,
@@ -2658,7 +2658,7 @@ const busStopData = [
   {
     id: 346,
     name: "ŠĆUZA-A",
-    image: "",
+    image: require("../images/bus-stops/ŠĆUZA-A.jpg"),
     latitude: 44.814888,
     longitude: 13.900905,
     inUse: 1,
@@ -2666,7 +2666,7 @@ const busStopData = [
   {
     id: 347,
     name: "ŠĆUZA-B",
-    image: "",
+    image: require("../images/bus-stops/ŠĆUZA-B.jpg"),
     latitude: 44.815193,
     longitude: 13.900361,
     inUse: 1,
@@ -2674,7 +2674,7 @@ const busStopData = [
   {
     id: 348,
     name: "CAVE ROMANE-A",
-    image: "",
+    image: require("../images/bus-stops/CAVE-ROMANE-A.jpg"),
     latitude: 44.840736,
     longitude: 13.859971,
     inUse: 1,
@@ -2682,7 +2682,7 @@ const busStopData = [
   {
     id: 349,
     name: "CAVE ROMANE-B",
-    image: "",
+    image: require("../images/bus-stops/CAVE-ROMANE-B.jpg"),
     latitude: 44.841041,
     longitude: 13.860083,
     inUse: 1,
@@ -2706,7 +2706,7 @@ const busStopData = [
   {
     id: 361,
     name: "VOLME",
-    image: "",
+    image: require("../images/bus-stops/VOLME.jpg"),
     latitude: 44.820279,
     longitude: 13.879637,
     inUse: 1,
@@ -2770,7 +2770,7 @@ const busStopData = [
   {
     id: 369,
     name: "BOŽE GUMPCA-A",
-    image: "",
+    image: require("../images/bus-stops/BOŽE-GUMPCA-A.jpg"),
     latitude: 44.8743376854819,
     longitude: 13.8661730289459,
     inUse: 1,
@@ -2778,7 +2778,7 @@ const busStopData = [
   {
     id: 370,
     name: "BOŽE GUMPCA-B",
-    image: "",
+    image: require("../images/bus-stops/BOŽE-GUMPCA-B.jpg"),
     latitude: 44.8743186778457,
     longitude: 13.8663473725319,
     inUse: 1,
@@ -2818,7 +2818,7 @@ const busStopData = [
   {
     id: 376,
     name: "MUTVORANSKA-A",
-    image: "",
+    image: require("../images/bus-stops/MUTVORANSKA-A.jpg"),
     latitude: 44.8802487557303,
     longitude: 13.862589597702,
     inUse: 1,
@@ -2826,7 +2826,7 @@ const busStopData = [
   {
     id: 377,
     name: "MUTVORANSKA-B",
-    image: "",
+    image: require("../images/bus-stops/MUTVORANSKA-A.jpg"),
     latitude: 44.8804787240047,
     longitude: 13.8624501228333,
     inUse: 1,
@@ -2834,7 +2834,7 @@ const busStopData = [
   {
     id: 378,
     name: "VITASOVIĆEVA-A",
-    image: "",
+    image: require("../images/bus-stops/VITASOVIĆEVA-A.jpg"),
     latitude: 44.8828771813033,
     longitude: 13.860969543457,
     inUse: 1,
@@ -2842,7 +2842,7 @@ const busStopData = [
   {
     id: 379,
     name: "VITASOVIĆEVA-B",
-    image: "",
+    image: require("../images/bus-stops/VITASOVIĆEVA-B.jpg"),
     latitude: 44.8832192669065,
     longitude: 13.860422372818,
     inUse: 1,
@@ -2858,7 +2858,7 @@ const busStopData = [
   {
     id: 381,
     name: "PUT OD FORTICA 1",
-    image: "",
+    image: require("../images/bus-stops/PUT-OD-FORTICA-1.jpg"),
     latitude: 44.8625793130811,
     longitude: 13.8974462449551,
     inUse: 1,
@@ -2866,7 +2866,7 @@ const busStopData = [
   {
     id: 382,
     name: "PUT OD FORTICA 2",
-    image: "",
+    image: require("../images/bus-stops/PUT-OD-FORTICA-2.jpg"),
     latitude: 44.8683252571178,
     longitude: 13.9000654220581,
     inUse: 1,
@@ -2874,7 +2874,7 @@ const busStopData = [
   {
     id: 383,
     name: "MONTE TURCO",
-    image: "",
+    image: require("../images/bus-stops/MONTE-TURCO.jpg"),
     latitude: 44.8744821433113,
     longitude: 13.898786008358,
     inUse: 1,
@@ -2882,7 +2882,7 @@ const busStopData = [
   {
     id: 384,
     name: "ŠIJANSKA ŠUMA",
-    image: "",
+    image: require("../images/bus-stops/ŠIJANSKA-ŠUMA.jpg"),
     latitude: 44.8789905659243,
     longitude: 13.87789696455,
     inUse: 1,
@@ -2922,7 +2922,7 @@ const busStopData = [
   {
     id: 389,
     name: "PEROJ 3 (LETAN) - A",
-    image: "",
+    image: require("../images/bus-stops/PEROJ-3-(LETAN)-A.jpg"),
     latitude: 44.9515119805813,
     longitude: 13.8013708591461,
     inUse: 1,
@@ -2930,7 +2930,7 @@ const busStopData = [
   {
     id: 390,
     name: "VODNJAN (UL. 1. MAJA)",
-    image: "",
+    image: require("../images/bus-stops/VODNJAN-(UL-1-MAJA).jpg"),
     latitude: 44.9554449422327,
     longitude: 13.8467001914978,
     inUse: 1,
@@ -2938,7 +2938,7 @@ const busStopData = [
   {
     id: 391,
     name: "PEROJ 3 (LETAN) - B",
-    image: "",
+    image: require("../images/bus-stops/PEROJ-3-(LETAN)-B.jpg"),
     latitude: 44.9515575376646,
     longitude: 13.8015103340149,
     inUse: 1,
@@ -2970,7 +2970,7 @@ const busStopData = [
   {
     id: 395,
     name: "CAMPANOŽ-A",
-    image: "",
+    image: require("../images/bus-stops/CAMPANOŽ-A.jpg"),
     latitude: 44.8494189882409,
     longitude: 13.8997650146484,
     inUse: 1,
@@ -2978,7 +2978,7 @@ const busStopData = [
   {
     id: 396,
     name: "CAMPANOŽ-B",
-    image: "",
+    image: require("../images/bus-stops/CAMPANOŽ-B.jpg"),
     latitude: 44.8496776033793,
     longitude: 13.9000654220581,
     inUse: 1,
@@ -2986,7 +2986,7 @@ const busStopData = [
   {
     id: 397,
     name: "MEŠTROVIĆEVA-A",
-    image: "",
+    image: require("../images/bus-stops/MEŠTROVIĆEVA-A.jpg"),
     latitude: 44.8560057060661,
     longitude: 13.8453269004822,
     inUse: 1,
@@ -2994,7 +2994,7 @@ const busStopData = [
   {
     id: 398,
     name: "MEŠTROVIĆEVA-B",
-    image: "",
+    image: require("../images/bus-stops/MEŠTROVIĆEVA-B.jpg"),
     latitude: 44.8560665498322,
     longitude: 13.8449192047119,
     inUse: 1,
