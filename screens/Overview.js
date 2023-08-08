@@ -329,7 +329,7 @@ const Overview = ({ navigation }) => {
       (busStop) => busStop.id === selectedStopId
     );
 
-    console.log(currentBusStop);
+    // console.log(currentBusStop);
 
     return (
       <View style={styles.modalSelectedStop}>

@@ -1,11 +1,4 @@
-import {
-  FlatList,
-  Image,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { busStopArrivalTime, busStopData } from "../bus-data/bus-stop";
 import { Ionicons } from "@expo/vector-icons";
@@ -121,11 +114,34 @@ const BusStopDetails = ({ navigation, route }) => {
             }}
           >
             <ScrollView contentContainerStyle={styles.container}>
+              <View style={{ flexDirection: "row", width: "100%" }}>
+                <View
+                  style={{
+                    width: 25,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Text>h</Text>
+                </View>
+                <View
+                  style={{
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "100%",
+                  }}
+                >
+                  <Text>min</Text>
+                </View>
+              </View>
               {Object.keys(groupedTimes).map((hour) => (
                 <View key={hour} style={styles.hourContainer}>
+                  <Text style={{ fontSize: 20 }}>
+                    {hour.length === 1 ? "0" + hour : hour}
+                  </Text>
                   {groupedTimes[hour].map((time) => (
                     <Text key={time} style={styles.timeText}>
-                      {time}
+                      {time.split(":")[1]}
                     </Text>
                   ))}
                 </View>
@@ -148,8 +164,10 @@ const styles = StyleSheet.create({
   },
   hourContainer: {
     flexDirection: "row",
+    alignItems: "center",
     flexWrap: "wrap",
     marginBottom: 10,
+    gap: 20,
   },
   timeText: {
     fontSize: 8,
