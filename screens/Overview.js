@@ -55,6 +55,9 @@ const Overview = ({ navigation }) => {
     longitudeDelta: 0.05,
   });
   const mapRef = useRef(null);
+  let regionChangeTimeout = null;
+
+  // console.log("kek");
 
   useEffect(() => {
     (async () => {
@@ -280,9 +283,38 @@ const Overview = ({ navigation }) => {
     // parseJSONRoute();
     // console.log(regionChange);
     // console.log(busStopArrivalTime.find((busStop) => busStop.id === 51));
+    // console.log(selectedRouteId);
+    if (selectedRouteId !== null) {
+      console.log("ovdje");
+      return busStopData.map((busStop) =>
+        routesData[selectedRouteId].stops.includes(busStop.id) ? (
+          <Marker
+            key={busStop.id}
+            coordinate={{
+              latitude: busStop.latitude,
+              longitude: busStop.longitude,
+            }}
+            style={styles.markerBusStopView}
+            onPress={() => {
+              setShowAllRoutes(false);
+              setSelectedStopId(busStop.id);
+            }}
+          >
+            <View style={styles.busStopViewMarker}>
+              <MaterialIcons
+                name="directions-bus"
+                size={14}
+                color="darkorange"
+              />
+            </View>
+          </Marker>
+        ) : null
+      );
+    }
+
     if (
-      regionChange.latitudeDelta > 0.006 ||
-      regionChange.longitudeDelta > 0.004
+      regionChange.latitudeDelta > 0.007 ||
+      regionChange.longitudeDelta > 0.005
     ) {
       return;
     }
@@ -328,8 +360,6 @@ const Overview = ({ navigation }) => {
     const currentBusStop = busStopData.find(
       (busStop) => busStop.id === selectedStopId
     );
-
-    // console.log(currentBusStop);
 
     return (
       <View style={styles.modalSelectedStop}>
@@ -520,9 +550,14 @@ const Overview = ({ navigation }) => {
   };
 
   const renderRoutes = () => {
-    const routesOnSelectedStopId = routesData.filter((route) =>
-      route.stops.includes(selectedStopId)
-    );
+    const routesOnSelectedStopId = routesData.filter((route) => {
+      if (
+        route.stops.includes(selectedStopId) &&
+        !(route.stops[route.stops.length - 1] === selectedStopId)
+      ) {
+        return route.name;
+      }
+    });
 
     return routesOnSelectedStopId.map((route) => (
       <Pressable
@@ -569,6 +604,7 @@ const Overview = ({ navigation }) => {
   };
 
   const handleClosestStop = () => {
+    setSelectedRouteId(null);
     setShowSearchedStreet(null);
     setShowAllRoutes(false);
     if (selectedStopId !== null) {
@@ -657,13 +693,21 @@ const Overview = ({ navigation }) => {
         mapType={mapType}
         region={region}
         onRegionChangeComplete={(region) => {
-          handleCheckRegion(region);
-          setRegionChange(region);
+          if (regionChangeTimeout) {
+            clearTimeout(regionChangeTimeout);
+          }
+
+          regionChangeTimeout = setTimeout(() => {
+            handleCheckRegion(region);
+            setRegionChange(region);
+          }, 500);
         }}
         ref={mapRef}
         customMapStyle={mapStyle}
         showsUserLocation={true}
+        userLocationUpdateInterval={10000}
         onUserLocationChange={(event) => {
+          // console.log(new Date(Date.now()).toLocaleString());
           const currentLocation = event.nativeEvent.coordinate;
           if (!currentLocation) {
             return;

@@ -137,14 +137,18 @@ const BusStopDetails = ({ navigation, route }) => {
               </View>
               {Object.keys(groupedTimes).map((hour) => (
                 <View key={hour} style={styles.hourContainer}>
-                  <Text style={{ fontSize: 20 }}>
-                    {hour.length === 1 ? "0" + hour : hour}
-                  </Text>
-                  {groupedTimes[hour].map((time) => (
-                    <Text key={time} style={styles.timeText}>
-                      {time.split(":")[1]}
+                  <View>
+                    <Text style={{ fontSize: 28 }}>
+                      {hour.length === 1 ? "0" + hour : hour}
                     </Text>
-                  ))}
+                  </View>
+                  <View style={styles.timeView}>
+                    {groupedTimes[hour].map((time) => (
+                      <Text key={time} style={styles.timeText}>
+                        {time.split(":")[1]}
+                      </Text>
+                    ))}
+                  </View>
                 </View>
               ))}
             </ScrollView>
@@ -172,6 +176,12 @@ const styles = StyleSheet.create({
     fontSize: 10,
     marginRight: 10,
     fontWeight: "bold",
+  },
+  timeView: {
+    flexDirection: "row",
+    gap: 10,
+    flexWrap: "wrap",
+    width: 280,
   },
 });
 
