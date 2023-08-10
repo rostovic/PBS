@@ -1,0 +1,109 @@
+{
+  "geocoded_waypoints": [
+    {
+      "geocoder_status": "OK",
+      "place_id": "ChIJJx61Pt3SfEcRh8caDiv6cr8",
+      "types": ["establishment", "point_of_interest"]
+    },
+    {
+      "geocoder_status": "OK",
+      "place_id": "ChIJoYeXQN3SfEcRfpaXqTpPT24",
+      "types": ["establishment", "point_of_interest", "transit_station"]
+    }
+  ],
+  "routes": [
+    {
+      "bounds": {
+        "northeast": {
+          "lat": 44.8771614,
+          "lng": 13.8545403
+        },
+        "southwest": {
+          "lat": 44.8762657,
+          "lng": 13.8509877
+        }
+      },
+      "copyrights": "Map data \u00a92023",
+      "legs": [
+        {
+          "distance": {
+            "text": "0.6 km",
+            "value": 597
+          },
+          "duration": {
+            "text": "1 min",
+            "value": 85
+          },
+          "end_address": "43. ISTARSKE DIVIZIJE 1-B (O\u0160 \u0160IJANA), 52100, Pula, Croatia",
+          "end_location": {
+            "lat": 44.8770134,
+            "lng": 13.8542425
+          },
+          "start_address": "Trg I istarske brigade 9, 52100, Pula, Croatia",
+          "start_location": {
+            "lat": 44.8771614,
+            "lng": 13.8545403
+          },
+          "steps": [
+            {
+              "distance": {
+                "text": "0.3 km",
+                "value": 259
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 32
+              },
+              "end_location": {
+                "lat": 44.8764896,
+                "lng": 13.8514281
+              },
+              "html_instructions": "Head \u003cb\u003ewest\u003c/b\u003e on \u003cb\u003eUl. 43. istarske divizije\u003c/b\u003e toward \u003cb\u003eUl. Dinka Trinajsti\u0107a\u003c/b\u003e",
+              "polyline": {
+                "points": "ga|pG{}psALdAD`@BT@@JP@HPnAT`Bn@fECb@@BBPB\\"
+              },
+              "start_location": {
+                "lat": 44.8771614,
+                "lng": 13.8545403
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.3 km",
+                "value": 338
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 53
+              },
+              "end_location": {
+                "lat": 44.8770134,
+                "lng": 13.8542425
+              },
+              "html_instructions": "At the roundabout, take the \u003cb\u003e4th\u003c/b\u003e exit and stay on \u003cb\u003eUl. 43. istarske divizije\u003c/b\u003e",
+              "maneuver": "roundabout-right",
+              "polyline": {
+                "points": "a}{pGmjpsAA@A@A?A@AB?@A@A@AB?@AB?B?@AB?B?@?B?B@??@?B?B@@?B@@@@?B@@@@@@@@@@@@@@@?@@@?@?@?@?@?@?@A@?@A@ABA@ABA?A?A@A@A?A@A?C@A?A?A@A?C?C?C?A?C?CAA?CAC?AAC?AAAACAAAAAAA?AAAAA?C??AE_@CUM]o@gEUaBQoAAIB[E[E]"
+              },
+              "start_location": {
+                "lat": 44.8764896,
+                "lng": 13.8514281
+              },
+              "travel_mode": "DRIVING"
+            }
+          ],
+          "traffic_speed_entry": [],
+          "via_waypoint": []
+        }
+      ],
+      "overview_polyline": {
+        "points": "ga|pG{}psAX~BLZf@pDn@fECb@DT@^C@EHEJ?VDVNLN?NMFQ?YIWOIIu@M]o@gEg@qD@e@Ky@"
+      },
+      "summary": "Ul. 43. istarske divizije",
+      "warnings": [],
+      "waypoint_order": []
+    }
+  ],
+  "status": "OK"
+}

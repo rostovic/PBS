@@ -23,7 +23,7 @@ import {
   calculateDistance,
   findNearestBusStopAtDesiredLocation,
 } from "../functions/helpers";
-import { parseJSONRoute } from "../functions/test";
+import { parseJSONRoute } from "../convert-functions/getDataConvert";
 
 const Overview = ({ navigation }) => {
   const insets = useSafeAreaInsets();
@@ -57,8 +57,6 @@ const Overview = ({ navigation }) => {
   const mapRef = useRef(null);
   let regionChangeTimeout = null;
 
-  // console.log("kek");
-
   useEffect(() => {
     (async () => {
       setIsLoading(true);
@@ -73,6 +71,18 @@ const Overview = ({ navigation }) => {
       setLocation(location);
       setIsLoading(false);
     })();
+  }, []);
+
+  useEffect(() => {
+    // console.log("kek");
+    async () => {
+      let location = await Location.getCurrentPositionAsync({});
+      setLocation(location);
+    };
+  }, [regionChange]);
+
+  const busStopDataInUse = useMemo(() => {
+    return busStopData.filter((busStop) => busStop.inUse);
   }, []);
 
   const findLocation = async (searchText) => {
@@ -281,13 +291,15 @@ const Overview = ({ navigation }) => {
 
   const renderBusStopMarkers = () => {
     // parseJSONRoute();
-    // console.log(regionChange);
-    // console.log(busStopArrivalTime.find((busStop) => busStop.id === 51));
-    // console.log(selectedRouteId);
     if (selectedRouteId !== null) {
-      console.log("ovdje");
       return busStopData.map((busStop) =>
-        routesData[selectedRouteId].stops.includes(busStop.id) ? (
+        routesData[selectedRouteId].stops.includes(busStop.id) &&
+        calculateDistance(
+          regionChange.latitude,
+          regionChange.longitude,
+          busStop.latitude,
+          busStop.longitude
+        ) < 0.5 ? (
           <Marker
             key={busStop.id}
             coordinate={{
@@ -303,7 +315,7 @@ const Overview = ({ navigation }) => {
             <View style={styles.busStopViewMarker}>
               <MaterialIcons
                 name="directions-bus"
-                size={14}
+                size={10}
                 color="darkorange"
               />
             </View>
@@ -319,37 +331,31 @@ const Overview = ({ navigation }) => {
       return;
     }
 
-    return busStopData
-      .filter((busStop) => busStop.inUse)
-      .map((busStop) =>
-        calculateDistance(
-          regionChange.latitude,
-          regionChange.longitude,
-          busStop.latitude,
-          busStop.longitude
-        ) > 0.25 ? null : (
-          <Marker
-            key={busStop.id}
-            coordinate={{
-              latitude: busStop.latitude,
-              longitude: busStop.longitude,
-            }}
-            style={styles.markerBusStopView}
-            onPress={() => {
-              setShowAllRoutes(false);
-              setSelectedStopId(busStop.id);
-            }}
-          >
-            <View style={styles.busStopViewMarker}>
-              <MaterialIcons
-                name="directions-bus"
-                size={14}
-                color="darkorange"
-              />
-            </View>
-          </Marker>
-        )
-      );
+    return busStopDataInUse.map((busStop) =>
+      calculateDistance(
+        regionChange.latitude,
+        regionChange.longitude,
+        busStop.latitude,
+        busStop.longitude
+      ) > 0.25 ? null : (
+        <Marker
+          key={busStop.id}
+          coordinate={{
+            latitude: busStop.latitude,
+            longitude: busStop.longitude,
+          }}
+          style={styles.markerBusStopView}
+          onPress={() => {
+            setShowAllRoutes(false);
+            setSelectedStopId(busStop.id);
+          }}
+        >
+          <View style={styles.busStopViewMarker}>
+            <MaterialIcons name="directions-bus" size={14} color="darkorange" />
+          </View>
+        </Marker>
+      )
+    );
   };
 
   const renderModalSelectedStop = () => {
@@ -437,11 +443,17 @@ const Overview = ({ navigation }) => {
         <View style={styles.renderAllRoutesViewContainer}>
           {routesData.map((route) => (
             <View key={route.id} style={styles.renderAllRoutesSingleRoute}>
-              <View style={styles.pressableSingleRoute}>
+              <Pressable
+                style={styles.pressableSingleRoute}
+                onPress={() => {
+                  setShowAllRoutes(false);
+                  setSelectedRouteId(route.id);
+                }}
+              >
                 <Text style={styles.renderAllRoutesSingleRouteName}>
                   {route.name}
                 </Text>
-              </View>
+              </Pressable>
               <View
                 style={{
                   backgroundColor: route.color,
@@ -512,6 +524,14 @@ const Overview = ({ navigation }) => {
     if (selectedStopId === null) {
       return;
     }
+
+    if (
+      regionChange.latitudeDelta > 0.007 ||
+      regionChange.longitudeDelta > 0.005
+    ) {
+      return;
+    }
+
     const currentBusStop = busStopData.find(
       (busStop) => busStop.id === selectedStopId
     );
@@ -535,7 +555,7 @@ const Overview = ({ navigation }) => {
     );
   };
 
-  const renderRoutePath = () => {
+  const renderRoutePath = useMemo(() => {
     if (selectedRouteId === null) {
       return;
     }
@@ -547,7 +567,7 @@ const Overview = ({ navigation }) => {
         strokeColor={route.color}
       />
     );
-  };
+  }, [selectedRouteId]);
 
   const renderRoutes = () => {
     const routesOnSelectedStopId = routesData.filter((route) => {
@@ -617,21 +637,19 @@ const Overview = ({ navigation }) => {
       longitude: location.coords.longitude,
     };
 
-    const allDistances = busStopData
-      .filter((busStop) => busStop.inUse)
-      .map((busStop) => {
-        return {
-          id: busStop.id,
-          distance: calculateDistance(
-            startLocation.latitude,
-            startLocation.longitude,
-            busStop.latitude,
-            busStop.longitude
-          ),
-          latitude: busStop.latitude,
-          longitude: busStop.longitude,
-        };
-      });
+    const allDistances = busStopDataInUse.map((busStop) => {
+      return {
+        id: busStop.id,
+        distance: calculateDistance(
+          startLocation.latitude,
+          startLocation.longitude,
+          busStop.latitude,
+          busStop.longitude
+        ),
+        latitude: busStop.latitude,
+        longitude: busStop.longitude,
+      };
+    });
     const smallestDistances = allDistances.filter(
       (obj) =>
         obj.distance === Math.min(...allDistances.map((obj) => obj.distance))
@@ -700,26 +718,25 @@ const Overview = ({ navigation }) => {
           regionChangeTimeout = setTimeout(() => {
             handleCheckRegion(region);
             setRegionChange(region);
-          }, 500);
+          }, 1000);
         }}
         ref={mapRef}
         customMapStyle={mapStyle}
         showsUserLocation={true}
-        userLocationUpdateInterval={10000}
-        onUserLocationChange={(event) => {
-          // console.log(new Date(Date.now()).toLocaleString());
-          const currentLocation = event.nativeEvent.coordinate;
-          if (!currentLocation) {
-            return;
-          }
-          const { latitude, longitude } = currentLocation;
-          setLocation({
-            coords: {
-              latitude,
-              longitude,
-            },
-          });
-        }}
+        // onUserLocationChange={(event) => {
+        //   // console.log(new Date(Date.now()).toLocaleString());
+        //   const currentLocation = event.nativeEvent.coordinate;
+        //   if (!currentLocation) {
+        //     return;
+        //   }
+        //   const { latitude, longitude } = currentLocation;
+        //   setLocation({
+        //     coords: {
+        //       latitude,
+        //       longitude,
+        //     },
+        //   });
+        // }}
         onPress={() => {
           setSelectedRouteId(null);
           setSelectedStopId(null);
@@ -728,7 +745,7 @@ const Overview = ({ navigation }) => {
         {renderSearchedStreetMarker()}
         {renderPolylineClosestStop()}
         {renderAllRoutes()}
-        {renderRoutePath()}
+        {renderRoutePath}
         {renderBusStopMarkers()}
         {renderPolylineClosestStreetStop()}
       </MapView>
