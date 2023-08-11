@@ -278,6 +278,7 @@ const help = StyleSheet.create({
     backgroundColor: "aqua",
     justifyContent: "center",
     alignItems: "center",
+    borderRadius: 999,
   },
   buttonContainer: {
     width: 50,

@@ -367,6 +367,8 @@ const Overview = ({ navigation }) => {
       (busStop) => busStop.id === selectedStopId
     );
 
+    // console.log(currentBusStop);
+
     return (
       <View style={styles.modalSelectedStop}>
         <View>
@@ -512,7 +514,7 @@ const Overview = ({ navigation }) => {
         <Polyline
           key={route.id}
           coordinates={route.pathCoords}
-          strokeWidth={2}
+          strokeWidth={3}
           strokeColor={route.color}
         />
       );
@@ -563,7 +565,7 @@ const Overview = ({ navigation }) => {
     return (
       <Polyline
         coordinates={route.pathCoords}
-        strokeWidth={2}
+        strokeWidth={3}
         strokeColor={route.color}
       />
     );
@@ -585,6 +587,7 @@ const Overview = ({ navigation }) => {
         style={{
           width: 24,
           height: 24,
+          borderRadius: 999,
           backgroundColor: route.color,
           justifyContent: "center",
           alignItems: "center",

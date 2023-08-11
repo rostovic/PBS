@@ -2,12 +2,12 @@
   "geocoded_waypoints": [
     {
       "geocoder_status": "OK",
-      "place_id": "ChIJJx61Pt3SfEcRh8caDiv6cr8",
-      "types": ["establishment", "point_of_interest"]
+      "place_id": "ChIJm1gP3sbSfEcRlQ4WaJlU9vw",
+      "types": ["establishment", "point_of_interest", "transit_station"]
     },
     {
       "geocoder_status": "OK",
-      "place_id": "ChIJoYeXQN3SfEcRfpaXqTpPT24",
+      "place_id": "ChIJBdTIL8jSfEcRfVg55igQM7g",
       "types": ["establishment", "point_of_interest", "transit_station"]
     }
   ],
@@ -15,82 +15,114 @@
     {
       "bounds": {
         "northeast": {
-          "lat": 44.8771614,
-          "lng": 13.8545403
+          "lat": 44.8860971,
+          "lng": 13.871676
         },
         "southwest": {
-          "lat": 44.8762657,
-          "lng": 13.8509877
+          "lat": 44.8836136,
+          "lng": 13.8638074
         }
       },
       "copyrights": "Map data \u00a92023",
       "legs": [
         {
+          "arrival_time": {
+            "text": "4:50\u202fPM",
+            "time_zone": "Europe/Zagreb",
+            "value": 1691765400
+          },
+          "departure_time": {
+            "text": "4:48\u202fPM",
+            "time_zone": "Europe/Zagreb",
+            "value": 1691765280
+          },
           "distance": {
-            "text": "0.6 km",
-            "value": 597
+            "text": "0.9 km",
+            "value": 919
           },
           "duration": {
-            "text": "1 min",
-            "value": 85
+            "text": "2 mins",
+            "value": 120
           },
-          "end_address": "43. ISTARSKE DIVIZIJE 1-B (O\u0160 \u0160IJANA), 52100, Pula, Croatia",
+          "end_address": "\u0160IJANSKA UL. -B (KONZUM), 52100, Pula, Croatia",
           "end_location": {
-            "lat": 44.8770134,
-            "lng": 13.8542425
+            "lat": 44.884755,
+            "lng": 13.871676
           },
-          "start_address": "Trg I istarske brigade 9, 52100, Pula, Croatia",
+          "start_address": "LABINSKA -B, 52100, Pula, Croatia",
           "start_location": {
-            "lat": 44.8771614,
-            "lng": 13.8545403
+            "lat": 44.883614,
+            "lng": 13.863844
           },
           "steps": [
             {
               "distance": {
-                "text": "0.3 km",
-                "value": 259
+                "text": "0.9 km",
+                "value": 919
               },
               "duration": {
-                "text": "1 min",
-                "value": 32
+                "text": "2 mins",
+                "value": 120
               },
               "end_location": {
-                "lat": 44.8764896,
-                "lng": 13.8514281
+                "lat": 44.884755,
+                "lng": 13.871676
               },
-              "html_instructions": "Head \u003cb\u003ewest\u003c/b\u003e on \u003cb\u003eUl. 43. istarske divizije\u003c/b\u003e toward \u003cb\u003eUl. Dinka Trinajsti\u0107a\u003c/b\u003e",
+              "html_instructions": "Bus towards \u0160IJANSKA \u0160UMA",
               "polyline": {
-                "points": "ga|pG{}psALdAD`@BT@@JP@HPnAT`Bn@fECb@@BBPB\\"
+                "points": "qi}pG_xrsA?DY?I?E?K?YO[QQIAAeEcC_@UkC}AVuB~@qI`@uDb@{DBGZqAJg@Z_Ab@kALODGDEDEBANC@?@@@@@@B?B@@?@?@?B?@A@?@A@AB?@A@C@A@C@A?C@A@C?A?C@C?C?A?C?CAC?A?CAC?AACAA?CAACCAAAACAA??AA?A?A?CAA?A@A?C?A@A?KCECGEYYGIBG"
               },
               "start_location": {
-                "lat": 44.8771614,
-                "lng": 13.8545403
+                "lat": 44.883614,
+                "lng": 13.863844
               },
-              "travel_mode": "DRIVING"
-            },
-            {
-              "distance": {
-                "text": "0.3 km",
-                "value": 338
+              "transit_details": {
+                "arrival_stop": {
+                  "location": {
+                    "lat": 44.884755,
+                    "lng": 13.871676
+                  },
+                  "name": "\u0160IJANSKA UL. -B (KONZUM)"
+                },
+                "arrival_time": {
+                  "text": "4:50\u202fPM",
+                  "time_zone": "Europe/Zagreb",
+                  "value": 1691765400
+                },
+                "departure_stop": {
+                  "location": {
+                    "lat": 44.883614,
+                    "lng": 13.863844
+                  },
+                  "name": "LABINSKA -B"
+                },
+                "departure_time": {
+                  "text": "4:48\u202fPM",
+                  "time_zone": "Europe/Zagreb",
+                  "value": 1691765280
+                },
+                "headsign": "\u0160IJANSKA \u0160UMA",
+                "line": {
+                  "agencies": [
+                    {
+                      "name": "Pulapromet d.o.o.",
+                      "phone": "011 385 52 222 677",
+                      "url": "http://pulapromet.com/"
+                    }
+                  ],
+                  "color": "#e60000",
+                  "name": "BUS KOLODVOR-VERUDELA-\u0160IJANA",
+                  "short_name": "2a",
+                  "text_color": "#000000",
+                  "vehicle": {
+                    "icon": "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
+                    "name": "Bus",
+                    "type": "BUS"
+                  }
+                },
+                "num_stops": 2
               },
-              "duration": {
-                "text": "1 min",
-                "value": 53
-              },
-              "end_location": {
-                "lat": 44.8770134,
-                "lng": 13.8542425
-              },
-              "html_instructions": "At the roundabout, take the \u003cb\u003e4th\u003c/b\u003e exit and stay on \u003cb\u003eUl. 43. istarske divizije\u003c/b\u003e",
-              "maneuver": "roundabout-right",
-              "polyline": {
-                "points": "a}{pGmjpsAA@A@A?A@AB?@A@A@AB?@AB?B?@AB?B?@?B?B@??@?B?B@@?B@@@@?B@@@@@@@@@@@@@@@?@@@?@?@?@?@?@?@A@?@A@ABA@ABA?A?A@A@A?A@A?C@A?A?A@A?C?C?C?A?C?CAA?CAC?AAC?AAAACAAAAAAA?AAAAA?C??AE_@CUM]o@gEUaBQoAAIB[E[E]"
-              },
-              "start_location": {
-                "lat": 44.8764896,
-                "lng": 13.8514281
-              },
-              "travel_mode": "DRIVING"
+              "travel_mode": "TRANSIT"
             }
           ],
           "traffic_speed_entry": [],
@@ -98,9 +130,9 @@
         }
       ],
       "overview_polyline": {
-        "points": "ga|pG{}psAX~BLZf@pDn@fECb@DT@^C@EHEJ?VDVNLN?NMFQ?YIWOIIu@M]o@gEg@qD@e@Ky@"
+        "points": "qi}pG_xrsA?DY?O?K?YOm@[sJyF|CyX^yAJg@Z_Ab@kALOJMHGPCHDRAHGDKDYGYOQS?C@QGa@_@GIBG"
       },
-      "summary": "Ul. 43. istarske divizije",
+      "summary": "",
       "warnings": [],
       "waypoint_order": []
     }
