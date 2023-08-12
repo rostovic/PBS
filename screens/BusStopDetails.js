@@ -7,7 +7,7 @@ const BusStopDetails = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
   const { busStopId } = route.params;
 
-  console.log(busStopId);
+  // console.log(busStopId);
 
   const currentBusStop = busStopData.find(
     (busStop) => busStop.id === busStopId

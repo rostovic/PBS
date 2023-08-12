@@ -563,7 +563,7 @@ const Overview = ({ navigation }) => {
     );
   };
 
-  const renderRoutePath = useMemo(() => {
+  const renderRoutePath = () => {
     if (selectedRouteId === null) {
       return;
     }
@@ -575,7 +575,7 @@ const Overview = ({ navigation }) => {
         strokeColor={route.color}
       />
     );
-  }, [selectedRouteId]);
+  };
 
   const renderRoutes = () => {
     const routesOnSelectedStopId = routesData.filter((route) => {
@@ -754,7 +754,7 @@ const Overview = ({ navigation }) => {
         {renderSearchedStreetMarker()}
         {renderPolylineClosestStop()}
         {/* {renderAllRoutes()} */}
-        {renderRoutePath}
+        {renderRoutePath()}
         {renderBusStopMarkers()}
         {renderPolylineClosestStreetStop()}
       </MapView>
