@@ -92,11 +92,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   renderAllRoutesViewContainer: {
-    height: "80%",
-    width: "80%",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 2,
+    flexGrow: 1,
+    padding: 16,
+    gap: 8,
   },
   renderAllRoutesSingleRoute: {
     flexDirection: "row",

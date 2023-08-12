@@ -2,12 +2,12 @@
   "geocoded_waypoints": [
     {
       "geocoder_status": "OK",
-      "place_id": "ChIJm1gP3sbSfEcRlQ4WaJlU9vw",
+      "place_id": "ChIJxWYAI37NfEcRsyCmkQabCzY",
       "types": ["establishment", "point_of_interest", "transit_station"]
     },
     {
       "geocoder_status": "OK",
-      "place_id": "ChIJBdTIL8jSfEcRfVg55igQM7g",
+      "place_id": "ChIJsRt3-IXSfEcR_b9Zz7Ny-zE",
       "types": ["establishment", "point_of_interest", "transit_station"]
     }
   ],
@@ -15,114 +15,81 @@
     {
       "bounds": {
         "northeast": {
-          "lat": 44.8860971,
-          "lng": 13.871676
+          "lat": 44.90722299999999,
+          "lng": 13.8472349
         },
         "southwest": {
-          "lat": 44.8836136,
-          "lng": 13.8638074
+          "lat": 44.8980545,
+          "lng": 13.8448708
         }
       },
       "copyrights": "Map data \u00a92023",
       "legs": [
         {
-          "arrival_time": {
-            "text": "4:50\u202fPM",
-            "time_zone": "Europe/Zagreb",
-            "value": 1691765400
-          },
-          "departure_time": {
-            "text": "4:48\u202fPM",
-            "time_zone": "Europe/Zagreb",
-            "value": 1691765280
-          },
           "distance": {
-            "text": "0.9 km",
-            "value": 919
+            "text": "1.1 km",
+            "value": 1054
           },
           "duration": {
-            "text": "2 mins",
-            "value": 120
+            "text": "1 min",
+            "value": 85
           },
-          "end_address": "\u0160IJANSKA UL. -B (KONZUM), 52100, Pula, Croatia",
+          "end_address": "VODNJANSKA CESTA 1B, 52100, Pula, Croatia",
           "end_location": {
-            "lat": 44.884755,
-            "lng": 13.871676
+            "lat": 44.8980545,
+            "lng": 13.8451044
           },
-          "start_address": "LABINSKA -B, 52100, Pula, Croatia",
+          "start_address": "VODNJANSKA CESTA 3A, 52216, Gali\u017eana, Croatia",
           "start_location": {
-            "lat": 44.883614,
-            "lng": 13.863844
+            "lat": 44.90722299999999,
+            "lng": 13.8472349
           },
           "steps": [
             {
               "distance": {
-                "text": "0.9 km",
-                "value": 919
+                "text": "60 m",
+                "value": 60
               },
               "duration": {
-                "text": "2 mins",
-                "value": 120
+                "text": "1 min",
+                "value": 4
               },
               "end_location": {
-                "lat": 44.884755,
-                "lng": 13.871676
+                "lat": 44.9066918,
+                "lng": 13.8470735
               },
-              "html_instructions": "Bus towards \u0160IJANSKA \u0160UMA",
+              "html_instructions": "Head \u003cb\u003esouth\u003c/b\u003e on \u003cb\u003eD21\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eD75\u003c/b\u003e",
               "polyline": {
-                "points": "qi}pG_xrsA?DY?I?E?K?YO[QQIAAeEcC_@UkC}AVuB~@qI`@uDb@{DBGZqAJg@Z_Ab@kALODGDEDEBANC@?@@@@@@B?B@@?@?@?B?@A@?@A@AB?@A@C@A@C@A?C@A@C?A?C@C?C?A?C?CAC?A?CAC?AACAA?CAACCAAAACAA??AA?A?A?CAA?A@A?C?A@A?KCECGEYYGIBG"
+                "points": "c}aqGeposAlAVZF"
               },
               "start_location": {
-                "lat": 44.883614,
-                "lng": 13.863844
+                "lat": 44.90722299999999,
+                "lng": 13.8472349
               },
-              "transit_details": {
-                "arrival_stop": {
-                  "location": {
-                    "lat": 44.884755,
-                    "lng": 13.871676
-                  },
-                  "name": "\u0160IJANSKA UL. -B (KONZUM)"
-                },
-                "arrival_time": {
-                  "text": "4:50\u202fPM",
-                  "time_zone": "Europe/Zagreb",
-                  "value": 1691765400
-                },
-                "departure_stop": {
-                  "location": {
-                    "lat": 44.883614,
-                    "lng": 13.863844
-                  },
-                  "name": "LABINSKA -B"
-                },
-                "departure_time": {
-                  "text": "4:48\u202fPM",
-                  "time_zone": "Europe/Zagreb",
-                  "value": 1691765280
-                },
-                "headsign": "\u0160IJANSKA \u0160UMA",
-                "line": {
-                  "agencies": [
-                    {
-                      "name": "Pulapromet d.o.o.",
-                      "phone": "011 385 52 222 677",
-                      "url": "http://pulapromet.com/"
-                    }
-                  ],
-                  "color": "#e60000",
-                  "name": "BUS KOLODVOR-VERUDELA-\u0160IJANA",
-                  "short_name": "2a",
-                  "text_color": "#000000",
-                  "vehicle": {
-                    "icon": "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
-                    "name": "Bus",
-                    "type": "BUS"
-                  }
-                },
-                "num_stops": 2
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "1.0 km",
+                "value": 994
               },
-              "travel_mode": "TRANSIT"
+              "duration": {
+                "text": "1 min",
+                "value": 81
+              },
+              "end_location": {
+                "lat": 44.8980545,
+                "lng": 13.8451044
+              },
+              "html_instructions": "Continue onto \u003cb\u003eVodnjanska cesta\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eD21\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eD75\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eGo through 2 roundabouts\u003c/div\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the right\u003c/div\u003e",
+              "polyline": {
+                "points": "yyaqGeoosALBHBNBfIhBlARHHHBHBLFHDJJ?@?B@@?@@@?@@@@@@@@@@@@@@?@?@@@?@?@?@?BA@??A@?@??A@?@A?A@A@AJ?H?L@NBPAFB~@PhBZrAPtEh@bD`@vANtANJFJBPHJFLD?@?@@@?B@@?@@@@@@@@@@@@?@@@?@@@?@?@?@?@?@A@?BA@A@A@A@A?A@A@A?ATGNCJALCJEvAA"
+              },
+              "start_location": {
+                "lat": 44.9066918,
+                "lng": 13.8470735
+              },
+              "travel_mode": "DRIVING"
             }
           ],
           "traffic_speed_entry": [],
@@ -130,9 +97,9 @@
         }
       ],
       "overview_polyline": {
-        "points": "qi}pG_xrsA?DY?O?K?YOm@[sJyF|CyX^yAJg@Z_Ab@kALOJMHGPCHDRAHGDKDYGYOQS?C@QGa@_@GIBG"
+        "points": "c}aqGeposA`Cf@vIlBlARRLVJTRFNJFN?HI@AT?\\DPAFBhDl@hHz@pI`At@\\LF@BBHBBNFNEDGBCTIZEXIvAA"
       },
-      "summary": "",
+      "summary": "D21/D75 and Vodnjanska cesta",
       "warnings": [],
       "waypoint_order": []
     }

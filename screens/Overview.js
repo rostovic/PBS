@@ -24,6 +24,7 @@ import {
   findNearestBusStopAtDesiredLocation,
 } from "../functions/helpers";
 import { parseJSONRoute } from "../convert-functions/getDataConvert";
+import { ScrollView } from "react-native";
 
 const Overview = ({ navigation }) => {
   const insets = useSafeAreaInsets();
@@ -73,13 +74,14 @@ const Overview = ({ navigation }) => {
     })();
   }, []);
 
-  useEffect(() => {
-    // console.log("kek");
-    async () => {
-      let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
-    };
-  }, [regionChange]);
+  // useEffect(() => {
+  //   async () => {
+  //     let location = await Location.getCurrentPositionAsync({});
+  //     setLocation(location);
+  //   };
+  // }, [regionChange]);
+
+  // console.log("kek");
 
   const busStopDataInUse = useMemo(() => {
     return busStopData.filter((busStop) => busStop.inUse);
@@ -155,6 +157,7 @@ const Overview = ({ navigation }) => {
     return (
       <Marker
         key={showSearchedStreet.latitude}
+        tracksViewChanges={false}
         coordinate={{
           latitude: showSearchedStreet.latitude,
           longitude: showSearchedStreet.longitude,
@@ -299,13 +302,14 @@ const Overview = ({ navigation }) => {
           regionChange.longitude,
           busStop.latitude,
           busStop.longitude
-        ) < 0.5 ? (
+        ) < 10 ? (
           <Marker
             key={busStop.id}
             coordinate={{
               latitude: busStop.latitude,
               longitude: busStop.longitude,
             }}
+            tracksViewChanges={false}
             style={styles.markerBusStopView}
             onPress={() => {
               setShowAllRoutes(false);
@@ -324,20 +328,21 @@ const Overview = ({ navigation }) => {
       );
     }
 
-    if (
-      regionChange.latitudeDelta > 0.007 ||
-      regionChange.longitudeDelta > 0.005
-    ) {
-      return;
-    }
+    // if (
+    //   regionChange.latitudeDelta > 0.007 ||
+    //   regionChange.longitudeDelta > 0.005
+    // ) {
+    //   return;
+    // }
 
-    return busStopDataInUse.map((busStop) =>
-      calculateDistance(
-        regionChange.latitude,
-        regionChange.longitude,
-        busStop.latitude,
-        busStop.longitude
-      ) > 0.25 ? null : (
+    return busStopDataInUse.map(
+      (busStop) => (
+        // calculateDistance(
+        //   regionChange.latitude,
+        //   regionChange.longitude,
+        //   busStop.latitude,
+        //   busStop.longitude
+        // ) > 10 ? null : (
         <Marker
           key={busStop.id}
           coordinate={{
@@ -345,6 +350,7 @@ const Overview = ({ navigation }) => {
             longitude: busStop.longitude,
           }}
           style={styles.markerBusStopView}
+          tracksViewChanges={false}
           onPress={() => {
             setShowAllRoutes(false);
             setSelectedStopId(busStop.id);
@@ -355,6 +361,7 @@ const Overview = ({ navigation }) => {
           </View>
         </Marker>
       )
+      // )
     );
   };
 
@@ -442,13 +449,12 @@ const Overview = ({ navigation }) => {
             {currentLang.allRoutes}
           </Text>
         </View>
-        <View style={styles.renderAllRoutesViewContainer}>
+        <ScrollView contentContainerStyle={styles.renderAllRoutesViewContainer}>
           {routesData.map((route) => (
             <View key={route.id} style={styles.renderAllRoutesSingleRoute}>
               <Pressable
                 style={styles.pressableSingleRoute}
                 onPress={() => {
-                  setShowAllRoutes(false);
                   setSelectedRouteId(route.id);
                 }}
               >
@@ -466,7 +472,7 @@ const Overview = ({ navigation }) => {
               ></View>
             </View>
           ))}
-        </View>
+        </ScrollView>
       </View>
     );
   };
@@ -504,35 +510,35 @@ const Overview = ({ navigation }) => {
     );
   };
 
-  const renderAllRoutes = () => {
-    if (showAllRoutes === false) {
-      return;
-    }
+  // const renderAllRoutes = () => {
+  //   if (showAllRoutes === false) {
+  //     return;
+  //   }
 
-    const routes = routesData.map((route) => {
-      return (
-        <Polyline
-          key={route.id}
-          coordinates={route.pathCoords}
-          strokeWidth={3}
-          strokeColor={route.color}
-        />
-      );
-    });
-    return routes;
-  };
+  //   const routes = routesData.map((route) => {
+  //     return (
+  //       <Polyline
+  //         key={route.id}
+  //         coordinates={route.pathCoords}
+  //         strokeWidth={3}
+  //         strokeColor={route.color}
+  //       />
+  //     );
+  //   });
+  //   return routes;
+  // };
 
   const renderPolylineClosestStop = () => {
     if (selectedStopId === null) {
       return;
     }
 
-    if (
-      regionChange.latitudeDelta > 0.007 ||
-      regionChange.longitudeDelta > 0.005
-    ) {
-      return;
-    }
+    // if (
+    //   regionChange.latitudeDelta > 0.007 ||
+    //   regionChange.longitudeDelta > 0.005
+    // ) {
+    //   return;
+    // }
 
     const currentBusStop = busStopData.find(
       (busStop) => busStop.id === selectedStopId
@@ -726,20 +732,20 @@ const Overview = ({ navigation }) => {
         ref={mapRef}
         customMapStyle={mapStyle}
         showsUserLocation={true}
-        // onUserLocationChange={(event) => {
-        //   // console.log(new Date(Date.now()).toLocaleString());
-        //   const currentLocation = event.nativeEvent.coordinate;
-        //   if (!currentLocation) {
-        //     return;
-        //   }
-        //   const { latitude, longitude } = currentLocation;
-        //   setLocation({
-        //     coords: {
-        //       latitude,
-        //       longitude,
-        //     },
-        //   });
-        // }}
+        onUserLocationChange={(event) => {
+          // console.log(new Date(Date.now()).toLocaleString());
+          const currentLocation = event.nativeEvent.coordinate;
+          if (!currentLocation) {
+            return;
+          }
+          const { latitude, longitude } = currentLocation;
+          setLocation({
+            coords: {
+              latitude,
+              longitude,
+            },
+          });
+        }}
         onPress={() => {
           setSelectedRouteId(null);
           setSelectedStopId(null);
@@ -747,7 +753,7 @@ const Overview = ({ navigation }) => {
       >
         {renderSearchedStreetMarker()}
         {renderPolylineClosestStop()}
-        {renderAllRoutes()}
+        {/* {renderAllRoutes()} */}
         {renderRoutePath}
         {renderBusStopMarkers()}
         {renderPolylineClosestStreetStop()}
