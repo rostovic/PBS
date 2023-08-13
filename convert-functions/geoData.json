@@ -2,12 +2,12 @@
   "geocoded_waypoints": [
     {
       "geocoder_status": "OK",
-      "place_id": "ChIJxWYAI37NfEcRsyCmkQabCzY",
-      "types": ["establishment", "point_of_interest", "transit_station"]
+      "place_id": "ChIJsdZhgN_SfEcR5FvZQtyPUuw",
+      "types": ["street_address"]
     },
     {
       "geocoder_status": "OK",
-      "place_id": "ChIJsRt3-IXSfEcR_b9Zz7Ny-zE",
+      "place_id": "ChIJQ6PlEeDSfEcRAZSChwPtU-4",
       "types": ["establishment", "point_of_interest", "transit_station"]
     }
   ],
@@ -15,79 +15,127 @@
     {
       "bounds": {
         "northeast": {
-          "lat": 44.90722299999999,
-          "lng": 13.8472349
+          "lat": 44.8700378,
+          "lng": 13.8518757
         },
         "southwest": {
-          "lat": 44.8980545,
-          "lng": 13.8448708
+          "lat": 44.8685836,
+          "lng": 13.848521
         }
       },
       "copyrights": "Map data \u00a92023",
       "legs": [
         {
           "distance": {
-            "text": "1.1 km",
-            "value": 1054
+            "text": "0.4 km",
+            "value": 399
           },
           "duration": {
-            "text": "1 min",
-            "value": 85
+            "text": "2 mins",
+            "value": 92
           },
-          "end_address": "VODNJANSKA CESTA 1B, 52100, Pula, Croatia",
+          "end_address": "ISTARSKA -A (FINA), 52100, Pula, Croatia",
           "end_location": {
-            "lat": 44.8980545,
-            "lng": 13.8451044
+            "lat": 44.8700378,
+            "lng": 13.8485316
           },
-          "start_address": "VODNJANSKA CESTA 3A, 52216, Gali\u017eana, Croatia",
+          "start_address": "Ul. Leonarda da Vincija 11, 52100, Pula, Croatia",
           "start_location": {
-            "lat": 44.90722299999999,
-            "lng": 13.8472349
+            "lat": 44.8687833,
+            "lng": 13.8518757
           },
           "steps": [
             {
               "distance": {
-                "text": "60 m",
-                "value": 60
+                "text": "19 m",
+                "value": 19
               },
               "duration": {
                 "text": "1 min",
                 "value": 4
               },
               "end_location": {
-                "lat": 44.9066918,
-                "lng": 13.8470735
+                "lat": 44.8686192,
+                "lng": 13.8518001
               },
-              "html_instructions": "Head \u003cb\u003esouth\u003c/b\u003e on \u003cb\u003eD21\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eD75\u003c/b\u003e",
+              "html_instructions": "Head \u003cb\u003esouth\u003c/b\u003e on \u003cb\u003eUl. Joakima Rakovca\u003c/b\u003e toward \u003cb\u003eUl. Leonarda da Vincija\u003c/b\u003e",
               "polyline": {
-                "points": "c}aqGeposAlAVZF"
+                "points": "{lzpGgmpsAJDRH"
               },
               "start_location": {
-                "lat": 44.90722299999999,
-                "lng": 13.8472349
+                "lat": 44.8687833,
+                "lng": 13.8518757
               },
               "travel_mode": "DRIVING"
             },
             {
               "distance": {
-                "text": "1.0 km",
-                "value": 994
+                "text": "0.3 km",
+                "value": 275
               },
               "duration": {
                 "text": "1 min",
-                "value": 81
+                "value": 62
               },
               "end_location": {
-                "lat": 44.8980545,
-                "lng": 13.8451044
+                "lat": 44.8690951,
+                "lng": 13.8485257
               },
-              "html_instructions": "Continue onto \u003cb\u003eVodnjanska cesta\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eD21\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eD75\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eGo through 2 roundabouts\u003c/div\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the right\u003c/div\u003e",
+              "html_instructions": "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eZagreba\u010dka ul.\u003c/b\u003e",
+              "maneuver": "turn-right",
               "polyline": {
-                "points": "yyaqGeoosALBHBNBfIhBlARHHHBHBLFHDJJ?@?B@@?@@@?@@@@@@@@@@@@@@?@?@@@?@?@?@?BA@??A@?@??A@?@A?A@A@AJ?H?L@NBPAFB~@PhBZrAPtEh@bD`@vANtANJFJBPHJFLD?@?@@@?B@@?@@@@@@@@@@@@?@@@?@@@?@?@?@?@?@A@?BA@A@A@A@A?A@A@A?ATGNCJALCJEvAA"
+                "points": "{kzpGwlpsAFfE?jAOlC?BATCVCJS`BIXo@p@"
               },
               "start_location": {
-                "lat": 44.9066918,
-                "lng": 13.8470735
+                "lat": 44.8686192,
+                "lng": 13.8518001
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.1 km",
+                "value": 99
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 25
+              },
+              "end_location": {
+                "lat": 44.8699843,
+                "lng": 13.8485275
+              },
+              "html_instructions": "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eGiardini\u003c/b\u003e",
+              "maneuver": "turn-right",
+              "polyline": {
+                "points": "{nzpGixosAkACwADKA"
+              },
+              "start_location": {
+                "lat": 44.8690951,
+                "lng": 13.8485257
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "6 m",
+                "value": 6
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 1
+              },
+              "end_location": {
+                "lat": 44.8700378,
+                "lng": 13.8485316
+              },
+              "html_instructions": "Continue onto \u003cb\u003eIstarska ul.\u003c/b\u003e",
+              "polyline": {
+                "points": "ktzpGixosAK?"
+              },
+              "start_location": {
+                "lat": 44.8699843,
+                "lng": 13.8485275
               },
               "travel_mode": "DRIVING"
             }
@@ -97,9 +145,9 @@
         }
       ],
       "overview_polyline": {
-        "points": "c}aqGeposA`Cf@vIlBlARRLVJTRFNJFN?HI@AT?\\DPAFBhDl@hHz@pI`At@\\LF@BBHBBNFNEDGBCTIZEXIvAA"
+        "points": "{lzpGgmpsA^NFrGU~DWlBIXo@p@kACwADWA"
       },
-      "summary": "D21/D75 and Vodnjanska cesta",
+      "summary": "Zagreba\u010dka ul.",
       "warnings": [],
       "waypoint_order": []
     }

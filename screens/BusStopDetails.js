@@ -81,39 +81,14 @@ const BusStopDetails = ({ navigation, route }) => {
           name="arrow-back"
           size={40}
           color="black"
-          style={{
-            position: "absolute",
-            zIndex: 100,
-            backgroundColor: "white",
-            left: 20,
-            top: 20,
-            borderRadius: 999,
-          }}
+          style={styles.iconBack}
           onPress={() => navigation.goBack()}
         />
-        <Image
-          source={currentBusStop?.image}
-          style={{ width: "100%", flex: 1 }}
-        />
+        <Image source={currentBusStop?.image} style={styles.imageStyle} />
       </View>
       <View style={{ flex: 1 }}>
-        <View
-          style={{
-            height: "100%",
-            width: "100%",
-            backgroundColor: "#fafafa",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <View
-            style={{
-              height: 400,
-              width: "90%",
-              gap: 6,
-              // backgroundColor: "lightgrey",
-            }}
-          >
+        <View style={styles.bottomContent}>
+          <View style={styles.timeDiv}>
             <ScrollView contentContainerStyle={styles.container}>
               <View style={{ flexDirection: "row", width: "100%" }}>
                 <View
@@ -125,13 +100,7 @@ const BusStopDetails = ({ navigation, route }) => {
                 >
                   <Text>h</Text>
                 </View>
-                <View
-                  style={{
-                    justifyContent: "center",
-                    alignItems: "center",
-                    width: "100%",
-                  }}
-                >
+                <View style={styles.styleMin}>
                   <Text>min</Text>
                 </View>
               </View>
@@ -182,6 +151,35 @@ const styles = StyleSheet.create({
     gap: 10,
     flexWrap: "wrap",
     width: 280,
+  },
+  styleMin: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+  },
+  iconBack: {
+    position: "absolute",
+    zIndex: 100,
+    backgroundColor: "white",
+    left: 20,
+    top: 20,
+    borderRadius: 999,
+  },
+  imageStyle: {
+    width: "100%",
+    flex: 1,
+  },
+  bottomContent: {
+    height: "100%",
+    width: "100%",
+    backgroundColor: "#fafafa",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  timeDiv: {
+    height: 400,
+    width: "90%",
+    gap: 6,
   },
 });
 

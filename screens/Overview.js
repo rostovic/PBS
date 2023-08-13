@@ -74,15 +74,6 @@ const Overview = ({ navigation }) => {
     })();
   }, []);
 
-  // useEffect(() => {
-  //   async () => {
-  //     let location = await Location.getCurrentPositionAsync({});
-  //     setLocation(location);
-  //   };
-  // }, [regionChange]);
-
-  // console.log("kek");
-
   const busStopDataInUse = useMemo(() => {
     return busStopData.filter((busStop) => busStop.inUse);
   }, []);
@@ -328,41 +319,25 @@ const Overview = ({ navigation }) => {
       );
     }
 
-    // if (
-    //   regionChange.latitudeDelta > 0.007 ||
-    //   regionChange.longitudeDelta > 0.005
-    // ) {
-    //   return;
-    // }
-
-    return busStopDataInUse.map(
-      (busStop) => (
-        // calculateDistance(
-        //   regionChange.latitude,
-        //   regionChange.longitude,
-        //   busStop.latitude,
-        //   busStop.longitude
-        // ) > 10 ? null : (
-        <Marker
-          key={busStop.id}
-          coordinate={{
-            latitude: busStop.latitude,
-            longitude: busStop.longitude,
-          }}
-          style={styles.markerBusStopView}
-          tracksViewChanges={false}
-          onPress={() => {
-            setShowAllRoutes(false);
-            setSelectedStopId(busStop.id);
-          }}
-        >
-          <View style={styles.busStopViewMarker}>
-            <MaterialIcons name="directions-bus" size={14} color="darkorange" />
-          </View>
-        </Marker>
-      )
-      // )
-    );
+    return busStopDataInUse.map((busStop) => (
+      <Marker
+        key={busStop.id}
+        coordinate={{
+          latitude: busStop.latitude,
+          longitude: busStop.longitude,
+        }}
+        style={styles.markerBusStopView}
+        tracksViewChanges={false}
+        onPress={() => {
+          setShowAllRoutes(false);
+          setSelectedStopId(busStop.id);
+        }}
+      >
+        <View style={styles.busStopViewMarker}>
+          <MaterialIcons name="directions-bus" size={14} color="darkorange" />
+        </View>
+      </Marker>
+    ));
   };
 
   const renderModalSelectedStop = () => {
@@ -374,7 +349,7 @@ const Overview = ({ navigation }) => {
       (busStop) => busStop.id === selectedStopId
     );
 
-    // console.log(currentBusStop);
+    console.log(currentBusStop);
 
     return (
       <View style={styles.modalSelectedStop}>
@@ -532,13 +507,6 @@ const Overview = ({ navigation }) => {
     if (selectedStopId === null) {
       return;
     }
-
-    // if (
-    //   regionChange.latitudeDelta > 0.007 ||
-    //   regionChange.longitudeDelta > 0.005
-    // ) {
-    //   return;
-    // }
 
     const currentBusStop = busStopData.find(
       (busStop) => busStop.id === selectedStopId
