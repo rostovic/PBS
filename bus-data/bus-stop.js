@@ -1491,8 +1491,8 @@ const busStopData = [
     id: 190,
     name: "SANTORIOVA 2-A (GREGOVICA)",
     image: require("../images/bus-stops/SANTORIOVA-2-A-(GREGOVICA).jpg"),
-    latitude: 44.8678100941442,
-    longitude: 13.8635846972466,
+    latitude: 44.867775637543794,
+    longitude: 13.863624177390452,
     inUse: 1,
   },
   {
@@ -9098,7 +9098,11 @@ const routesData = [
     id: 5,
     name: "6",
     color: "red",
-    stops: [],
+    stops: [
+      32, 235, 313, 211, 249, 215, 216, 198, 251, 252, 250, 139, 228, 111, 112,
+      113, 114, 397, 100, 255, 256, 85, 86, 87, 88, 89, 90, 247, 258, 253, 254,
+      190, 209, 210, 248, 214, 336, 213, 33,
+    ],
     pathCoords: [
       { latitude: 44.8682587, longitude: 13.9187016 },
       { latitude: 44.86826000000001, longitude: 13.918700000000001 },
@@ -10329,7 +10333,10 @@ const routesData = [
     id: 6,
     name: "8",
     color: "gold",
-    stops: [],
+    stops: [
+      73, 271, 74, 75, 110, 111, 178, 179, 180, 181, 182, 183, 184, 269, 185,
+      186, 187, 188, 129, 130, 247, 92, 93, 159,
+    ],
     pathCoords: [
       { latitude: 44.8762118075772, longitude: 13.8546985387802 },
       { latitude: 44.876282476100805, longitude: 13.854751233148491 },
