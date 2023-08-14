@@ -2,12 +2,12 @@
   "geocoded_waypoints": [
     {
       "geocoder_status": "OK",
-      "place_id": "ChIJsdZhgN_SfEcR5FvZQtyPUuw",
-      "types": ["street_address"]
+      "place_id": "ChIJJ4-YSufSfEcRw-re9iiXf0o",
+      "types": ["establishment", "point_of_interest", "transit_station"]
     },
     {
       "geocoder_status": "OK",
-      "place_id": "ChIJQ6PlEeDSfEcRAZSChwPtU-4",
+      "place_id": "ChIJy99dGt3SfEcRaQnfmndv1B8",
       "types": ["establishment", "point_of_interest", "transit_station"]
     }
   ],
@@ -15,127 +15,80 @@
     {
       "bounds": {
         "northeast": {
-          "lat": 44.8700378,
-          "lng": 13.8518757
+          "lat": 44.87699509999999,
+          "lng": 13.8541503
         },
         "southwest": {
-          "lat": 44.8685836,
-          "lng": 13.848521
+          "lat": 44.8738618,
+          "lng": 13.849675
         }
       },
-      "copyrights": "Map data \u00a92023",
+      "copyrights": "Map data \u00a92023 Google",
       "legs": [
         {
           "distance": {
-            "text": "0.4 km",
-            "value": 399
+            "text": "0.5 km",
+            "value": 544
           },
           "duration": {
-            "text": "2 mins",
-            "value": 92
+            "text": "1 min",
+            "value": 76
           },
-          "end_address": "ISTARSKA -A (FINA), 52100, Pula, Croatia",
+          "end_address": "AUTOBUSNI KOLODVOR -B (ZA PRIGRAD), 52100, Pula, Croatia",
           "end_location": {
-            "lat": 44.8700378,
-            "lng": 13.8485316
+            "lat": 44.87699509999999,
+            "lng": 13.8541503
           },
-          "start_address": "Ul. Leonarda da Vincija 11, 52100, Pula, Croatia",
+          "start_address": "FLAVIJEVSKA 1-B, 52100, Pula, Croatia",
           "start_location": {
-            "lat": 44.8687833,
-            "lng": 13.8518757
+            "lat": 44.8738618,
+            "lng": 13.849675
           },
           "steps": [
             {
               "distance": {
-                "text": "19 m",
-                "value": 19
-              },
-              "duration": {
-                "text": "1 min",
-                "value": 4
-              },
-              "end_location": {
-                "lat": 44.8686192,
-                "lng": 13.8518001
-              },
-              "html_instructions": "Head \u003cb\u003esouth\u003c/b\u003e on \u003cb\u003eUl. Joakima Rakovca\u003c/b\u003e toward \u003cb\u003eUl. Leonarda da Vincija\u003c/b\u003e",
-              "polyline": {
-                "points": "{lzpGgmpsAJDRH"
-              },
-              "start_location": {
-                "lat": 44.8687833,
-                "lng": 13.8518757
-              },
-              "travel_mode": "DRIVING"
-            },
-            {
-              "distance": {
                 "text": "0.3 km",
-                "value": 275
+                "value": 299
               },
               "duration": {
                 "text": "1 min",
-                "value": 62
+                "value": 38
               },
               "end_location": {
-                "lat": 44.8690951,
-                "lng": 13.8485257
+                "lat": 44.87627029999999,
+                "lng": 13.8513024
               },
-              "html_instructions": "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eZagreba\u010dka ul.\u003c/b\u003e",
-              "maneuver": "turn-right",
+              "html_instructions": "Head \u003cb\u003enorth\u003c/b\u003e on \u003cb\u003eFlavijevska ul.\u003c/b\u003e toward \u003cb\u003epro. Nevenke Zacchigne\u003c/b\u003e",
               "polyline": {
-                "points": "{kzpGwlpsAFfE?jAOlC?BATCVCJS`BIXo@p@"
+                "points": "sl{pGo_psAc@Oe@QWKy@[MEYMWKQKSMSO[WMM_A_Ac@Yk@a@QM"
               },
               "start_location": {
-                "lat": 44.8686192,
-                "lng": 13.8518001
+                "lat": 44.8738618,
+                "lng": 13.849675
               },
               "travel_mode": "DRIVING"
             },
             {
               "distance": {
-                "text": "0.1 km",
-                "value": 99
+                "text": "0.2 km",
+                "value": 245
               },
               "duration": {
                 "text": "1 min",
-                "value": 25
+                "value": 38
               },
               "end_location": {
-                "lat": 44.8699843,
-                "lng": 13.8485275
+                "lat": 44.87699509999999,
+                "lng": 13.8541503
               },
-              "html_instructions": "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eGiardini\u003c/b\u003e",
-              "maneuver": "turn-right",
+              "html_instructions": "At the roundabout, take the \u003cb\u003e1st\u003c/b\u003e exit onto \u003cb\u003eUl. 43. istarske divizije\u003c/b\u003e",
+              "maneuver": "roundabout-right",
               "polyline": {
-                "points": "{nzpGixosAkACwADKA"
+                "points": "u{{pGsipsAAC?AAC?AAAACAAAAAAA?AAAAA?C??AE_@CUM]o@gEUaBQoAAIB[E[CK"
               },
               "start_location": {
-                "lat": 44.8690951,
-                "lng": 13.8485257
-              },
-              "travel_mode": "DRIVING"
-            },
-            {
-              "distance": {
-                "text": "6 m",
-                "value": 6
-              },
-              "duration": {
-                "text": "1 min",
-                "value": 1
-              },
-              "end_location": {
-                "lat": 44.8700378,
-                "lng": 13.8485316
-              },
-              "html_instructions": "Continue onto \u003cb\u003eIstarska ul.\u003c/b\u003e",
-              "polyline": {
-                "points": "ktzpGixosAK?"
-              },
-              "start_location": {
-                "lat": 44.8699843,
-                "lng": 13.8485275
+                "lat": 44.87627029999999,
+                "lng": 13.8513024
               },
               "travel_mode": "DRIVING"
             }
@@ -145,9 +98,9 @@
         }
       ],
       "overview_polyline": {
-        "points": "{lzpGgmpsA^NFrGU~DWlBIXo@p@kACwADWA"
+        "points": "sl{pGo_psA{CiAqAk@g@]i@e@_A_Ac@Y}@o@CKGIGEE?Ea@CUM]eAiHSyAB[E[CK"
       },
-      "summary": "Zagreba\u010dka ul.",
+      "summary": "Flavijevska ul. and Ul. 43. istarske divizije",
       "warnings": [],
       "waypoint_order": []
     }
