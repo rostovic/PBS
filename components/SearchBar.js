@@ -3,17 +3,17 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { searchBar } from "../styles";
 import { useContext, useState } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { LangContext } from "../lang_context/lang_context";
+import { UserContext } from "../context/context";
 import langs from "../lang-data/langs";
 
 const SearchBar = ({ findLocation }) => {
   const [inputText, setInputText] = useState(null);
   const insets = useSafeAreaInsets();
-  const lngCtx = useContext(LangContext);
+  const userCtx = useContext(UserContext);
 
-  const currentLang =
-    langs.find((lang) => lang.name === lngCtx.lang) ||
-    langs.find((lang) => lang.name === JSON.parse(lngCtx.lang));
+  const currentLang = langs.find(
+    (lang) => lang.name === userCtx.userData.data.lang
+  );
 
   return (
     <View

@@ -5,32 +5,36 @@ import TabHelp from "./tabs/TabHelp";
 import TabHomeScreen from "./tabs/TabHomeScreen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Entypo, Feather } from "@expo/vector-icons";
-import LangContextProvider, { LangContext } from "./lang_context/lang_context";
 import SetLang from "./screens/SetLang";
 import { useContext, useState } from "react";
 import langs from "./lang-data/langs";
 import FirstScreen from "./screens/FirstScreen";
 import TabSettings from "./tabs/TabSettings";
 import { Ionicons } from "@expo/vector-icons";
+import UserContextProvider, { UserContext } from "./context/context";
 
 const Tab = createBottomTabNavigator();
 
 const App = () => {
   const Root = () => {
-    const lngCtx = useContext(LangContext);
+    const userCtx = useContext(UserContext);
     const [appLoad, setAppLoad] = useState(true);
 
     if (appLoad) {
       return <FirstScreen setAppLoad={setAppLoad} />;
     }
 
-    if (lngCtx.lang === undefined || lngCtx.lang === "") {
+    if (
+      Object.keys(userCtx.userData).length === 0 ||
+      userCtx.userData.data.lang === undefined ||
+      userCtx.userData.data.lang === ""
+    ) {
       return <SetLang />;
     }
 
-    const currentLang =
-      langs.find((lang) => lang.name === lngCtx.lang) ||
-      langs.find((lang) => lang.name === JSON.parse(lngCtx.lang));
+    const currentLang = langs.find(
+      (lang) => lang.name === userCtx.userData.data.lang
+    );
 
     return (
       <NavigationContainer>
@@ -80,11 +84,11 @@ const App = () => {
   };
 
   return (
-    <LangContextProvider>
+    <UserContextProvider>
       <SafeAreaProvider>
         <Root />
       </SafeAreaProvider>
-    </LangContextProvider>
+    </UserContextProvider>
   );
 };
 

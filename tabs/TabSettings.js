@@ -1,7 +1,7 @@
 import { Pressable, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { settingsStyle } from "../styles";
-import { LangContext } from "../lang_context/lang_context";
+import { UserContext } from "../context/context";
 import { useCallback, useContext, useState } from "react";
 import langs from "../lang-data/langs";
 import { Image } from "react-native";
@@ -10,11 +10,11 @@ import { useFocusEffect } from "@react-navigation/native";
 const TabSettings = ({ navigation }) => {
   const [langModal, setLangModal] = useState(false);
   const insets = useSafeAreaInsets();
-  const lngCtx = useContext(LangContext);
+  const userCtx = useContext(UserContext);
 
-  const currentLang =
-    langs.find((lang) => lang.name === lngCtx.lang) ||
-    langs.find((lang) => lang.name === JSON.parse(lngCtx.lang));
+  const currentLang = langs.find(
+    (lang) => lang.name === userCtx.userData.data.lang
+  );
 
   useFocusEffect(
     useCallback(() => {
@@ -43,7 +43,9 @@ const TabSettings = ({ navigation }) => {
                 key={lang.name}
                 style={{ width: 100, height: 50 }}
                 onPress={() => {
-                  lngCtx.setLanguage(lang.name);
+                  userCtx.setData({
+                    data: { lang: lang.name, radius: "" },
+                  });
                   setLangModal(false);
                 }}
               >

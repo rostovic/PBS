@@ -7,17 +7,17 @@ import satellite from "../images/mapType/satellite.jpg";
 import { useContext, useEffect, useState } from "react";
 import langs from "../lang-data/langs";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { LangContext } from "../lang_context/lang_context";
 import fipu from "../images/pula/fipu.png";
+import { UserContext } from "../context/context";
 
 const TabHelp = ({ navigation }) => {
   const [mapType, setMapType] = useState("standard");
-  const lngCtx = useContext(LangContext);
+  const userCtx = useContext(UserContext);
   const insets = useSafeAreaInsets();
 
-  const currentLang =
-    langs.find((lang) => lang.name === lngCtx.lang) ||
-    langs.find((lang) => lang.name === JSON.parse(lngCtx.lang));
+  const currentLang = langs.find(
+    (lang) => lang.name === userCtx.userData.data.lang
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {

@@ -1,15 +1,14 @@
 import { Pressable } from "react-native";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Image } from "react-native";
 import langs from "../lang-data/langs";
-import { LangContext } from "../lang_context/lang_context";
 import { useContext } from "react";
+import { UserContext } from "../context/context";
 
 const SetLang = ({ changeLang = false }) => {
-  const context = useContext(LangContext);
+  const context = useContext(UserContext);
   const insets = useSafeAreaInsets();
-  // console.log("Lang is: " + context.lang);
   return (
     <View
       style={{
@@ -33,7 +32,7 @@ const SetLang = ({ changeLang = false }) => {
               key={lang.name}
               style={{ width: 175, height: 100 }}
               onPress={() => {
-                context.setLanguage(lang.name);
+                context.setData({ data: { lang: lang.name, radius: "" } });
               }}
             >
               <Image

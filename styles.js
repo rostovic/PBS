@@ -154,7 +154,6 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     gap: 2,
     width: 80,
-    // backgroundColor: "red",
   },
   pressableClickForMoreDetails: {
     flex: 1,

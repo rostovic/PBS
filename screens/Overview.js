@@ -17,7 +17,7 @@ import standard from "../images/mapType/standard.jpg";
 import satellite from "../images/mapType/satellite.jpg";
 import { searchLocation } from "../functions/api";
 import SearchBar from "../components/SearchBar";
-import { LangContext } from "../lang_context/lang_context";
+import { UserContext } from "../context/context";
 import langs from "../lang-data/langs";
 import {
   calculateDistance,
@@ -28,11 +28,10 @@ import { ScrollView } from "react-native";
 
 const Overview = ({ navigation }) => {
   const insets = useSafeAreaInsets();
-  const lngCtx = useContext(LangContext);
-
-  const currentLang =
-    langs.find((lang) => lang.name === lngCtx.lang) ||
-    langs.find((lang) => lang.name === JSON.parse(lngCtx.lang));
+  const userCtx = useContext(UserContext);
+  const currentLang = langs.find(
+    (lang) => lang.name === userCtx.userData.data.lang
+  );
 
   const defaultRegion = {
     latitude: 44.865432725353116,
@@ -289,8 +288,8 @@ const Overview = ({ navigation }) => {
       return busStopData.map((busStop) =>
         routesData[selectedRouteId].stops.includes(busStop.id) &&
         calculateDistance(
-          regionChange.latitude,
-          regionChange.longitude,
+          location.coords.latitude,
+          location.coords.longitude,
           busStop.latitude,
           busStop.longitude
         ) < 10 ? (
@@ -485,24 +484,6 @@ const Overview = ({ navigation }) => {
     );
   };
 
-  // const renderAllRoutes = () => {
-  //   if (showAllRoutes === false) {
-  //     return;
-  //   }
-
-  //   const routes = routesData.map((route) => {
-  //     return (
-  //       <Polyline
-  //         key={route.id}
-  //         coordinates={route.pathCoords}
-  //         strokeWidth={3}
-  //         strokeColor={route.color}
-  //       />
-  //     );
-  //   });
-  //   return routes;
-  // };
-
   const renderPolylineClosestStop = () => {
     if (selectedStopId === null) {
       return;
@@ -686,7 +667,7 @@ const Overview = ({ navigation }) => {
       <MapView
         style={styles.map}
         mapType={mapType}
-        region={region}
+        initialRegion={region}
         onRegionChangeComplete={(region) => {
           if (regionChangeTimeout) {
             clearTimeout(regionChangeTimeout);
@@ -701,7 +682,6 @@ const Overview = ({ navigation }) => {
         customMapStyle={mapStyle}
         showsUserLocation={true}
         onUserLocationChange={(event) => {
-          // console.log(new Date(Date.now()).toLocaleString());
           const currentLocation = event.nativeEvent.coordinate;
           if (!currentLocation) {
             return;
@@ -721,7 +701,6 @@ const Overview = ({ navigation }) => {
       >
         {renderSearchedStreetMarker()}
         {renderPolylineClosestStop()}
-        {/* {renderAllRoutes()} */}
         {renderRoutePath()}
         {renderBusStopMarkers()}
         {renderPolylineClosestStreetStop()}
