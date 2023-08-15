@@ -392,7 +392,7 @@ const Overview = ({ navigation }) => {
           </View>
           <View
             style={{
-              flex: 1,
+              flex: 0.5,
             }}
           >
             <Pressable

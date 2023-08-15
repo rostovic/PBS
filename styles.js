@@ -151,7 +151,10 @@ const styles = StyleSheet.create({
   },
   modalSelectedStopViewRightPartRoutes: {
     flexDirection: "row",
+    flexWrap: "wrap",
     gap: 2,
+    width: 80,
+    // backgroundColor: "red",
   },
   pressableClickForMoreDetails: {
     flex: 1,
@@ -164,6 +167,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "700",
     textAlign: "center",
+    fontSize: 12,
   },
   buttonChangeMapStyle: {
     position: "absolute",
