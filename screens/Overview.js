@@ -32,6 +32,7 @@ const Overview = ({ navigation }) => {
   const currentLang = langs.find(
     (lang) => lang.name === userCtx.userData.data.lang
   );
+  const markerRenderRadius = userCtx.userData.data.radius;
 
   const defaultRegion = {
     latitude: 44.865432725353116,
@@ -284,59 +285,62 @@ const Overview = ({ navigation }) => {
 
   const renderBusStopMarkers = () => {
     // parseJSONRoute();
+    // console.log(markerRenderRadius);
     if (selectedRouteId !== null) {
-      return busStopData.map((busStop) =>
-        routesData[selectedRouteId].stops.includes(busStop.id) &&
-        calculateDistance(
-          location.coords.latitude,
-          location.coords.longitude,
-          busStop.latitude,
-          busStop.longitude
-        ) < 10 ? (
-          <Marker
-            key={busStop.id}
-            coordinate={{
-              latitude: busStop.latitude,
-              longitude: busStop.longitude,
-            }}
-            tracksViewChanges={false}
-            style={styles.markerBusStopView}
-            onPress={() => {
-              setShowAllRoutes(false);
-              setSelectedStopId(busStop.id);
-            }}
-          >
-            <View style={styles.busStopViewMarker}>
-              <MaterialIcons
-                name="directions-bus"
-                size={10}
-                color="darkorange"
-              />
-            </View>
-          </Marker>
-        ) : null
+      return busStopData.map(
+        (busStop) =>
+          routesData[selectedRouteId].stops.includes(busStop.id) && (
+            <Marker
+              key={busStop.id}
+              coordinate={{
+                latitude: busStop.latitude,
+                longitude: busStop.longitude,
+              }}
+              tracksViewChanges={false}
+              style={styles.markerBusStopView}
+              onPress={() => {
+                setShowAllRoutes(false);
+                setSelectedStopId(busStop.id);
+              }}
+            >
+              <View style={styles.busStopViewMarker}>
+                <MaterialIcons
+                  name="directions-bus"
+                  size={10}
+                  color="darkorange"
+                />
+              </View>
+            </Marker>
+          )
       );
     }
 
-    return busStopDataInUse.map((busStop) => (
-      <Marker
-        key={busStop.id}
-        coordinate={{
-          latitude: busStop.latitude,
-          longitude: busStop.longitude,
-        }}
-        style={styles.markerBusStopView}
-        tracksViewChanges={false}
-        onPress={() => {
-          setShowAllRoutes(false);
-          setSelectedStopId(busStop.id);
-        }}
-      >
-        <View style={styles.busStopViewMarker}>
-          <MaterialIcons name="directions-bus" size={14} color="darkorange" />
-        </View>
-      </Marker>
-    ));
+    return busStopDataInUse.map((busStop) =>
+      calculateDistance(
+        location.coords.latitude,
+        location.coords.longitude,
+        busStop.latitude,
+        busStop.longitude
+      ) < markerRenderRadius ? (
+        <Marker
+          key={busStop.id}
+          coordinate={{
+            latitude: busStop.latitude,
+            longitude: busStop.longitude,
+          }}
+          style={styles.markerBusStopView}
+          tracksViewChanges={false}
+          onPress={() => {
+            setShowAllRoutes(false);
+            setSelectedStopId(busStop.id);
+          }}
+        >
+          <View style={styles.busStopViewMarker}>
+            <MaterialIcons name="directions-bus" size={14} color="darkorange" />
+          </View>
+        </Marker>
+      ) : null
+    );
   };
 
   const renderModalSelectedStop = () => {
@@ -348,7 +352,7 @@ const Overview = ({ navigation }) => {
       (busStop) => busStop.id === selectedStopId
     );
 
-    console.log(currentBusStop);
+    // console.log(currentBusStop);
 
     return (
       <View style={styles.modalSelectedStop}>

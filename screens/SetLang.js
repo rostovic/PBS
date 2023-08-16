@@ -32,7 +32,7 @@ const SetLang = ({ changeLang = false }) => {
               key={lang.name}
               style={{ width: 175, height: 100 }}
               onPress={() => {
-                context.setData({ data: { lang: lang.name, radius: "" } });
+                context.setData({ data: { lang: lang.name, radius: "10" } });
               }}
             >
               <Image

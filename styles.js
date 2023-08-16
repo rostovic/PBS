@@ -353,6 +353,7 @@ const settingsStyle = StyleSheet.create({
     width: 300,
     height: 600,
     alignItems: "center",
+    gap: 40,
   },
   changeLangView: {
     justifyContent: "center",
@@ -382,6 +383,13 @@ const settingsStyle = StyleSheet.create({
     gap: 20,
     flexWrap: "wrap",
     backgroundColor: "#fafafa",
+  },
+  radiusView: {
+    width: "100%",
+    height: 200,
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 20,
   },
 });
 

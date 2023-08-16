@@ -11,10 +11,16 @@ const TabSettings = ({ navigation }) => {
   const [langModal, setLangModal] = useState(false);
   const insets = useSafeAreaInsets();
   const userCtx = useContext(UserContext);
-
+  const userDataRadius = +userCtx.userData.data.radius;
   const currentLang = langs.find(
     (lang) => lang.name === userCtx.userData.data.lang
   );
+
+  const handleChangeRadius = (radius) => {
+    userCtx.setData({
+      data: { lang: currentLang.name, radius: radius },
+    });
+  };
 
   useFocusEffect(
     useCallback(() => {
@@ -44,7 +50,7 @@ const TabSettings = ({ navigation }) => {
                 style={{ width: 100, height: 50 }}
                 onPress={() => {
                   userCtx.setData({
-                    data: { lang: lang.name, radius: "" },
+                    data: { lang: lang.name, radius: userDataRadius },
                   });
                   setLangModal(false);
                 }}
@@ -70,6 +76,71 @@ const TabSettings = ({ navigation }) => {
               style={settingsStyle.imageStyle}
             />
           </Pressable>
+        </View>
+        <View style={settingsStyle.radiusView}>
+          <View>
+            <Text style={{ fontWeight: 700 }}>Radius:</Text>
+          </View>
+          <View style={{ flexDirection: "row", gap: 20 }}>
+            <Pressable
+              style={{
+                backgroundColor:
+                  userDataRadius === 0.25 ? "#5A5A5A" : "lightgrey",
+                padding: 8,
+                borderRadius: 999,
+              }}
+              onPress={() => {
+                handleChangeRadius(0.25);
+              }}
+            >
+              <Text style={{ color: "white", fontSize: 16, fontWeight: 700 }}>
+                250 m
+              </Text>
+            </Pressable>
+            <Pressable
+              style={{
+                backgroundColor: userDataRadius === 1 ? "#5A5A5A" : "lightgrey",
+                padding: 8,
+                borderRadius: 999,
+              }}
+              onPress={() => {
+                handleChangeRadius(1);
+              }}
+            >
+              <Text style={{ color: "white", fontSize: 16, fontWeight: 700 }}>
+                1 km
+              </Text>
+            </Pressable>
+            <Pressable
+              style={{
+                backgroundColor: userDataRadius === 5 ? "#5A5A5A" : "lightgrey",
+                padding: 8,
+                borderRadius: 999,
+              }}
+              onPress={() => {
+                handleChangeRadius(5);
+              }}
+            >
+              <Text style={{ color: "white", fontSize: 16, fontWeight: 700 }}>
+                5 km
+              </Text>
+            </Pressable>
+            <Pressable
+              style={{
+                backgroundColor:
+                  userDataRadius === 10 ? "#5A5A5A" : "lightgrey",
+                padding: 8,
+                borderRadius: 999,
+              }}
+              onPress={() => {
+                handleChangeRadius(10);
+              }}
+            >
+              <Text style={{ color: "white", fontSize: 16, fontWeight: 700 }}>
+                10 km
+              </Text>
+            </Pressable>
+          </View>
         </View>
       </View>
     </View>
