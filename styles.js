@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
   },
   streetInstructions: {
     width: 300,
-    height: 75,
+    height: 90,
     backgroundColor: "white",
     justifyContent: "center",
     alignItems: "center",

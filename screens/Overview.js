@@ -78,6 +78,44 @@ const Overview = ({ navigation }) => {
     return busStopData.filter((busStop) => busStop.inUse);
   }, []);
 
+  const handleClosestPath = () => {
+    const allDistances = busStopDataInUse.map((busStop) => {
+      return {
+        id: busStop.id,
+        distance: calculateDistance(
+          location.coords.latitude,
+          location.coords.longitude,
+          busStop.latitude,
+          busStop.longitude
+        ),
+        latitude: busStop.latitude,
+        longitude: busStop.longitude,
+      };
+    });
+    let closestStop = allDistances.filter(
+      (obj) =>
+        obj.distance === Math.min(...allDistances.map((obj) => obj.distance))
+    );
+
+    closestStop = closestStop[0];
+    // console.log(closestStop.id);
+
+    const routesOnClosestStop = routesData
+      .map((route) => {
+        if (
+          route.stops.includes(closestStop.id) &&
+          !(route.stops[route.stops.length - 1] === closestStop.id)
+        ) {
+          return route.id;
+        } else {
+          return null;
+        }
+      })
+      .filter((route) => route !== null);
+
+    console.log(routesOnClosestStop);
+  };
+
   const findLocation = async (searchText) => {
     setSelectedRouteId(null);
     setShowAllRoutes(false);
@@ -119,17 +157,17 @@ const Overview = ({ navigation }) => {
       );
     }, 2500);
 
-    setTimeout(() => {
-      mapRef.current?.animateToRegion(
-        {
-          latitude: location.coords.latitude,
-          longitude: location.coords.longitude,
-          latitudeDelta: 0.0025,
-          longitudeDelta: 0.0025,
-        },
-        1500
-      );
-    }, 5000);
+    // setTimeout(() => {
+    //   mapRef.current?.animateToRegion(
+    //     {
+    //       latitude: location.coords.latitude,
+    //       longitude: location.coords.longitude,
+    //       latitudeDelta: 0.0025,
+    //       longitudeDelta: 0.0025,
+    //     },
+    //     1500
+    //   );
+    // }, 5000);
   };
 
   const handleChangeMapType = () => {
@@ -215,6 +253,7 @@ const Overview = ({ navigation }) => {
           >
             <AntDesign name="closecircle" size={24} color="black" />
           </Pressable>
+
           <Text style={{ fontSize: 10 }}>
             {currentLang.distanceFromYourLocation}{" "}
             {calculateDistance(
@@ -235,6 +274,20 @@ const Overview = ({ navigation }) => {
               true
             )}
           </Text>
+          <Pressable
+            style={{
+              backgroundColor: "aqua",
+              width: 100,
+              height: 30,
+              marginTop: 8,
+              borderRadius: 999,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            onPress={handleClosestPath}
+          >
+            <Text style={{ color: "white" }}>Show path</Text>
+          </Pressable>
         </View>
       </View>
     );
