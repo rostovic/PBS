@@ -79,41 +79,101 @@ const Overview = ({ navigation }) => {
   }, []);
 
   const handleClosestPath = () => {
-    const allDistances = busStopDataInUse.map((busStop) => {
-      return {
-        id: busStop.id,
-        distance: calculateDistance(
-          location.coords.latitude,
-          location.coords.longitude,
-          busStop.latitude,
-          busStop.longitude
-        ),
-        latitude: busStop.latitude,
-        longitude: busStop.longitude,
-      };
+    const markerStops = [];
+    const personStops = [];
+    const possibleRoutesIDs = [];
+    const correctRoutesData = [];
+
+    busStopDataInUse.forEach((busStop) => {
+      const distanceToMarker = calculateDistance(
+        showSearchedStreet.latitude,
+        showSearchedStreet.longitude,
+        busStop.latitude,
+        busStop.longitude
+      );
+      const distanceToPerson = calculateDistance(
+        location.coords.latitude,
+        location.coords.longitude,
+        busStop.latitude,
+        busStop.longitude
+      );
+      if (distanceToMarker <= 0.25 && !markerStops.includes(busStop.id)) {
+        markerStops.push(busStop.id);
+      }
+      if (distanceToPerson <= 0.25 && !personStops.includes(busStop.id)) {
+        personStops.push(busStop.id);
+      }
     });
-    let closestStop = allDistances.filter(
-      (obj) =>
-        obj.distance === Math.min(...allDistances.map((obj) => obj.distance))
-    );
 
-    closestStop = closestStop[0];
-    // console.log(closestStop.id);
+    routesData.forEach((route) => {
+      const passes =
+        route.stops.some((id) => markerStops.includes(id)) &&
+        route.stops.some((id) => personStops.includes(id));
+      if (passes && !possibleRoutesIDs.includes(route.id)) {
+        possibleRoutesIDs.push(route.id);
+      }
+    });
 
-    const routesOnClosestStop = routesData
-      .map((route) => {
-        if (
-          route.stops.includes(closestStop.id) &&
-          !(route.stops[route.stops.length - 1] === closestStop.id)
-        ) {
-          return route.id;
-        } else {
-          return null;
-        }
-      })
-      .filter((route) => route !== null);
+    possibleRoutesIDs.forEach((possibleRouteID) => {
+      let personStopID;
+      let wayPointStopID;
+      const singleRoute = routesData.find(
+        (route) => route.id === possibleRouteID
+      );
+      const distancesToPerson = singleRoute.stops
+        .map((busStop) => {
+          const singleStop = busStopData.find((stop) => stop.id === busStop);
+          return {
+            stopId: singleStop.id,
+            distance: calculateDistance(
+              location.coords.latitude,
+              location.coords.longitude,
+              singleStop.latitude,
+              singleStop.longitude
+            ),
+          };
+        })
+        .sort((a, b) => {
+          return a.distance < b.distance ? -1 : 1;
+        });
 
-    console.log(routesOnClosestStop);
+      const distancesToMarker = singleRoute.stops
+        .map((busStop) => {
+          const singleStop = busStopData.find((stop) => stop.id === busStop);
+          return {
+            stopId: singleStop.id,
+            distance: calculateDistance(
+              showSearchedStreet.latitude,
+              showSearchedStreet.longitude,
+              singleStop.latitude,
+              singleStop.longitude
+            ),
+          };
+        })
+        .sort((a, b) => {
+          return a.distance < b.distance ? -1 : 1;
+        });
+      wayPointStopID = distancesToMarker[0].stopId;
+      personStopID = distancesToPerson[0].stopId;
+      const wayPointStopIndex = singleRoute.stops.indexOf(wayPointStopID);
+      const personStopIndex = singleRoute.stops.indexOf(personStopID);
+
+      if (personStopIndex < wayPointStopIndex) {
+        correctRoutesData.push({
+          id: singleRoute.id,
+          numOfStops: wayPointStopIndex - personStopIndex,
+          startStopID: personStopID,
+          endStopID: wayPointStopID,
+        });
+      }
+    });
+
+    correctRoutesData.sort((a, b) => (a.numOfStops < b.numOfStops ? -1 : 1));
+    if (correctRoutesData.length > 0) {
+      return correctRoutesData;
+    } else {
+      return null;
+    }
   };
 
   const findLocation = async (searchText) => {
@@ -156,18 +216,6 @@ const Overview = ({ navigation }) => {
         1500
       );
     }, 2500);
-
-    // setTimeout(() => {
-    //   mapRef.current?.animateToRegion(
-    //     {
-    //       latitude: location.coords.latitude,
-    //       longitude: location.coords.longitude,
-    //       latitudeDelta: 0.0025,
-    //       longitudeDelta: 0.0025,
-    //     },
-    //     1500
-    //   );
-    // }, 5000);
   };
 
   const handleChangeMapType = () => {
@@ -405,7 +453,7 @@ const Overview = ({ navigation }) => {
       (busStop) => busStop.id === selectedStopId
     );
 
-    // console.log(currentBusStop);
+    console.log(currentBusStop);
 
     return (
       <View style={styles.modalSelectedStop}>
