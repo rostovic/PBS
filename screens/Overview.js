@@ -22,6 +22,8 @@ import langs from "../lang-data/langs";
 import {
   calculateDistance,
   findNearestBusStopAtDesiredLocation,
+  getOffsetCoordinates,
+  getRandomColorRGB,
 } from "../functions/helpers";
 import { parseJSONRoute } from "../convert-functions/getDataConvert";
 import { ScrollView } from "react-native";
@@ -49,6 +51,7 @@ const Overview = ({ navigation }) => {
   const [selectedStopId, setSelectedStopId] = useState(null);
   const [mapType, setMapType] = useState("standard");
   const [showSearchedStreet, setShowSearchedStreet] = useState(null);
+  const [routesToMarker, setRoutesToMarker] = useState(null);
   const [regionChange, setRegionChange] = useState({
     latitude: 44.865432725353116,
     longitude: 13.85591309765663,
@@ -73,6 +76,14 @@ const Overview = ({ navigation }) => {
       setIsLoading(false);
     })();
   }, []);
+
+  useEffect(() => {
+    if (!routesToMarker) {
+      setShowAllRoutes(false);
+    } else {
+      setShowAllRoutes(true);
+    }
+  }, [routesToMarker]);
 
   const busStopDataInUse = useMemo(() => {
     return busStopData.filter((busStop) => busStop.inUse);
@@ -170,9 +181,9 @@ const Overview = ({ navigation }) => {
 
     correctRoutesData.sort((a, b) => (a.numOfStops < b.numOfStops ? -1 : 1));
     if (correctRoutesData.length > 0) {
-      return correctRoutesData;
+      setRoutesToMarker(correctRoutesData);
     } else {
-      return null;
+      setRoutesToMarker(null);
     }
   };
 
@@ -297,7 +308,10 @@ const Overview = ({ navigation }) => {
         <View style={styles.streetInstructions}>
           <Pressable
             style={styles.closeInstructions}
-            onPress={() => setShowSearchedStreet(null)}
+            onPress={() => {
+              setRoutesToMarker(null);
+              setShowSearchedStreet(null);
+            }}
           >
             <AntDesign name="closecircle" size={24} color="black" />
           </Pressable>
@@ -342,6 +356,9 @@ const Overview = ({ navigation }) => {
   };
 
   const renderPolylineClosestStreetStop = () => {
+    if (routesToMarker !== null) {
+      return;
+    }
     if (showSearchedStreet === null || showSearchedStreet === "error") {
       return;
     }
@@ -387,6 +404,92 @@ const Overview = ({ navigation }) => {
   const renderBusStopMarkers = () => {
     // parseJSONRoute();
     // console.log(markerRenderRadius);
+    if (routesToMarker !== null) {
+      const startStops = [];
+      let newCoords;
+      return routesToMarker.map((possibleRoute) => {
+        const startStop = busStopData.find(
+          (stop) => stop.id === possibleRoute.startStopID
+        );
+        const endStop = busStopData.find(
+          (stop) => stop.id === possibleRoute.endStopID
+        );
+
+        const randomColor = getRandomColorRGB();
+
+        if (!startStops.includes(startStop.id)) {
+          startStops.push(startStop.id);
+          newCoords = {
+            latitude: startStop.latitude,
+            longitude: startStop.longitude,
+          };
+        } else {
+          newCoords = getOffsetCoordinates(
+            startStop.latitude,
+            startStop.longitude,
+            20
+          );
+        }
+
+        return (
+          <>
+            <Marker
+              key={possibleRoute.id + startStop.id}
+              coordinate={{
+                latitude: newCoords.latitude,
+                longitude: newCoords.longitude,
+              }}
+              tracksViewChanges={false}
+              style={styles.markerBusStopView}
+              onPress={() => {
+                setShowAllRoutes(false);
+                setSelectedStopId(startStop.id);
+              }}
+            >
+              <View
+                style={[
+                  styles.busStopViewMarker,
+                  { borderColor: randomColor, borderWidth: 2 },
+                ]}
+              >
+                <MaterialIcons
+                  name="directions-bus"
+                  size={10}
+                  color="darkorange"
+                />
+              </View>
+            </Marker>
+            <Marker
+              key={possibleRoute.id + endStop.id}
+              coordinate={{
+                latitude: endStop.latitude,
+                longitude: endStop.longitude,
+              }}
+              tracksViewChanges={false}
+              style={styles.markerBusStopView}
+              onPress={() => {
+                setShowAllRoutes(false);
+                setSelectedStopId(endStop.id);
+              }}
+            >
+              <View
+                style={[
+                  styles.busStopViewMarker,
+                  { borderColor: randomColor, borderWidth: 2 },
+                ]}
+              >
+                <MaterialIcons
+                  name="directions-bus"
+                  size={10}
+                  color="darkorange"
+                />
+              </View>
+            </Marker>
+          </>
+        );
+      });
+    }
+
     if (selectedRouteId !== null) {
       return busStopData.map(
         (busStop) =>
@@ -521,6 +624,15 @@ const Overview = ({ navigation }) => {
     if (showAllRoutes === false) {
       return;
     }
+
+    let routesForRender = routesData;
+
+    if (routesToMarker) {
+      routesForRender = routesData.filter((route) =>
+        routesToMarker.some((markerRoute) => markerRoute.id === route.id)
+      );
+    }
+
     return (
       <View style={styles.renderAllRoutesModal}>
         <View style={styles.renderAllRoutesModalTitleView}>
@@ -529,11 +641,12 @@ const Overview = ({ navigation }) => {
           </Text>
         </View>
         <ScrollView contentContainerStyle={styles.renderAllRoutesViewContainer}>
-          {routesData.map((route) => (
+          {routesForRender.map((route) => (
             <View key={route.id} style={styles.renderAllRoutesSingleRoute}>
               <Pressable
                 style={styles.pressableSingleRoute}
                 onPress={() => {
+                  setShowSearchedStreet(null);
                   setSelectedRouteId(route.id);
                 }}
               >
@@ -582,7 +695,11 @@ const Overview = ({ navigation }) => {
             name="close-circle"
             size={28}
             color="black"
-            onPress={() => setSelectedRouteId(null)}
+            onPress={() => {
+              setShowAllRoutes(null);
+              setRoutesToMarker(null);
+              setSelectedRouteId(null);
+            }}
           />
         </View>
       </View>
@@ -653,6 +770,7 @@ const Overview = ({ navigation }) => {
           alignItems: "center",
         }}
         onPress={() => {
+          setShowSearchedStreet(null);
           setSelectedRouteId(route.id);
         }}
       >

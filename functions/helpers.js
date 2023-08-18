@@ -49,3 +49,22 @@ export const calculateDistance = (lat1, lon1, lat2, lon2, toString) => {
 const toRadians = (degrees) => {
   return (degrees * Math.PI) / 180;
 };
+
+export const getRandomColorRGB = () => {
+  const red = Math.floor(Math.random() * 256);
+  const green = Math.floor(Math.random() * 256);
+  const blue = Math.floor(Math.random() * 256);
+
+  return `rgb(${red},${green},${blue})`;
+};
+
+export const getOffsetCoordinates = (latitude, longitude, offsetMeters) => {
+  // Convert offset in meters to degrees (approximate conversion)
+  const degreesPerMeter = 1 / 111111; // Rough estimate, can vary with latitude
+  const offsetDegrees = offsetMeters * degreesPerMeter;
+
+  // Calculate new longitude by adding the offset
+  const newLongitude = longitude + offsetDegrees;
+
+  return { latitude, longitude: newLongitude };
+};
