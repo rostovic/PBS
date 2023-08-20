@@ -22,8 +22,6 @@ import langs from "../lang-data/langs";
 import {
   calculateDistance,
   findNearestBusStopAtDesiredLocation,
-  getOffsetCoordinates,
-  getRandomColorRGB,
 } from "../functions/helpers";
 import { parseJSONRoute } from "../convert-functions/getDataConvert";
 import { ScrollView } from "react-native";
@@ -52,6 +50,7 @@ const Overview = ({ navigation }) => {
   const [mapType, setMapType] = useState("standard");
   const [showSearchedStreet, setShowSearchedStreet] = useState(null);
   const [routesToMarker, setRoutesToMarker] = useState(null);
+  const [errorShowPath, setErrorShowPath] = useState(null);
   const [regionChange, setRegionChange] = useState({
     latitude: 44.865432725353116,
     longitude: 13.85591309765663,
@@ -183,6 +182,7 @@ const Overview = ({ navigation }) => {
     if (correctRoutesData.length > 0) {
       setRoutesToMarker(correctRoutesData);
     } else {
+      setErrorShowPath(true);
       setRoutesToMarker(null);
     }
   };
@@ -309,6 +309,7 @@ const Overview = ({ navigation }) => {
           <Pressable
             style={styles.closeInstructions}
             onPress={() => {
+              setErrorShowPath(null);
               setRoutesToMarker(null);
               setShowSearchedStreet(null);
             }}
@@ -348,9 +349,51 @@ const Overview = ({ navigation }) => {
             }}
             onPress={handleClosestPath}
           >
-            <Text style={{ color: "white" }}>Show path</Text>
+            <Text style={{ color: "white", fontWeight: 700 }}>Show path</Text>
           </Pressable>
         </View>
+      </View>
+    );
+  };
+
+  const renderStreetInstructionsError = () => {
+    if (errorShowPath === null) {
+      return null;
+    }
+    return (
+      <View
+        style={{
+          width: 220,
+          height: 100,
+          position: "absolute",
+          zIndex: 9999,
+          backgroundColor: "#fafafa",
+          top: insets.top + 250,
+          right: insets.right + 90,
+          borderWidth: 1,
+          borderColor: "black",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 5,
+        }}
+      >
+        <AntDesign name="warning" size={24} color="red" />
+        <Text style={{ fontSize: 12 }}>Cannot find adequate route!</Text>
+        <Pressable
+          style={{
+            width: 50,
+            height: 25,
+            borderRadius: 999,
+            backgroundColor: "aqua",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          onPress={() => {
+            setErrorShowPath(null);
+          }}
+        >
+          <Text style={{ color: "white", fontWeight: 700 }}>OK</Text>
+        </Pressable>
       </View>
     );
   };
@@ -403,15 +446,10 @@ const Overview = ({ navigation }) => {
 
   const renderBusStopMarkers = () => {
     // parseJSONRoute();
-    // console.log(markerRenderRadius);
     if (routesToMarker !== null && selectedRouteId !== null) {
       const selectedRoute = routesToMarker.filter(
         (route) => route.id === selectedRouteId
       );
-
-      // console.log(selectedRoute);
-      // console.log(selectedRoute[0].startStopID);
-      // console.log(selectedRoute[0].endStopID);
 
       const startStop = busStopData.find(
         (stop) => stop.id === selectedRoute[0].startStopID
@@ -621,9 +659,52 @@ const Overview = ({ navigation }) => {
       );
       return (
         <View style={styles.renderAllRoutesModal}>
-          <View style={{ flexDirection: "row", gap: 20, marginTop: 20 }}>
-            <Text>Route</Text>
-            <Text>Num. of stops</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              marginTop: 5,
+              gap: 50,
+            }}
+          >
+            <View style={{ flexDirection: "row", gap: 10 }}>
+              <Text style={{ fontWeight: 700 }}>Start</Text>
+              <View
+                style={[
+                  styles.busStopViewMarker,
+                  {
+                    borderColor: "green",
+                    width: 25,
+                    height: 25,
+                    borderWidth: 2,
+                  },
+                ]}
+              >
+                <MaterialIcons
+                  name="directions-bus"
+                  size={14}
+                  color="darkorange"
+                />
+              </View>
+            </View>
+            <View style={{ flexDirection: "row", gap: 10 }}>
+              <Text style={{ fontWeight: 700 }}>Finish</Text>
+              <View
+                style={[
+                  styles.busStopViewMarker,
+                  { borderColor: "red", width: 25, height: 25, borderWidth: 2 },
+                ]}
+              >
+                <MaterialIcons
+                  name="directions-bus"
+                  size={14}
+                  color="darkorange"
+                />
+              </View>
+            </View>
+          </View>
+          <View style={{ flexDirection: "row", gap: 20, marginTop: 10 }}>
+            <Text style={{ fontWeight: 700 }}>Route</Text>
+            <Text style={{ fontWeight: 700 }}>Num. of stops</Text>
           </View>
           <ScrollView
             contentContainerStyle={styles.renderAllRoutesViewContainer}
@@ -663,7 +744,13 @@ const Overview = ({ navigation }) => {
         </View>
         <ScrollView contentContainerStyle={styles.renderAllRoutesViewContainer}>
           {routesForRender.map((route) => (
-            <View key={route.id} style={styles.renderAllRoutesSingleRoute}>
+            <View
+              key={route.id}
+              style={[
+                styles.renderAllRoutesSingleRoute,
+                { justifyContent: "center" },
+              ]}
+            >
               <Pressable
                 style={styles.pressableSingleRoute}
                 onPress={() => {
@@ -675,14 +762,6 @@ const Overview = ({ navigation }) => {
                   {route.name}
                 </Text>
               </Pressable>
-              <View
-                style={{
-                  backgroundColor: route.color,
-                  height: 4,
-                  width: 200,
-                  marginTop: 4,
-                }}
-              ></View>
             </View>
           ))}
         </ScrollView>
@@ -709,7 +788,8 @@ const Overview = ({ navigation }) => {
           <Text style={styles.renderActiveModalContentViewText}>
             {currentLang.activeRoute}
             <Text style={{ fontWeight: "bold" }}>
-              {routesData.find((route) => route.id === selectedRouteId).name}
+              {" " +
+                routesData.find((route) => route.id === selectedRouteId).name}
             </Text>
           </Text>
           <Ionicons
@@ -766,7 +846,7 @@ const Overview = ({ navigation }) => {
         key={route.id}
         coordinates={route.pathCoords}
         strokeWidth={3}
-        strokeColor={route.color}
+        strokeColor={routesToMarker === null ? route.color : "aqua"}
       />
     );
   };
@@ -910,6 +990,7 @@ const Overview = ({ navigation }) => {
       {renderActiveRouteModal()}
       {renderSearchBarError()}
       {renderButtons()}
+      {renderStreetInstructionsError()}
       <MapView
         style={styles.map}
         mapType={mapType}

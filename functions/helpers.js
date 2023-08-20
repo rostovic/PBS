@@ -1,19 +1,21 @@
 import { busStopData } from "../bus-data/bus-stop";
 
 export const findNearestBusStopAtDesiredLocation = (streetLocation) => {
-  const allDistances = busStopData.map((busStop) => {
-    return {
-      id: busStop.id,
-      distance: calculateDistance(
-        streetLocation.latitude,
-        streetLocation.longitude,
-        busStop.latitude,
-        busStop.longitude
-      ),
-      latitude: busStop.latitude,
-      longitude: busStop.longitude,
-    };
-  });
+  const allDistances = busStopData
+    .filter((busStop) => busStop.inUse)
+    .map((busStop) => {
+      return {
+        id: busStop.id,
+        distance: calculateDistance(
+          streetLocation.latitude,
+          streetLocation.longitude,
+          busStop.latitude,
+          busStop.longitude
+        ),
+        latitude: busStop.latitude,
+        longitude: busStop.longitude,
+      };
+    });
   const smallestDistances = allDistances.filter(
     (obj) =>
       obj.distance === Math.min(...allDistances.map((obj) => obj.distance))
