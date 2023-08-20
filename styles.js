@@ -99,7 +99,8 @@ const styles = StyleSheet.create({
   renderAllRoutesSingleRoute: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 14,
+    gap: 70,
+    width: 160,
   },
   renderAllRoutesSingleRouteName: {
     fontWeight: 700,

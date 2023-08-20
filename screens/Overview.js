@@ -404,90 +404,78 @@ const Overview = ({ navigation }) => {
   const renderBusStopMarkers = () => {
     // parseJSONRoute();
     // console.log(markerRenderRadius);
-    if (routesToMarker !== null) {
-      const startStops = [];
-      let newCoords;
-      return routesToMarker.map((possibleRoute) => {
-        const startStop = busStopData.find(
-          (stop) => stop.id === possibleRoute.startStopID
-        );
-        const endStop = busStopData.find(
-          (stop) => stop.id === possibleRoute.endStopID
-        );
+    if (routesToMarker !== null && selectedRouteId !== null) {
+      const selectedRoute = routesToMarker.filter(
+        (route) => route.id === selectedRouteId
+      );
 
-        const randomColor = getRandomColorRGB();
+      // console.log(selectedRoute);
+      // console.log(selectedRoute[0].startStopID);
+      // console.log(selectedRoute[0].endStopID);
 
-        if (!startStops.includes(startStop.id)) {
-          startStops.push(startStop.id);
-          newCoords = {
-            latitude: startStop.latitude,
-            longitude: startStop.longitude,
-          };
-        } else {
-          newCoords = getOffsetCoordinates(
-            startStop.latitude,
-            startStop.longitude,
-            20
-          );
-        }
+      const startStop = busStopData.find(
+        (stop) => stop.id === selectedRoute[0].startStopID
+      );
+      const endStop = busStopData.find(
+        (stop) => stop.id === selectedRoute[0].endStopID
+      );
 
-        return (
-          <>
-            <Marker
-              key={possibleRoute.id + startStop.id}
-              coordinate={{
-                latitude: newCoords.latitude,
-                longitude: newCoords.longitude,
-              }}
-              tracksViewChanges={false}
-              style={styles.markerBusStopView}
-              onPress={() => {
-                setShowAllRoutes(false);
-                setSelectedStopId(startStop.id);
-              }}
+      return (
+        <>
+          <Marker
+            key={startStop.id}
+            coordinate={{
+              latitude: startStop.latitude,
+              longitude: startStop.longitude,
+            }}
+            tracksViewChanges={false}
+            style={styles.markerBusStopView}
+            onPress={() => {
+              setShowAllRoutes(false);
+              setSelectedStopId(startStop.id);
+            }}
+          >
+            <View
+              style={[
+                styles.busStopViewMarker,
+                { borderColor: "green", borderWidth: 2 },
+              ]}
             >
-              <View
-                style={[
-                  styles.busStopViewMarker,
-                  { borderColor: randomColor, borderWidth: 2 },
-                ]}
-              >
-                <MaterialIcons
-                  name="directions-bus"
-                  size={10}
-                  color="darkorange"
-                />
-              </View>
-            </Marker>
-            <Marker
-              key={possibleRoute.id + endStop.id}
-              coordinate={{
-                latitude: endStop.latitude,
-                longitude: endStop.longitude,
-              }}
-              tracksViewChanges={false}
-              style={styles.markerBusStopView}
-              onPress={() => {
-                setShowAllRoutes(false);
-                setSelectedStopId(endStop.id);
-              }}
+              <MaterialIcons
+                name="directions-bus"
+                size={10}
+                color="darkorange"
+              />
+            </View>
+          </Marker>
+          <Marker
+            key={endStop.id}
+            coordinate={{
+              latitude: endStop.latitude,
+              longitude: endStop.longitude,
+            }}
+            tracksViewChanges={false}
+            style={styles.markerBusStopView}
+            onPress={() => {
+              setShowAllRoutes(false);
+              setSelectedStopId(endStop.id);
+            }}
+          >
+            <View
+              style={[
+                styles.busStopViewMarker,
+                { borderColor: "red", borderWidth: 2 },
+              ]}
             >
-              <View
-                style={[
-                  styles.busStopViewMarker,
-                  { borderColor: randomColor, borderWidth: 2 },
-                ]}
-              >
-                <MaterialIcons
-                  name="directions-bus"
-                  size={10}
-                  color="darkorange"
-                />
-              </View>
-            </Marker>
-          </>
-        );
-      });
+              <MaterialIcons
+                name="directions-bus"
+                size={10}
+                color="darkorange"
+              />
+            </View>
+          </Marker>
+        </>
+      );
     }
 
     if (selectedRouteId !== null) {
@@ -556,7 +544,7 @@ const Overview = ({ navigation }) => {
       (busStop) => busStop.id === selectedStopId
     );
 
-    console.log(currentBusStop);
+    // console.log(currentBusStop);
 
     return (
       <View style={styles.modalSelectedStop}>
@@ -631,6 +619,39 @@ const Overview = ({ navigation }) => {
       routesForRender = routesData.filter((route) =>
         routesToMarker.some((markerRoute) => markerRoute.id === route.id)
       );
+      return (
+        <View style={styles.renderAllRoutesModal}>
+          <View style={{ flexDirection: "row", gap: 20, marginTop: 20 }}>
+            <Text>Route</Text>
+            <Text>Num. of stops</Text>
+          </View>
+          <ScrollView
+            contentContainerStyle={styles.renderAllRoutesViewContainer}
+          >
+            {routesForRender.map((route) => (
+              <View key={route.id} style={styles.renderAllRoutesSingleRoute}>
+                <Pressable
+                  style={styles.pressableSingleRoute}
+                  onPress={() => {
+                    setShowSearchedStreet(null);
+                    setSelectedRouteId(route.id);
+                  }}
+                >
+                  <Text style={styles.renderAllRoutesSingleRouteName}>
+                    {route.name}
+                  </Text>
+                </Pressable>
+                <Text style={{ fontWeight: 700, fontSize: 16 }}>
+                  {
+                    routesToMarker.find((element) => element.id === route.id)
+                      .numOfStops
+                  }
+                </Text>
+              </View>
+            ))}
+          </ScrollView>
+        </View>
+      );
     }
 
     return (
@@ -686,7 +707,7 @@ const Overview = ({ navigation }) => {
       >
         <View style={styles.renderActiveModalContentView}>
           <Text style={styles.renderActiveModalContentViewText}>
-            {currentLang.activeRoute}{" "}
+            {currentLang.activeRoute}
             <Text style={{ fontWeight: "bold" }}>
               {routesData.find((route) => route.id === selectedRouteId).name}
             </Text>
@@ -738,9 +759,11 @@ const Overview = ({ navigation }) => {
     if (selectedRouteId === null) {
       return;
     }
-    const route = routesData.find((route) => route.id === selectedRouteId);
+    let route = routesData.find((route) => route.id === selectedRouteId);
+
     return (
       <Polyline
+        key={route.id}
         coordinates={route.pathCoords}
         strokeWidth={3}
         strokeColor={route.color}
