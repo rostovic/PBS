@@ -261,7 +261,7 @@ const Overview = ({ navigation }) => {
 
     setTimeout(() => {
       setShowSearchedStreet(null);
-    }, 2000);
+    }, 3000);
 
     return (
       <View
@@ -277,9 +277,7 @@ const Overview = ({ navigation }) => {
         }}
       >
         <View style={styles.errorStreet}>
-          <Text style={{ fontSize: 10 }}>
-            Could not find the street! Try again.
-          </Text>
+          <Text style={{ fontSize: 10 }}>{currentLang.errorStreet}</Text>
         </View>
       </View>
     );
@@ -340,7 +338,7 @@ const Overview = ({ navigation }) => {
           <Pressable
             style={{
               backgroundColor: "aqua",
-              width: 100,
+              width: 150,
               height: 30,
               marginTop: 8,
               borderRadius: 999,
@@ -349,7 +347,9 @@ const Overview = ({ navigation }) => {
             }}
             onPress={handleClosestPath}
           >
-            <Text style={{ color: "white", fontWeight: 700 }}>Show path</Text>
+            <Text style={{ color: "white", fontWeight: 700 }}>
+              {currentLang.showPath}
+            </Text>
           </Pressable>
         </View>
       </View>
@@ -474,16 +474,26 @@ const Overview = ({ navigation }) => {
             }}
           >
             <View
-              style={[
-                styles.busStopViewMarker,
-                { borderColor: "green", borderWidth: 2 },
-              ]}
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
             >
-              <MaterialIcons
-                name="directions-bus"
-                size={10}
-                color="darkorange"
-              />
+              <View>
+                <Text style={{ fontSize: 12, fontWeight: 700 }}>Start</Text>
+              </View>
+              <View
+                style={[
+                  styles.busStopViewMarker,
+                  { borderColor: "green", borderWidth: 2 },
+                ]}
+              >
+                <MaterialIcons
+                  name="directions-bus"
+                  size={10}
+                  color="darkorange"
+                />
+              </View>
             </View>
           </Marker>
           <Marker
@@ -500,16 +510,26 @@ const Overview = ({ navigation }) => {
             }}
           >
             <View
-              style={[
-                styles.busStopViewMarker,
-                { borderColor: "red", borderWidth: 2 },
-              ]}
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
             >
-              <MaterialIcons
-                name="directions-bus"
-                size={10}
-                color="darkorange"
-              />
+              <View>
+                <Text style={{ fontSize: 12, fontWeight: 700 }}>Finish</Text>
+              </View>
+              <View
+                style={[
+                  styles.busStopViewMarker,
+                  { borderColor: "red", borderWidth: 2 },
+                ]}
+              >
+                <MaterialIcons
+                  name="directions-bus"
+                  size={10}
+                  color="darkorange"
+                />
+              </View>
             </View>
           </Marker>
         </>
@@ -665,43 +685,7 @@ const Overview = ({ navigation }) => {
               marginTop: 5,
               gap: 50,
             }}
-          >
-            <View style={{ flexDirection: "row", gap: 10 }}>
-              <Text style={{ fontWeight: 700 }}>Start</Text>
-              <View
-                style={[
-                  styles.busStopViewMarker,
-                  {
-                    borderColor: "green",
-                    width: 25,
-                    height: 25,
-                    borderWidth: 2,
-                  },
-                ]}
-              >
-                <MaterialIcons
-                  name="directions-bus"
-                  size={14}
-                  color="darkorange"
-                />
-              </View>
-            </View>
-            <View style={{ flexDirection: "row", gap: 10 }}>
-              <Text style={{ fontWeight: 700 }}>Finish</Text>
-              <View
-                style={[
-                  styles.busStopViewMarker,
-                  { borderColor: "red", width: 25, height: 25, borderWidth: 2 },
-                ]}
-              >
-                <MaterialIcons
-                  name="directions-bus"
-                  size={14}
-                  color="darkorange"
-                />
-              </View>
-            </View>
-          </View>
+          ></View>
           <View style={{ flexDirection: "row", gap: 20, marginTop: 10 }}>
             <Text style={{ fontWeight: 700 }}>Route</Text>
             <Text style={{ fontWeight: 700 }}>Num. of stops</Text>
@@ -873,6 +857,7 @@ const Overview = ({ navigation }) => {
           alignItems: "center",
         }}
         onPress={() => {
+          setRoutesToMarker(null);
           setShowSearchedStreet(null);
           setSelectedRouteId(route.id);
         }}

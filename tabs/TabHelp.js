@@ -77,7 +77,7 @@ const TabHelp = ({ navigation }) => {
         <View style={help.customRow1}>
           <View style={help.customView1}>
             <View style={help.textBackground1}>
-              <Text>3a</Text>
+              <Text style={{ color: "white", fontWeight: 700 }}>3a</Text>
             </View>
           </View>
           <Text>{currentLang.route}</Text>

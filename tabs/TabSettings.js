@@ -6,9 +6,11 @@ import { useCallback, useContext, useState } from "react";
 import langs from "../lang-data/langs";
 import { Image } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
+import { Feather } from "@expo/vector-icons";
 
 const TabSettings = ({ navigation }) => {
   const [langModal, setLangModal] = useState(false);
+  const [showToolTip, setShowToolTip] = useState(false);
   const insets = useSafeAreaInsets();
   const userCtx = useContext(UserContext);
   const userDataRadius = +userCtx.userData.data.radius;
@@ -78,9 +80,24 @@ const TabSettings = ({ navigation }) => {
           </Pressable>
         </View>
         <View style={settingsStyle.radiusView}>
-          <View>
-            <Text style={{ fontWeight: 700 }}>Radius:</Text>
+          <View style={{ flexDirection: "row", gap: 4 }}>
+            <Text style={{ fontWeight: 700 }}>Radius</Text>
+
+            <Feather
+              name="info"
+              size={24}
+              color="black"
+              onPress={() => {
+                setShowToolTip((state) => !state);
+              }}
+            />
           </View>
+          {showToolTip ? (
+            <Text style={{ fontSize: 8 }}>
+              Lowering radius may increase performance
+            </Text>
+          ) : null}
+
           <View style={{ flexDirection: "row", gap: 20 }}>
             <Pressable
               style={{

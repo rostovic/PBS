@@ -191,8 +191,8 @@ const styles = StyleSheet.create({
     borderRadius: 999,
   },
   errorStreet: {
-    width: 200,
-    height: 25,
+    width: 300,
+    height: 50,
     backgroundColor: "white",
     borderRadius: 999,
     justifyContent: "center",
@@ -201,8 +201,8 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   streetInstructions: {
-    width: 300,
-    height: 90,
+    width: 350,
+    height: 100,
     backgroundColor: "white",
     justifyContent: "center",
     alignItems: "center",

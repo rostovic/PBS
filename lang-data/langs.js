@@ -17,6 +17,8 @@ const langs = [
     nearestStopAtDesiredLocation: "Udaljenost najbliže stanice od lokacije:",
     allRoutes: "Sve linije",
     activeRoute: "Aktivna ruta:",
+    errorStreet: "Nije moguće pronaći ulicu! Pokušajte ponovo.",
+    showPath: "Pokaži put",
   },
   {
     name: "gb",
@@ -36,6 +38,8 @@ const langs = [
     nearestStopAtDesiredLocation: "Nearest bus stop at desired location:",
     allRoutes: "All routes",
     activeRoute: "Active route:",
+    errorStreet: "Could not find the street! Try again.",
+    showPath: "Show path",
   },
   {
     name: "de",
@@ -55,6 +59,8 @@ const langs = [
     nearestStopAtDesiredLocation: "Nächste Bushaltestelle am gewünschten Ort:",
     allRoutes: "Alle routen",
     activeRoute: "Aktive route:",
+    errorStreet: "Straße nicht gefunden! Versuchen Sie es erneut.",
+    showPath: "Weg anzeigen",
   },
 
   {
@@ -76,6 +82,8 @@ const langs = [
       "Fermata dell'autobus più vicina alla posizione desiderata:",
     allRoutes: "Tutte le rotte",
     activeRoute: "Rotta attiva:",
+    errorStreet: "Impossibile trovare la strada! Riprova.",
+    showPath: "Mostra percorso",
   },
 
   {
@@ -97,6 +105,8 @@ const langs = [
       "Arrêt de bus le plus proche à l'endroit souhaité:",
     allRoutes: "Toutes les lignes",
     activeRoute: "Route active:",
+    errorStreet: "Impossible de trouver la rue ! Réessayez.",
+    showPath: "Afficher le chemin",
   },
 
   {
@@ -118,6 +128,8 @@ const langs = [
       "Parada de autobús más cercana a la ubicación deseada:",
     allRoutes: "Todas las rutas",
     activeRoute: "Ruta activa:",
+    errorStreet: "¡No se pudo encontrar la calle! Inténtalo de nuevo.",
+    showPath: "Mostrar ruta",
   },
 ];
 
