@@ -19,6 +19,9 @@ const langs = [
     activeRoute: "Aktivna ruta:",
     errorStreet: "Nije moguće pronaći ulicu! Pokušajte ponovo.",
     showPath: "Pokaži put",
+    start: "Početak",
+    finish: "Završetak",
+    radius: "Smanjenje radijusa može povećati performanse",
   },
   {
     name: "gb",
@@ -40,6 +43,9 @@ const langs = [
     activeRoute: "Active route:",
     errorStreet: "Could not find the street! Try again.",
     showPath: "Show path",
+    start: "Start",
+    finish: "Finish",
+    radius: "Lowering radius may increase performance",
   },
   {
     name: "de",
@@ -61,6 +67,9 @@ const langs = [
     activeRoute: "Aktive route:",
     errorStreet: "Straße nicht gefunden! Versuchen Sie es erneut.",
     showPath: "Weg anzeigen",
+    start: "Start",
+    finish: "Ziel",
+    radius: "Eine Verringerung des Radius kann die Leistung erhöhen",
   },
 
   {
@@ -84,6 +93,9 @@ const langs = [
     activeRoute: "Rotta attiva:",
     errorStreet: "Impossibile trovare la strada! Riprova.",
     showPath: "Mostra percorso",
+    start: "Inizio",
+    finish: "Fine",
+    radius: "Ridurre il raggio potrebbe aumentare le prestazioni",
   },
 
   {
@@ -107,6 +119,9 @@ const langs = [
     activeRoute: "Route active:",
     errorStreet: "Impossible de trouver la rue ! Réessayez.",
     showPath: "Afficher le chemin",
+    start: "Début",
+    finish: "Fin",
+    radius: "Réduire le rayon peut augmenter les performances",
   },
 
   {
@@ -130,6 +145,9 @@ const langs = [
     activeRoute: "Ruta activa:",
     errorStreet: "¡No se pudo encontrar la calle! Inténtalo de nuevo.",
     showPath: "Mostrar ruta",
+    start: "Comienzo",
+    finish: "Fin",
+    radius: "Reducir el radio puede aumentar el rendimiento",
   },
 ];
 

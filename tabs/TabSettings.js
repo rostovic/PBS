@@ -93,9 +93,7 @@ const TabSettings = ({ navigation }) => {
             />
           </View>
           {showToolTip ? (
-            <Text style={{ fontSize: 8 }}>
-              Lowering radius may increase performance
-            </Text>
+            <Text style={{ fontSize: 8 }}>{currentLang.radius}</Text>
           ) : null}
 
           <View style={{ flexDirection: "row", gap: 20 }}>
@@ -104,7 +102,6 @@ const TabSettings = ({ navigation }) => {
                 backgroundColor:
                   userDataRadius === 0.25 ? "#5A5A5A" : "lightgrey",
                 padding: 8,
-                borderRadius: 999,
               }}
               onPress={() => {
                 handleChangeRadius(0.25);
@@ -118,7 +115,6 @@ const TabSettings = ({ navigation }) => {
               style={{
                 backgroundColor: userDataRadius === 1 ? "#5A5A5A" : "lightgrey",
                 padding: 8,
-                borderRadius: 999,
               }}
               onPress={() => {
                 handleChangeRadius(1);
@@ -132,7 +128,6 @@ const TabSettings = ({ navigation }) => {
               style={{
                 backgroundColor: userDataRadius === 5 ? "#5A5A5A" : "lightgrey",
                 padding: 8,
-                borderRadius: 999,
               }}
               onPress={() => {
                 handleChangeRadius(5);
@@ -147,7 +142,6 @@ const TabSettings = ({ navigation }) => {
                 backgroundColor:
                   userDataRadius === 10 ? "#5A5A5A" : "lightgrey",
                 padding: 8,
-                borderRadius: 999,
               }}
               onPress={() => {
                 handleChangeRadius(10);

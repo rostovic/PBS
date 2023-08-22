@@ -480,7 +480,9 @@ const Overview = ({ navigation }) => {
               }}
             >
               <View>
-                <Text style={{ fontSize: 12, fontWeight: 700 }}>Start</Text>
+                <Text style={{ fontSize: 12, fontWeight: 700 }}>
+                  {currentLang.start}
+                </Text>
               </View>
               <View
                 style={[
@@ -516,7 +518,9 @@ const Overview = ({ navigation }) => {
               }}
             >
               <View>
-                <Text style={{ fontSize: 12, fontWeight: 700 }}>Finish</Text>
+                <Text style={{ fontSize: 12, fontWeight: 700 }}>
+                  {currentLang.finish}
+                </Text>
               </View>
               <View
                 style={[
@@ -674,9 +678,17 @@ const Overview = ({ navigation }) => {
     let routesForRender = routesData;
 
     if (routesToMarker) {
-      routesForRender = routesData.filter((route) =>
-        routesToMarker.some((markerRoute) => markerRoute.id === route.id)
-      );
+      const tempArray = routesToMarker.map((route) => route.id);
+      routesForRender = routesData
+        .filter((route) =>
+          routesToMarker.some((markerRoute) => markerRoute.id === route.id)
+        )
+        .sort((a, b) => {
+          const indexA = tempArray.indexOf(a.id);
+          const indexB = tempArray.indexOf(b.id);
+          return indexA - indexB;
+        });
+
       return (
         <View style={styles.renderAllRoutesModal}>
           <View
