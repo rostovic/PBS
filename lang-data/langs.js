@@ -22,6 +22,7 @@ const langs = [
     start: "Početak",
     finish: "Završetak",
     radius: "Smanjenje radijusa može povećati performanse",
+    adequateRoute: "Ne mogu pronaći odgovarajući put!",
   },
   {
     name: "gb",
@@ -46,6 +47,7 @@ const langs = [
     start: "Start",
     finish: "Finish",
     radius: "Lowering radius may increase performance",
+    adequateRoute: "Cannot find adequate route!",
   },
   {
     name: "de",
@@ -70,6 +72,7 @@ const langs = [
     start: "Start",
     finish: "Ziel",
     radius: "Eine Verringerung des Radius kann die Leistung erhöhen",
+    adequateRoute: "Angemessene Route konnte nicht gefunden werden!",
   },
 
   {
@@ -96,6 +99,7 @@ const langs = [
     start: "Inizio",
     finish: "Fine",
     radius: "Ridurre il raggio potrebbe aumentare le prestazioni",
+    adequateRoute: "Impossibile trovare un percorso adeguato!",
   },
 
   {
@@ -122,6 +126,7 @@ const langs = [
     start: "Début",
     finish: "Fin",
     radius: "Réduire le rayon peut augmenter les performances",
+    adequateRoute: "Impossible de trouver un itinéraire adéquat !",
   },
 
   {
@@ -148,6 +153,7 @@ const langs = [
     start: "Comienzo",
     finish: "Fin",
     radius: "Reducir el radio puede aumentar el rendimiento",
+    adequateRoute: "¡No se puede encontrar una ruta adecuada!",
   },
 ];
 

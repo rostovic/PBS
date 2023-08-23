@@ -363,22 +363,22 @@ const Overview = ({ navigation }) => {
     return (
       <View
         style={{
-          width: 220,
-          height: 100,
+          width: 320,
+          height: 120,
           position: "absolute",
           zIndex: 9999,
           backgroundColor: "#fafafa",
           top: insets.top + 250,
-          right: insets.right + 90,
+          right: insets.right + 50,
           borderWidth: 1,
           borderColor: "black",
           justifyContent: "center",
           alignItems: "center",
-          gap: 5,
+          gap: 10,
         }}
       >
         <AntDesign name="warning" size={24} color="red" />
-        <Text style={{ fontSize: 12 }}>Cannot find adequate route!</Text>
+        <Text style={{ fontSize: 12 }}>{currentLang.adequateRoute}</Text>
         <Pressable
           style={{
             width: 50,
