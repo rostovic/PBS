@@ -458,86 +458,88 @@ const Overview = ({ navigation }) => {
         (stop) => stop.id === selectedRoute[0].endStopID
       );
 
-      return (
-        <>
-          <Marker
-            key={startStop.id}
-            coordinate={{
-              latitude: startStop.latitude,
-              longitude: startStop.longitude,
-            }}
-            tracksViewChanges={false}
-            style={styles.markerBusStopView}
-            onPress={() => {
-              setShowAllRoutes(false);
-              setSelectedStopId(startStop.id);
-            }}
-          >
-            <View
-              style={{
-                justifyContent: "center",
-                alignItems: "center",
+      let allMarkers = busStopData.map(
+        (busStop) =>
+          routesData[selectedRouteId].stops.includes(busStop.id) && (
+            <Marker
+              key={busStop.id}
+              coordinate={{
+                latitude: busStop.latitude,
+                longitude: busStop.longitude,
+              }}
+              tracksViewChanges={false}
+              style={styles.markerBusStopView}
+              onPress={() => {
+                setShowAllRoutes(false);
+                setSelectedStopId(busStop.id);
               }}
             >
-              <View>
-                <Text style={{ fontSize: 12, fontWeight: 700 }}>
-                  {currentLang.start}
-                </Text>
-              </View>
-              <View
-                style={[
-                  styles.busStopViewMarker,
-                  { borderColor: "green", borderWidth: 2 },
-                ]}
-              >
-                <MaterialIcons
-                  name="directions-bus"
-                  size={10}
-                  color="darkorange"
-                />
-              </View>
-            </View>
-          </Marker>
-          <Marker
-            key={endStop.id}
-            coordinate={{
-              latitude: endStop.latitude,
-              longitude: endStop.longitude,
-            }}
-            tracksViewChanges={false}
-            style={styles.markerBusStopView}
-            onPress={() => {
-              setShowAllRoutes(false);
-              setSelectedStopId(endStop.id);
-            }}
-          >
-            <View
-              style={{
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <View>
-                <Text style={{ fontSize: 12, fontWeight: 700 }}>
-                  {currentLang.finish}
-                </Text>
-              </View>
-              <View
-                style={[
-                  styles.busStopViewMarker,
-                  { borderColor: "red", borderWidth: 2 },
-                ]}
-              >
-                <MaterialIcons
-                  name="directions-bus"
-                  size={10}
-                  color="darkorange"
-                />
-              </View>
-            </View>
-          </Marker>
-        </>
+              {busStop.id === startStop.id ? (
+                <View
+                  style={{
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <View>
+                    <Text style={{ fontSize: 12, fontWeight: 700 }}>
+                      {currentLang.start}
+                    </Text>
+                  </View>
+                  <View
+                    style={[
+                      styles.busStopViewMarker,
+                      { borderColor: "green", borderWidth: 2 },
+                    ]}
+                  >
+                    <MaterialIcons
+                      name="directions-bus"
+                      size={10}
+                      color="darkorange"
+                    />
+                  </View>
+                </View>
+              ) : null}
+              {busStop.id === endStop.id ? (
+                <View
+                  style={{
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <View>
+                    <Text style={{ fontSize: 12, fontWeight: 700 }}>
+                      {currentLang.finish}
+                    </Text>
+                  </View>
+                  <View
+                    style={[
+                      styles.busStopViewMarker,
+                      { borderColor: "red", borderWidth: 2 },
+                    ]}
+                  >
+                    <MaterialIcons
+                      name="directions-bus"
+                      size={10}
+                      color="darkorange"
+                    />
+                  </View>
+                </View>
+              ) : null}
+              {busStop.id !== startStop.id && busStop.id !== endStop.id ? (
+                <View style={styles.busStopViewMarker}>
+                  <MaterialIcons
+                    name="directions-bus"
+                    size={10}
+                    color="darkorange"
+                  />
+                </View>
+              ) : null}
+            </Marker>
+          )
       );
+
+      return allMarkers;
     }
 
     if (selectedRouteId !== null) {
