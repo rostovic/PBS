@@ -445,7 +445,6 @@ const Overview = ({ navigation }) => {
   };
 
   const renderBusStopMarkers = () => {
-    // parseJSONRoute();
     if (routesToMarker !== null && selectedRouteId !== null) {
       const selectedRoute = routesToMarker.filter(
         (route) => route.id === selectedRouteId
@@ -608,8 +607,6 @@ const Overview = ({ navigation }) => {
       (busStop) => busStop.id === selectedStopId
     );
 
-    // console.log(currentBusStop);
-
     return (
       <View style={styles.modalSelectedStop}>
         <View>
@@ -701,8 +698,8 @@ const Overview = ({ navigation }) => {
             }}
           ></View>
           <View style={{ flexDirection: "row", gap: 20, marginTop: 10 }}>
-            <Text style={{ fontWeight: 700 }}>Route</Text>
-            <Text style={{ fontWeight: 700 }}>Num. of stops</Text>
+            <Text style={{ fontWeight: 700 }}>{currentLang.busRoute}</Text>
+            <Text style={{ fontWeight: 700 }}>{currentLang.numStops}</Text>
           </View>
           <ScrollView
             contentContainerStyle={styles.renderAllRoutesViewContainer}
@@ -949,6 +946,7 @@ const Overview = ({ navigation }) => {
   };
 
   const handleShowAllRoutes = () => {
+    setRoutesToMarker(null);
     setSelectedStopId(null);
     setSelectedRouteId(null);
     setShowAllRoutes((current) => !current);

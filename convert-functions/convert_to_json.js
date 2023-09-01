@@ -8,7 +8,7 @@ const readFileAndConvertToJson = (filePath) => {
 
     lines.forEach((line) => {
       const [id, nameWithCommas, latitude, longitude] = line.trim().split(",");
-      const name = nameWithCommas.replace(/-[^\w\s]/g, "").trim(); // Remove non-word and non-space characters after a hyphen
+      const name = nameWithCommas.replace(/-[^\w\s]/g, "").trim();
       jsonData.push({
         id: parseInt(id),
         name,
@@ -24,7 +24,7 @@ const readFileAndConvertToJson = (filePath) => {
   }
 };
 
-const filePath = "stops.txt"; // Replace this with the actual path of your .txt file
+const filePath = "stops.txt";
 const jsonData = readFileAndConvertToJson(filePath);
 if (jsonData) {
   const jsonString = JSON.stringify(jsonData, null, 2);

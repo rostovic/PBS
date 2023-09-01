@@ -40,7 +40,6 @@ export const decodePolyline = (polylineStr) => {
 
 export const parseJSONRoute = () => {
   const data = jsonFile;
-  //   console.log(data.routes[0].legs[0].steps[0].start_location.lat);
   const route = [];
   data.routes[0].legs[0].steps.forEach((step) => {
     const decodedPolylineCoords = decodePolyline(step.polyline.points).map(
@@ -48,8 +47,6 @@ export const parseJSONRoute = () => {
         return { latitude: polyline[0], longitude: polyline[1] };
       }
     );
-
-    // console.log(decodedPolylineCoords);
     route.push(
       {
         latitude: step.start_location.lat,

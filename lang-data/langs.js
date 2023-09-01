@@ -23,6 +23,8 @@ const langs = [
     finish: "Završetak",
     radius: "Smanjenje radijusa može povećati performanse",
     adequateRoute: "Ne mogu pronaći odgovarajući put!",
+    busRoute: "Autobusna linija",
+    numStops: "Broj stanica",
   },
   {
     name: "gb",
@@ -48,6 +50,8 @@ const langs = [
     finish: "Finish",
     radius: "Lowering radius may increase performance",
     adequateRoute: "Cannot find adequate route!",
+    busRoute: "Bus route",
+    numStops: "Num. of stops",
   },
   {
     name: "de",
@@ -73,6 +77,8 @@ const langs = [
     finish: "Ziel",
     radius: "Eine Verringerung des Radius kann die Leistung erhöhen",
     adequateRoute: "Angemessene Route konnte nicht gefunden werden!",
+    busRoute: "Buslinie",
+    numStops: "Anzahl haltestellen",
   },
 
   {
@@ -100,6 +106,8 @@ const langs = [
     finish: "Fine",
     radius: "Ridurre il raggio potrebbe aumentare le prestazioni",
     adequateRoute: "Impossibile trovare un percorso adeguato!",
+    busRoute: "Percorso autobus",
+    numStops: "Num. fermate",
   },
 
   {
@@ -127,6 +135,8 @@ const langs = [
     finish: "Fin",
     radius: "Réduire le rayon peut augmenter les performances",
     adequateRoute: "Impossible de trouver un itinéraire adéquat !",
+    busRoute: "Ligne de bus",
+    numStops: "Nb. d'arrêts",
   },
 
   {
@@ -154,6 +164,8 @@ const langs = [
     finish: "Fin",
     radius: "Reducir el radio puede aumentar el rendimiento",
     adequateRoute: "¡No se puede encontrar una ruta adecuada!",
+    busRoute: "Ruta de autobús",
+    numStops: "Num. de paradas",
   },
 ];
 

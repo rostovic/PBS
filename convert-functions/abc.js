@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const inputFilePath = "grouped_and_sorted_data.json"; // Replace with the path to your JSON input file
+const inputFilePath = "grouped_and_sorted_data.json";
 
 fs.readFile(inputFilePath, "utf8", (err, data) => {
   if (err) {
@@ -18,11 +18,10 @@ fs.readFile(inputFilePath, "utf8", (err, data) => {
     }
   }
 
-  const outputFilePath = "sorted_output_data.json"; // Replace with the desired output file path
+  const outputFilePath = "sorted_output_data.json";
 
   const outputData = JSON.stringify(sortedData, null, 2);
 
-  // Write the data to the output file
   fs.writeFile(outputFilePath, outputData, (err) => {
     if (err) {
       console.error("Error writing to the file:", err);

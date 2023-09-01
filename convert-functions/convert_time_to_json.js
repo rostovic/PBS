@@ -1,6 +1,5 @@
 const fs = require("fs");
-
-const filePath = "extracted_data.txt"; // Replace with the path to your text file
+const filePath = "extracted_data.txt";
 
 fs.readFile(filePath, "utf8", (err, data) => {
   if (err) {
@@ -19,18 +18,17 @@ fs.readFile(filePath, "utf8", (err, data) => {
     groupedData[id].push(time);
   });
 
-  const sortedIds = Object.keys(groupedData).sort((a, b) => b - a); // Sort in descending order
+  const sortedIds = Object.keys(groupedData).sort((a, b) => b - a);
   const sortedGroupedData = {};
 
   sortedIds.forEach((id) => {
     sortedGroupedData[id] = groupedData[id];
   });
 
-  const outputFilePath = "grouped_and_sorted_data.json"; // Replace with the desired output file path
+  const outputFilePath = "grouped_and_sorted_data.json";
 
   const outputData = JSON.stringify(sortedGroupedData, null, 2);
 
-  // Write the data to the output file
   fs.writeFile(outputFilePath, outputData, (err) => {
     if (err) {
       console.error("Error writing to the file:", err);

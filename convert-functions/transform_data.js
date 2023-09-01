@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const jsonData = require("./sortirani_json.json");
+const jsonData = require("./sorted_output_data.json");
 
 const transformedData = [];
 
@@ -11,11 +11,9 @@ for (const id in jsonData) {
   }
 }
 
-const outputFilePath = "transformed_data.txt"; // Replace with the desired output file path
-
+const outputFilePath = "transformed_data.txt";
 const outputData = JSON.stringify(transformedData, null, 2);
 
-// Write the data to the output file
 fs.writeFile(outputFilePath, outputData, (err) => {
   if (err) {
     console.error("Error writing to the file:", err);

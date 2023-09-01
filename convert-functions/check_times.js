@@ -12286,7 +12286,6 @@ const busStopArrivalTime = [
 
 const checkTimes = () => {
   const results = [];
-
   busStopArrivalTime.forEach((item) => {
     const { id, times } = item;
 
@@ -12306,13 +12305,12 @@ const checkTimes = () => {
         .toString()
         .padStart(2, "0")}`;
 
-      // Add formattedTime to the uniqueTimes Set
       uniqueTimes.add(formattedTime);
     });
 
     results.push({
       id,
-      times: Array.from(uniqueTimes), // Convert the Set back to an array
+      times: Array.from(uniqueTimes),
     });
   });
 

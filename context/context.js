@@ -11,7 +11,6 @@ const UserContextProvider = ({ children }) => {
 
   const getData = async () => {
     try {
-      // AsyncStorage.clear();
       const value = await AsyncStorage.getItem("userData");
       if (value !== null) {
         setUserData(JSON.parse(value));

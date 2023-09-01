@@ -5,7 +5,6 @@ export const searchLocation = async (searchText) => {
     );
     const data = await response.json();
     if (data && data.length > 0) {
-      // Assuming the first result is the best match
       const { lat, lon } = data[0];
       return {
         status: "success",
@@ -16,7 +15,6 @@ export const searchLocation = async (searchText) => {
       return { status: "fail" };
     }
   } catch (error) {
-    // console.error("Error fetching location:", error);
     return { status: "fail" };
   }
 };

@@ -6,9 +6,6 @@ import { Ionicons } from "@expo/vector-icons";
 const BusStopDetails = ({ navigation, route }) => {
   const insets = useSafeAreaInsets();
   const { busStopId } = route.params;
-
-  // console.log(busStopId);
-
   const currentBusStop = busStopData.find(
     (busStop) => busStop.id === busStopId
   );
@@ -58,12 +55,10 @@ const BusStopDetails = ({ navigation, route }) => {
       groupedTimes[hour].push(time);
     });
 
-    // Sort the keys in ascending order with custom sorting logic
     const sortedHours = Object.keys(groupedTimes).sort(
       (a, b) => parseInt(a) - parseInt(b)
     );
 
-    // Reorganize the groups based on sorted keys
     const sortedGroupedTimes = {};
     sortedHours.forEach((hour) => {
       sortedGroupedTimes[hour] = groupedTimes[hour];
