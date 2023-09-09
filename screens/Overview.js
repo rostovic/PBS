@@ -1,7 +1,22 @@
-import { View, Text, Pressable, Image } from "react-native";
+import {
+  View,
+  Text,
+  Pressable,
+  Image,
+  Modal,
+  TextInput,
+  Button,
+} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import MapView, { Marker, Polyline } from "react-native-maps";
-import { useContext, useEffect, useMemo, useRef, useState } from "react";
+import {
+  Fragment,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import * as Location from "expo-location";
 import { ActivityIndicator } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -42,6 +57,7 @@ const Overview = ({ navigation }) => {
   };
 
   const [location, setLocation] = useState(null);
+  const [isRoutePlannerModal, setIsRoutePlannerModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedRouteId, setSelectedRouteId] = useState(null);
   const [showAllRoutes, setShowAllRoutes] = useState(false);
@@ -184,6 +200,104 @@ const Overview = ({ navigation }) => {
     } else {
       setErrorShowPath(true);
       setRoutesToMarker(null);
+    }
+  };
+
+  const getRouteBetweenPoints = (pointA, pointB) => {
+    const pointAStops = [];
+    const pointBStops = [];
+    const possibleRoutesIDs = [];
+    const correctRoutesData = [];
+
+    busStopDataInUse.forEach((busStop) => {
+      const distanceToPointA = calculateDistance(
+        pointA.latitude,
+        pointA.longitude,
+        busStop.latitude,
+        busStop.longitude
+      );
+      const distanceToPointB = calculateDistance(
+        pointB.latitude,
+        pointB.longitude,
+        busStop.latitude,
+        busStop.longitude
+      );
+      if (distanceToPointA <= 0.25 && !pointAStops.includes(busStop.id)) {
+        pointAStops.push(busStop.id);
+      }
+      if (distanceToPointB <= 0.25 && !pointBStops.includes(busStop.id)) {
+        pointBStops.push(busStop.id);
+      }
+    });
+
+    routesData.forEach((route) => {
+      const passes =
+        route.stops.some((id) => pointAStops.includes(id)) &&
+        route.stops.some((id) => pointBStops.includes(id));
+      if (passes && !possibleRoutesIDs.includes(route.id)) {
+        possibleRoutesIDs.push(route.id);
+      }
+    });
+
+    possibleRoutesIDs.forEach((possibleRouteID) => {
+      let pointAStopID;
+      let pointBStopID;
+      const singleRoute = routesData.find(
+        (route) => route.id === possibleRouteID
+      );
+      const distancesToPointA = singleRoute.stops
+        .map((busStop) => {
+          const singleStop = busStopData.find((stop) => stop.id === busStop);
+          return {
+            stopId: singleStop.id,
+            distance: calculateDistance(
+              pointA.latitude,
+              pointA.longitude,
+              singleStop.latitude,
+              singleStop.longitude
+            ),
+          };
+        })
+        .sort((a, b) => {
+          return a.distance < b.distance ? -1 : 1;
+        });
+
+      const distancesToPointB = singleRoute.stops
+        .map((busStop) => {
+          const singleStop = busStopData.find((stop) => stop.id === busStop);
+          return {
+            stopId: singleStop.id,
+            distance: calculateDistance(
+              pointB.latitude,
+              pointB.longitude,
+              singleStop.latitude,
+              singleStop.longitude
+            ),
+          };
+        })
+        .sort((a, b) => {
+          return a.distance < b.distance ? -1 : 1;
+        });
+      pointBStopID = distancesToPointB[0].stopId;
+      pointAStopID = distancesToPointA[0].stopId;
+      const pointAStopIndex = singleRoute.stops.indexOf(pointAStopID);
+      const pointBStopIndex = singleRoute.stops.indexOf(pointBStopID);
+
+      if (pointAStopIndex < pointBStopIndex) {
+        correctRoutesData.push({
+          id: singleRoute.id,
+          numOfStops: pointBStopIndex - pointAStopIndex,
+          startStopID: pointAStopID,
+          endStopID: pointBStopID,
+        });
+      }
+    });
+
+    correctRoutesData.sort((a, b) => (a.numOfStops < b.numOfStops ? -1 : 1));
+    if (correctRoutesData.length > 0) {
+      return correctRoutesData[0];
+    } else {
+      console.warn("ERROR!!!");
     }
   };
 
@@ -445,6 +559,51 @@ const Overview = ({ navigation }) => {
   };
 
   const renderBusStopMarkers = () => {
+    if (routePlannerData !== null) {
+      const stopIds = [];
+
+      routePlannerData.forEach((plannedRoute) => {
+        const startId = plannedRoute.startStopID;
+        const stopId = plannedRoute.endStopID;
+
+        if (!stopIds.includes(startId)) {
+          stopIds.push(startId);
+        }
+
+        if (!stopIds.includes(stopId)) {
+          stopIds.push(stopId);
+        }
+      });
+
+      return stopIds.map((stopId) => {
+        const stop = busStopData.find((busStop) => busStop.id === stopId);
+
+        return (
+          <Marker
+            key={stopId}
+            coordinate={{
+              latitude: stop.latitude,
+              longitude: stop.longitude,
+            }}
+            style={styles.markerBusStopView}
+            tracksViewChanges={false}
+            onPress={() => {
+              setShowAllRoutes(false);
+              setSelectedStopId(busStop.id);
+            }}
+          >
+            <View style={styles.busStopViewMarker}>
+              <MaterialIcons
+                name="directions-bus"
+                size={14}
+                color="darkorange"
+              />
+            </View>
+          </Marker>
+        );
+      });
+    }
+
     if (routesToMarker !== null && selectedRouteId !== null) {
       const selectedRoute = routesToMarker.filter(
         (route) => route.id === selectedRouteId
@@ -878,6 +1037,116 @@ const Overview = ({ navigation }) => {
     ));
   };
 
+  const [routePlannerPoints, setRoutePlannerPoints] = useState(["", ""]);
+  const [routePlannerData, setRoutePlannerData] = useState(null);
+
+  const handleRoutePlanning = async () => {
+    console.log(routePlannerPoints);
+    const streetsWithCoords = [];
+    for (const street of routePlannerPoints) {
+      {
+        const streetData = await searchLocation(street);
+
+        streetsWithCoords.push({
+          longitude: streetData.longitude,
+          latitude: streetData.latitude,
+        });
+      }
+    }
+
+    const routesBetweenStreets = streetsWithCoords
+      .map((streetData, i) => {
+        const currentStreet = streetData;
+        const nextStreet = streetsWithCoords[i + 1];
+
+        if (!nextStreet) {
+          return undefined;
+        }
+
+        return getRouteBetweenPoints(currentStreet, nextStreet);
+      })
+      .filter((data) => data !== undefined);
+
+    setRoutePlannerData(routesBetweenStreets);
+  };
+
+  const renderRoutePlannerModal = () => {
+    return (
+      <Modal
+        visible={isRoutePlannerModal}
+        animationType="slide"
+        style={{ backgroundColor: "red" }}
+        transparent={true}
+      >
+        <View style={{ flex: 1, backgroundColor: "white", padding: 8 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ fontSize: 16, fontWeight: 400 }}>Route planner</Text>
+            <MaterialCommunityIcons
+              onPress={() => setIsRoutePlannerModal(false)}
+              name="arrow-down-bold-circle"
+              size={34}
+              color="black"
+            />
+          </View>
+          <View>
+            {routePlannerPoints.map((street, i) => (
+              <View key={i} style={{ flexDirection: "row" }}>
+                <TextInput
+                  onChangeText={(text) => {
+                    setRoutePlannerPoints((prev) => {
+                      const newPointsData = [...prev];
+                      newPointsData[i] = text;
+                      return newPointsData;
+                    });
+                  }}
+                  value={street}
+                  style={{
+                    height: 40,
+                    margin: 12,
+                    borderWidth: 1,
+                    padding: 10,
+                    flex: 1,
+                  }}
+                />
+                <MaterialCommunityIcons
+                  onPress={() => {
+                    setRoutePlannerPoints((prev) => {
+                      const newPoints = [...prev];
+                      newPoints.splice(i, 1);
+                      return newPoints;
+                    });
+                  }}
+                  style={{ alignSelf: "center" }}
+                  name="minus-circle"
+                  size={32}
+                />
+              </View>
+            ))}
+          </View>
+          <MaterialCommunityIcons
+            onPress={() => {
+              setRoutePlannerPoints((prev) => {
+                return [...prev, ""];
+              });
+            }}
+            style={{ alignSelf: "center" }}
+            name="plus-circle"
+            size={32}
+          />
+          <View style={{ marginTop: 12 }}>
+            <Button onPress={handleRoutePlanning} title="Find" />
+          </View>
+        </View>
+      </Modal>
+    );
+  };
+
   const renderButtons = () => {
     return (
       <>
@@ -897,6 +1166,11 @@ const Overview = ({ navigation }) => {
               source={mapType === "standard" ? standard : satellite}
               style={styles.imageContainer}
             />
+          </Pressable>
+        </View>
+        <View style={styles.buttonCreateRoute}>
+          <Pressable onPress={() => setIsRoutePlannerModal(true)}>
+            <MaterialCommunityIcons name="routes" size={24} />
           </Pressable>
         </View>
       </>
@@ -980,6 +1254,7 @@ const Overview = ({ navigation }) => {
 
   return (
     <View style={{ flex: 1, paddingTop: insets.top }}>
+      {renderRoutePlannerModal()}
       <SearchBar findLocation={findLocation} />
       {renderStreetInstructions()}
       {renderModalSelectedStop()}

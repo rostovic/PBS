@@ -183,6 +183,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderColor: "black",
   },
+  buttonCreateRoute: {
+    position: "absolute",
+    top: 475,
+    right: 10,
+    zIndex: 1,
+    width: 50,
+    height: 50,
+    borderRadius: 999,
+    borderWidth: 1,
+    backgroundColor: "white",
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "black",
+  },
   imageContainer: {
     width: 49, // Set the desired width
     height: 49, // Set the desired height
