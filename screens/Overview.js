@@ -74,6 +74,10 @@ const Overview = ({ navigation }) => {
     longitudeDelta: 0.05,
   });
   const mapRef = useRef(null);
+  const [routePlannerPoints, setRoutePlannerPoints] = useState(["", ""]);
+  const [routePlannerData, setRoutePlannerData] = useState(null);
+  const [routeStopNumber, setRouteStopNumber] = useState(0);
+
   let regionChangeTimeout = null;
 
   useEffect(() => {
@@ -196,6 +200,8 @@ const Overview = ({ navigation }) => {
 
     correctRoutesData.sort((a, b) => (a.numOfStops < b.numOfStops ? -1 : 1));
     if (correctRoutesData.length > 0) {
+      setRoutePlannerPoints(["", ""]);
+      setRoutePlannerData(null);
       setRoutesToMarker(correctRoutesData);
     } else {
       setErrorShowPath(true);
@@ -297,11 +303,13 @@ const Overview = ({ navigation }) => {
     if (correctRoutesData.length > 0) {
       return correctRoutesData[0];
     } else {
-      console.warn("ERROR!!!");
+      return undefined;
     }
   };
 
   const findLocation = async (searchText) => {
+    setRoutePlannerPoints(["", ""]);
+    setRoutePlannerData(null);
     setSelectedRouteId(null);
     setShowAllRoutes(false);
     setSelectedStopId(null);
@@ -559,28 +567,123 @@ const Overview = ({ navigation }) => {
   };
 
   const renderBusStopMarkers = () => {
-    if (routePlannerData !== null) {
+    if (
+      routePlannerData !== null &&
+      routePlannerData !== "ErrorLocation" &&
+      routePlannerData !== "ErrorRoute"
+    ) {
       const stopIds = [];
+      const routeNames = [];
 
       routePlannerData.forEach((plannedRoute) => {
+        const routeName = routesData.find(
+          (route) => route.id === plannedRoute.id
+        ).name;
         const startId = plannedRoute.startStopID;
         const stopId = plannedRoute.endStopID;
 
         if (!stopIds.includes(startId)) {
           stopIds.push(startId);
+          routeNames.push(routeName);
         }
 
         if (!stopIds.includes(stopId)) {
           stopIds.push(stopId);
+          routeNames.push(routeName);
         }
       });
 
-      return stopIds.map((stopId) => {
+      return stopIds.map((stopId, i) => {
         const stop = busStopData.find((busStop) => busStop.id === stopId);
+        if (i + 1 === stopIds.length) {
+          return (
+            <Marker
+              key={stopId + i}
+              coordinate={{
+                latitude: stop.latitude,
+                longitude: stop.longitude,
+              }}
+              style={styles.markerBusStopView}
+              tracksViewChanges={false}
+              onPress={() => {
+                setShowAllRoutes(false);
+                setSelectedStopId(busStop.id);
+              }}
+            >
+              <View
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <View>
+                  <Text style={{ fontSize: 12, fontWeight: 700 }}>
+                    {currentLang.finish + ": " + routeNames[i]}
+                  </Text>
+                </View>
+                <View
+                  style={[
+                    styles.busStopViewMarker,
+                    { borderColor: "red", borderWidth: 2 },
+                  ]}
+                >
+                  <MaterialIcons
+                    name="directions-bus"
+                    size={10}
+                    color="darkorange"
+                  />
+                </View>
+              </View>
+            </Marker>
+          );
+        }
+
+        if (i === 0) {
+          return (
+            <Marker
+              key={stopId + i}
+              coordinate={{
+                latitude: stop.latitude,
+                longitude: stop.longitude,
+              }}
+              style={styles.markerBusStopView}
+              tracksViewChanges={false}
+              onPress={() => {
+                setShowAllRoutes(false);
+                setSelectedStopId(busStop.id);
+              }}
+            >
+              <View
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <View>
+                  <Text style={{ fontSize: 12, fontWeight: 700 }}>
+                    {currentLang.start + ": " + routeNames[i]}
+                  </Text>
+                </View>
+                <View
+                  style={[
+                    styles.busStopViewMarker,
+                    { borderColor: "green", borderWidth: 2 },
+                  ]}
+                >
+                  <MaterialIcons
+                    name="directions-bus"
+                    size={10}
+                    color="darkorange"
+                  />
+                </View>
+              </View>
+            </Marker>
+          );
+        }
 
         return (
           <Marker
-            key={stopId}
+            key={stopId + i}
             coordinate={{
               latitude: stop.latitude,
               longitude: stop.longitude,
@@ -592,12 +695,24 @@ const Overview = ({ navigation }) => {
               setSelectedStopId(busStop.id);
             }}
           >
-            <View style={styles.busStopViewMarker}>
-              <MaterialIcons
-                name="directions-bus"
-                size={14}
-                color="darkorange"
-              />
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <View>
+                <Text style={{ fontSize: 12, fontWeight: 700 }}>
+                  {routeNames[i]}
+                </Text>
+              </View>
+              <View style={styles.busStopViewMarker}>
+                <MaterialIcons
+                  name="directions-bus"
+                  size={10}
+                  color="darkorange"
+                />
+              </View>
             </View>
           </Marker>
         );
@@ -1037,15 +1152,18 @@ const Overview = ({ navigation }) => {
     ));
   };
 
-  const [routePlannerPoints, setRoutePlannerPoints] = useState(["", ""]);
-  const [routePlannerData, setRoutePlannerData] = useState(null);
-
   const handleRoutePlanning = async () => {
-    console.log(routePlannerPoints);
     const streetsWithCoords = [];
     for (const street of routePlannerPoints) {
       {
+        if (street.length === 0) {
+          return;
+        }
         const streetData = await searchLocation(street);
+        if (streetData.status === "fail") {
+          setRoutePlannerData("ErrorLocation");
+          return;
+        }
 
         streetsWithCoords.push({
           longitude: streetData.longitude,
@@ -1054,20 +1172,24 @@ const Overview = ({ navigation }) => {
       }
     }
 
-    const routesBetweenStreets = streetsWithCoords
-      .map((streetData, i) => {
-        const currentStreet = streetData;
-        const nextStreet = streetsWithCoords[i + 1];
+    let routesBetweenStreets = streetsWithCoords.map((streetData, i) => {
+      const currentStreet = streetData;
+      const nextStreet = streetsWithCoords[i + 1];
 
-        if (!nextStreet) {
-          return undefined;
-        }
+      if (!nextStreet) {
+        return undefined;
+      }
 
-        return getRouteBetweenPoints(currentStreet, nextStreet);
-      })
-      .filter((data) => data !== undefined);
+      return getRouteBetweenPoints(currentStreet, nextStreet);
+    });
 
+    routesBetweenStreets.pop();
+    if (routesBetweenStreets.some((route) => route === undefined)) {
+      setRoutePlannerData("ErrorRoute");
+      return;
+    }
     setRoutePlannerData(routesBetweenStreets);
+    setIsRoutePlannerModal(false);
   };
 
   const renderRoutePlannerModal = () => {
@@ -1086,14 +1208,18 @@ const Overview = ({ navigation }) => {
               alignItems: "center",
             }}
           >
-            <Text style={{ fontSize: 16, fontWeight: 400 }}>Route planner</Text>
+            <Text style={{ fontSize: 16, fontWeight: 700, marginLeft: 12 }}>
+              {currentLang.routePlanner}
+            </Text>
+
             <MaterialCommunityIcons
               onPress={() => setIsRoutePlannerModal(false)}
               name="arrow-down-bold-circle"
               size={34}
-              color="black"
+              color="lightblue"
             />
           </View>
+
           <View>
             {routePlannerPoints.map((street, i) => (
               <View key={i} style={{ flexDirection: "row" }}>
@@ -1105,6 +1231,7 @@ const Overview = ({ navigation }) => {
                       return newPointsData;
                     });
                   }}
+                  placeholder="Unesite ime ulice..."
                   value={street}
                   style={{
                     height: 40,
@@ -1113,10 +1240,14 @@ const Overview = ({ navigation }) => {
                     padding: 10,
                     flex: 1,
                   }}
+                  onFocus={() => setRoutePlannerData(null)}
                 />
                 <MaterialCommunityIcons
                   onPress={() => {
                     setRoutePlannerPoints((prev) => {
+                      if (prev.length <= 2) {
+                        return prev;
+                      }
                       const newPoints = [...prev];
                       newPoints.splice(i, 1);
                       return newPoints;
@@ -1125,25 +1256,121 @@ const Overview = ({ navigation }) => {
                   style={{ alignSelf: "center" }}
                   name="minus-circle"
                   size={32}
+                  color="red"
                 />
               </View>
             ))}
+            {routePlannerData === "ErrorLocation" ? (
+              <Text
+                style={{ color: "red", fontWeight: 700, alignSelf: "center" }}
+              >
+                Invalid street name! Correct your inputs!
+              </Text>
+            ) : null}
+            {routePlannerData === "ErrorRoute" ? (
+              <Text
+                style={{ color: "red", fontWeight: 700, alignSelf: "center" }}
+              >
+                Unable to find adequate route! Please enter different streets.
+              </Text>
+            ) : null}
           </View>
           <MaterialCommunityIcons
             onPress={() => {
+              setShowAllRoutes(false);
               setRoutePlannerPoints((prev) => {
                 return [...prev, ""];
               });
             }}
-            style={{ alignSelf: "center" }}
+            style={{ alignSelf: "center", marginTop: 12 }}
             name="plus-circle"
-            size={32}
+            size={40}
+            color="green"
           />
           <View style={{ marginTop: 12 }}>
-            <Button onPress={handleRoutePlanning} title="Find" />
+            <Button onPress={handleRoutePlanning} title={currentLang.find} />
           </View>
         </View>
       </Modal>
+    );
+  };
+
+  const renderRouteModal = () => {
+    if (
+      routePlannerData === null ||
+      routePlannerData === "ErrorLocation" ||
+      routePlannerData === "ErrorRoute"
+    ) {
+      return;
+    }
+
+    let allBusStopsOnPath = [];
+    routePlannerData.forEach((path) => {
+      if (!allBusStopsOnPath.includes(path.startStopID)) {
+        allBusStopsOnPath.push(path.startStopID);
+      }
+    });
+
+    const routeID = routePlannerData[routeStopNumber].id;
+    const routeName = routesData.find((route) => route.id === routeID).name;
+    let currentStopID = [allBusStopsOnPath[routeStopNumber]];
+    let currentStop = busStopDataInUse.find(
+      (busStop) => busStop.id === currentStopID[0]
+    );
+
+    return (
+      <View style={styles.routePlanResultModal}>
+        <View style={{ flex: 1, flexDirection: "row", alignItems: "center" }}>
+          <Pressable
+            style={{
+              flex: 0.25,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            onPress={() => {
+              if (routeStopNumber - 1 >= 0) {
+                setRouteStopNumber(routeStopNumber - 1);
+              }
+            }}
+          >
+            <Ionicons name="arrow-back-circle-sharp" size={48} color="grey" />
+          </Pressable>
+          <View
+            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+          >
+            <Text style={{ fontWeight: 700 }}>
+              {currentLang.curStation} {routeStopNumber + 1}
+            </Text>
+            <Text style={{ fontWeight: 700 }}>
+              {currentLang.enter} {routeName}
+            </Text>
+          </View>
+          <Pressable
+            style={{
+              flex: 0.25,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Ionicons
+              name="arrow-forward-circle-sharp"
+              size={48}
+              color="grey"
+              onPress={() => {
+                if (routeStopNumber + 2 <= routePlannerData.length) {
+                  setRouteStopNumber(routeStopNumber + 1);
+                }
+              }}
+            />
+          </Pressable>
+        </View>
+        <View style={{ flex: 1 }}>
+          <Image
+            source={currentStop.image}
+            style={{ width: "100%", flex: 1 }}
+          />
+        </View>
+      </View>
     );
   };
 
@@ -1220,6 +1447,8 @@ const Overview = ({ navigation }) => {
   };
 
   const handleShowAllRoutes = () => {
+    setRoutePlannerPoints(["", ""]);
+    setRoutePlannerData(null);
     setRoutesToMarker(null);
     setSelectedStopId(null);
     setSelectedRouteId(null);
@@ -1254,8 +1483,8 @@ const Overview = ({ navigation }) => {
 
   return (
     <View style={{ flex: 1, paddingTop: insets.top }}>
-      {renderRoutePlannerModal()}
       <SearchBar findLocation={findLocation} />
+      {renderRoutePlannerModal()}
       {renderStreetInstructions()}
       {renderModalSelectedStop()}
       {renderAllRoutesModal()}
@@ -1263,6 +1492,7 @@ const Overview = ({ navigation }) => {
       {renderSearchBarError()}
       {renderButtons()}
       {renderStreetInstructionsError()}
+      {renderRouteModal()}
       <MapView
         style={styles.map}
         mapType={mapType}

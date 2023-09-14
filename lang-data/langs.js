@@ -25,6 +25,10 @@ const langs = [
     adequateRoute: "Ne mogu pronaći odgovarajući put!",
     busRoute: "Autobusna linija",
     numStops: "Broj stanica",
+    routePlanner: "Planiraj svoj put",
+    find: "PRONAĐI",
+    curStation: "Trenutna stanica #:",
+    enter: "Uđite u bus sa oznakom:",
   },
   {
     name: "gb",
@@ -52,6 +56,10 @@ const langs = [
     adequateRoute: "Cannot find adequate route!",
     busRoute: "Bus route",
     numStops: "Num. of stops",
+    routePlanner: "Plan your route",
+    find: "FIND",
+    curStation: "Current station #:",
+    enter: "Board the bus with the sign:",
   },
   {
     name: "de",
@@ -79,6 +87,10 @@ const langs = [
     adequateRoute: "Angemessene Route konnte nicht gefunden werden!",
     busRoute: "Buslinie",
     numStops: "Anzahl haltestellen",
+    routePlanner: "Plane deine Route",
+    find: "FINDEN",
+    curStation: "Aktuelle Station #:",
+    enter: "Steigen Sie in den Bus mit dem Schild ein:",
   },
 
   {
@@ -108,6 +120,10 @@ const langs = [
     adequateRoute: "Impossibile trovare un percorso adeguato!",
     busRoute: "Percorso autobus",
     numStops: "Num. fermate",
+    routePlanner: "Pianifica il tuo percorso",
+    find: "TROVA",
+    curStation: "Stazione attuale #:",
+    enter: "Salite sull'autobus con il segno:",
   },
 
   {
@@ -137,6 +153,10 @@ const langs = [
     adequateRoute: "Impossible de trouver un itinéraire adéquat !",
     busRoute: "Ligne de bus",
     numStops: "Nb. d'arrêts",
+    routePlanner: "Planifiez votre itinéraire",
+    find: "TROUVER",
+    curStation: "Station actuelle # :",
+    enter: "Montez dans le bus avec le panneau :",
   },
 
   {
@@ -166,6 +186,10 @@ const langs = [
     adequateRoute: "¡No se puede encontrar una ruta adecuada!",
     busRoute: "Ruta de autobús",
     numStops: "Num. de paradas",
+    routePlanner: "Planifica tu ruta",
+    find: "ENCONTRAR",
+    curStation: "Estación actual #:",
+    enter: "Suba al autobús con el letrero:",
   },
 ];
 

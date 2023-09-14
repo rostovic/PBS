@@ -59,6 +59,16 @@ const styles = StyleSheet.create({
     left: 0,
     zIndex: 100,
   },
+  routePlanResultModal: {
+    height: 250,
+    flex: 1,
+    position: "absolute",
+    backgroundColor: "white",
+    right: 0,
+    bottom: 0,
+    left: 0,
+    zIndex: 100,
+  },
   busStopViewMarker: {
     width: 20,
     height: 20,
